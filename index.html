@@ -5,12 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Frontier Industry Info Hub · 前沿产业资讯</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+  /* 数字和英文走 Helvetica，中文 fallback Noto Serif SC / Noto Sans SC */
+  @font-face {
+    font-family: "HelvSerifMix";
+    src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
+    unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20A0-20CF, U+2100-214F, U+FF00-FFEF;
+  }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: "Noto Sans SC", "PingFang SC", Arial, sans-serif;
+    font-family: "HelvSerifMix", "Noto Sans SC", "PingFang SC", Arial, sans-serif;
     background: #f4f5f7;
     color: #1a1a1a;
     min-height: 100vh;
@@ -87,7 +94,7 @@
     background: #00aaff;
   }
   .banner-accent-label {
-    font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 3px;
@@ -96,7 +103,7 @@
   }
 
   .banner-title-en {
-    font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
     font-size: 32px;
     font-weight: 700;
     color: #ffffff;
@@ -114,7 +121,7 @@
   }
 
   .banner-byline {
-    font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
     font-size: 12px;
     font-weight: 400;
     font-style: italic;
@@ -130,7 +137,7 @@
   }
 
   .banner-version {
-    font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
     font-size: 10px;
     font-weight: 400;
     color: rgba(255,255,255,0.25);
@@ -153,7 +160,7 @@
     gap: 8px;
   }
   .tag-chip {
-    font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -231,7 +238,7 @@
   }
 
   .ri-date {
-    font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
     font-size: 11px;
     color: #bbb;
     flex-shrink: 0;
