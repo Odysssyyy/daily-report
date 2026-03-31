@@ -280,6 +280,94 @@
     color: #ccc;
     text-align: right;
   }
+
+  /* ── 移动端适配 (@media ≤ 520px) ── */
+  @media (max-width: 520px) {
+    .page {
+      padding: 20px 16px 40px;
+    }
+
+    /* Header */
+    .header {
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .header-brand {
+      font-size: 14px;
+    }
+    .header-sub {
+      font-size: 9px;
+      letter-spacing: 0.8px;
+    }
+    .header-date {
+      text-align: left;
+    }
+    .header-date .d { font-size: 12px; }
+
+    /* Lead: 竖排 */
+    .lead {
+      flex-direction: column;
+      gap: 14px;
+      padding: 12px 14px;
+    }
+    .lead-divider {
+      width: 100%;
+      height: 1px;
+    }
+    .lead-item .li-title { font-size: 11.5px; }
+
+    /* Section */
+    .section {
+      padding: 12px 12px 8px;
+      border-radius: 6px;
+    }
+    .section-title {
+      font-size: 9px;
+      letter-spacing: 1.5px;
+    }
+
+    /* News item: tag 竖排到上方 */
+    .item {
+      grid-template-columns: 1fr;
+      gap: 6px 0;
+      padding: 10px 0;
+    }
+    .item-tag {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding-top: 0;
+    }
+    .item-tag .tag {
+      margin-bottom: 0;
+    }
+    .item-title {
+      font-size: 12px;
+    }
+    .item-text {
+      font-size: 10.5px;
+    }
+    .kv { font-size: 10px; }
+
+    /* Market table: 缩小字号 */
+    .market-table th,
+    .market-table td {
+      font-size: 10px;
+      padding: 5px 6px 5px 0;
+    }
+
+    /* Footer */
+    .footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .footer-left, .footer-right {
+      font-size: 9px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -790,6 +878,94 @@
     color: #e53935;
     min-height: 16px;
   }
+
+  /* ── 移动端适配 (@media ≤ 520px) ── */
+  @media (max-width: 520px) {
+    .page {
+      padding: 20px 16px 40px;
+    }
+
+    /* Header */
+    .header {
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .header-brand {
+      font-size: 14px;
+    }
+    .header-sub {
+      font-size: 9px;
+      letter-spacing: 0.8px;
+    }
+    .header-date {
+      text-align: left;
+    }
+    .header-date .d { font-size: 12px; }
+
+    /* Lead: 竖排 */
+    .lead {
+      flex-direction: column;
+      gap: 14px;
+      padding: 12px 14px;
+    }
+    .lead-divider {
+      width: 100%;
+      height: 1px;
+    }
+    .lead-item .li-title { font-size: 11.5px; }
+
+    /* Section */
+    .section {
+      padding: 12px 12px 8px;
+      border-radius: 6px;
+    }
+    .section-title {
+      font-size: 9px;
+      letter-spacing: 1.5px;
+    }
+
+    /* News item: tag 竖排到上方 */
+    .item {
+      grid-template-columns: 1fr;
+      gap: 6px 0;
+      padding: 10px 0;
+    }
+    .item-tag {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding-top: 0;
+    }
+    .item-tag .tag {
+      margin-bottom: 0;
+    }
+    .item-title {
+      font-size: 12px;
+    }
+    .item-text {
+      font-size: 10.5px;
+    }
+    .kv { font-size: 10px; }
+
+    /* Market table: 缩小字号 */
+    .market-table th,
+    .market-table td {
+      font-size: 10px;
+      padding: 5px 6px 5px 0;
+    }
+
+    /* Footer */
+    .footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .footer-left, .footer-right {
+      font-size: 9px;
+    }
+  }
+
 </style>
 
 <div id="pw-overlay">
