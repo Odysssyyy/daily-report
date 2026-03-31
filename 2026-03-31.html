@@ -1067,6 +1067,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     if (input.value.trim().toLowerCase() === ANSWER) {
       overlay.style.display = 'none';
       sessionStorage.setItem('pw_ok_20260331', '1');
+      window.scrollTo(0, 0);
     } else {
       err.textContent = '密码错误，请重试';
       input.classList.add('error');
