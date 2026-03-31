@@ -386,6 +386,54 @@
     }
   }
 
+
+  /* ── 市场情绪卡片 ── */
+  .mkt-list { display: flex; flex-direction: column; gap: 8px; }
+  .mkt-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid #f0f0f0;
+    flex-wrap: wrap;
+  }
+  .mkt-row:last-child { border-bottom: none; }
+  .mkt-left {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+    min-width: 160px;
+  }
+  .mkt-topic {
+    font-size: 11px;
+    font-weight: 500;
+    color: #222;
+    white-space: nowrap;
+  }
+  .mkt-signal {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 1px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .mkt-signal.up    { background: #e8f5e9; color: #1e7e34; }
+  .mkt-signal.amber { background: #fff3e0; color: #c57600; }
+  .mkt-signal.down  { background: #fde8e8; color: #c0392b; }
+  .mkt-note {
+    font-size: 10.5px;
+    color: #666;
+    line-height: 1.55;
+    flex: 1;
+    min-width: 160px;
+  }
+  @media (max-width: 520px) {
+    .mkt-left { min-width: unset; width: 100%; }
+    .mkt-note { min-width: unset; width: 100%; font-size: 10px; }
+    .mkt-row  { gap: 5px; }
+  }
+
 </style>
 </head>
 <body>
@@ -778,33 +826,24 @@
       <span class="section-icon">📌</span>
       <div class="section-title">市场情绪 &amp; 趋势小结</div>
     </div>
-    <table class="market-table">
-      <tr>
-        <th style="width:160px">主题</th>
-        <th>信号</th>
-        <th>关键事件</th>
-      </tr>
-      <tr>
-        <td>港股 IPO 市场</td>
-        <td class="up">Q1 延续强劲</td>
-        <td>机器人 / AI 视觉 / 碳化硅 / 医学影像 AI 集中上市，基石信心足；同仁堂医养延迟提示结构性分化</td>
-      </tr>
-      <tr>
-        <td>创新药 BD 出海</td>
-        <td class="up">持续超预期</td>
-        <td>Q1 总额已破 600 亿美元；ADC + 减重赛道成跨国药企并购首选</td>
-      </tr>
-      <tr>
-        <td>AI 应用淘汰赛</td>
-        <td style="color:#c57600">加速洗牌</td>
-        <td>Sora 关停暴露成本敞口；Google / 字节下代视频模型即将填补真空</td>
-      </tr>
-      <tr>
-        <td>AI 推理芯片</td>
-        <td class="up">估值高涨</td>
-        <td>Rebellions +Cerebras 合计超 14 亿美元融资，非英伟达路线获资本认可</td>
-      </tr>
-    </table>
+    <div class="mkt-list">
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">港股 IPO 市场</span><span class="mkt-signal up">Q1 延续强劲</span></div>
+        <div class="mkt-note">机器人 / AI 视觉 / 碳化硅 / 医学影像 AI 集中上市，基石信心足；同仁堂医养延迟提示结构性分化</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">创新药 BD 出海</span><span class="mkt-signal up">持续超预期</span></div>
+        <div class="mkt-note">Q1 总额已破 600 亿美元；ADC + 减重赛道成跨国药企并购首选</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">AI 应用淘汰赛</span><span class="mkt-signal amber">加速洗牌</span></div>
+        <div class="mkt-note">Sora 关停暴露成本敞口；Google / 字节下代视频模型即将填补真空</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">AI 推理芯片</span><span class="mkt-signal up">估值高涨</span></div>
+        <div class="mkt-note">Rebellions + Cerebras 合计超 14 亿美元融资，非英伟达路线获资本认可</div>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
