@@ -675,6 +675,73 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     }
   }
 
+
+  /* ── Banner 折叠动画 ── */
+  .header {
+    transition: padding .3s ease, box-shadow .3s ease;
+  }
+  .header-inner {
+    transition: gap .3s ease;
+  }
+  .header-zh,
+  .header-accent,
+  .header-deco {
+    transition: opacity .25s ease, max-height .3s ease, margin .3s ease;
+    overflow: hidden;
+  }
+  .header-bottom {
+    transition: opacity .25s ease, max-height .3s ease, margin .3s ease;
+    overflow: hidden;
+  }
+
+  /* 折叠态：仅手机端 */
+  @media (max-width: 700px) {
+    .header.collapsed {
+      padding: 7px 16px 7px !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .header.collapsed .header-zh,
+    .header.collapsed .header-accent,
+    .header.collapsed .header-deco {
+      opacity: 0;
+      max-height: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .header.collapsed .header-bottom {
+      opacity: 0;
+      max-height: 0;
+      margin-top: 0;
+    }
+    .header.collapsed .header-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .header.collapsed .header-brand {
+      font-size: 12px !important;
+      letter-spacing: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      line-height: 1.2;
+    }
+    /* 折叠态右侧日期 */
+    .header-collapsed-date {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 10px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 1px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: none;
+    }
+    .header.collapsed .header-collapsed-date {
+      display: block;
+    }
+  }
 </style>
 </head>
 <body>
@@ -736,6 +803,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     <div class="float-nav-item" onclick="scrollToSection('sec-market')">
       <div class="float-nav-label">📈 市场情绪</div>
       <div class="float-nav-dot"></div>
+    <div class="header-collapsed-date">26/03/31</div>
     </div>
   </div>
 
@@ -1302,6 +1370,34 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
 
 
 <script>
+
+// ── Banner 折叠（仅手机端）──
+(function() {
+  var header = document.querySelector('.header');
+  var lastY = 0;
+  var collapsed = false;
+  var THRESHOLD = 30;
+
+  function onScroll() {
+    if (window.innerWidth > 700) {
+      if (collapsed) { header.classList.remove('collapsed'); collapsed = false; }
+      return;
+    }
+    var y = window.pageYOffset;
+    if (!collapsed && y > THRESHOLD) {
+      header.classList.add('collapsed');
+      collapsed = true;
+    } else if (collapsed && y <= THRESHOLD) {
+      header.classList.remove('collapsed');
+      collapsed = false;
+    }
+    lastY = y;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+})();
+
 function scrollToSection(id) {
   var el = document.getElementById(id);
   if (!el) return;
