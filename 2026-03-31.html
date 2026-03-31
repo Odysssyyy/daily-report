@@ -55,7 +55,9 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
 
   /* ── BANNER (daily report) ── */
   .header {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     width: 100%;
     background: #002847;
     overflow: hidden;
@@ -164,7 +166,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
       width: calc(100% + 32px);
       padding: 20px 20px 16px;
     }
-    .header-brand { font-size: 30px; letter-spacing: -0.3px; }
+    .header-brand { font-size: 34px; letter-spacing: -0.3px; }
     .header-zh    { font-size: 15px; letter-spacing: 2px; }
     .header-bottom {
       display: flex;
