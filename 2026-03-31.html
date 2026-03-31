@@ -164,9 +164,15 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     .header {
       margin: -20px -16px 18px;
       width: calc(100% + 32px);
-      padding: 20px 20px 16px;
+      padding: 20px 16px 16px;
     }
-    .header-brand { font-size: 24px; letter-spacing: -0.3px; }
+    .header-brand {
+      font-size: clamp(15px, 4.2vw, 24px);
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
     .header-zh    { font-size: 15px; letter-spacing: 2px; }
     .header-bottom {
       display: flex;
