@@ -166,9 +166,9 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     font-size: 13px;
   }
   .section-title {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #003057;
   }
@@ -341,8 +341,8 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
       border-radius: 6px;
     }
     .section-title {
-      font-size: 9px;
-      letter-spacing: 1.5px;
+      font-size: 11px;
+      letter-spacing: 1px;
     }
 
     /* News item: tag 竖排到上方 */
@@ -443,6 +443,35 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     .mkt-row  { gap: 5px; }
   }
 
+
+  /* ── 导航栏 ── */
+  .nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .nav-bar a {
+    font-size: 10px;
+    font-weight: 500;
+    color: #003057;
+    background: #eef3fa;
+    border: 1px solid #d0dff0;
+    border-radius: 20px;
+    padding: 4px 10px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .15s, color .15s;
+  }
+  .nav-bar a:hover, .nav-bar a:active {
+    background: #003057;
+    color: #fff;
+    border-color: #003057;
+  }
+  @media (max-width: 520px) {
+    .nav-bar a { font-size: 9.5px; padding: 3px 9px; }
+  }
+
 </style>
 </head>
 <body>
@@ -461,6 +490,17 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     </div>
   </div>
 
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <a href="#sec-semi">🔬 半导体硬件</a>
+    <a href="#sec-ai-hw">💻 AI 硬件</a>
+    <a href="#sec-ai-app">🤖 AI 应用</a>
+    <a href="#sec-pharma">💊 创新药</a>
+    <a href="#sec-device">🏥 医疗器械</a>
+    <a href="#sec-service">🏨 医疗服务</a>
+    <a href="#sec-market">📌 市场情绪</a>
+  </nav>
+
   <!-- Lead: 今日置顶 2 条 -->
   <div class="lead">
     <div class="lead-item">
@@ -477,7 +517,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   </div>
 
   <!-- Section: 半导体硬件 -->
-  <div class="section sec-semi">
+  <div class="section sec-semi" id="sec-semi">
     <div class="section-head">
       <span class="section-icon">🔬</span>
       <div class="section-title">半导体硬件</div>
@@ -537,7 +577,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   </div>
 
   <!-- Section: AI硬件 -->
-  <div class="section sec-ai-hw">
+  <div class="section sec-ai-hw" id="sec-ai-hw">
     <div class="section-head">
       <span class="section-icon">💻</span>
       <div class="section-title">AI 硬件</div>
@@ -596,7 +636,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   </div>
 
   <!-- Section: AI应用 -->
-  <div class="section sec-ai-app">
+  <div class="section sec-ai-app" id="sec-ai-app">
     <div class="section-head">
       <span class="section-icon">🤖</span>
       <div class="section-title">AI 应用</div>
@@ -658,7 +698,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   </div>
 
   <!-- Section: 创新药 -->
-  <div class="section sec-pharma">
+  <div class="section sec-pharma" id="sec-pharma">
     <div class="section-head">
       <span class="section-icon">💊</span>
       <div class="section-title">创新药</div>
@@ -728,7 +768,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   </div>
 
   <!-- Section: 医疗器械 -->
-  <div class="section sec-device">
+  <div class="section sec-device" id="sec-device">
     <div class="section-head">
       <span class="section-icon">🏥</span>
       <div class="section-title">医疗器械</div>
@@ -780,7 +820,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   </div>
 
   <!-- Section: 医疗服务 -->
-  <div class="section sec-service">
+  <div class="section sec-service" id="sec-service">
     <div class="section-head">
       <span class="section-icon">🏨</span>
       <div class="section-title">医疗服务</div>
@@ -830,7 +870,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   </div>
 
   <!-- Section: 市场情绪 -->
-  <div class="section sec-market">
+  <div class="section sec-market" id="sec-market">
     <div class="section-head">
       <span class="section-icon">📌</span>
       <div class="section-title">市场情绪 &amp; 趋势小结</div>
