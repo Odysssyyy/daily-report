@@ -61,7 +61,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     overflow: hidden;
     margin: -36px -40px 24px;
     width: calc(100% + 80px);
-    padding: 40px 40px 28px;
+    padding: 26px 40px 20px;
   }
   .header::before {
     content: '';
@@ -92,7 +92,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   .header-accent-dot  { width:6px;height:6px;border-radius:50%;background:#00aaff; }
   .header-accent-line { width:24px;height:2px;background:#00aaff;border-radius:2px; }
@@ -105,7 +105,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   }
   .header-brand {
     font-family: "Playfair Display", "Noto Serif SC", Georgia, serif;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.3px;
@@ -123,7 +123,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 20px;
+    margin-top: 12px;
   }
   .header-mozz {
     font-size: 11px;
@@ -161,15 +161,24 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     .header {
       margin: -20px -16px 18px;
       width: calc(100% + 32px);
-      padding: 28px 20px 20px;
+      padding: 20px 20px 16px;
     }
-    .header-brand { font-size: 19px; }
+    .header-brand { font-size: 17px; }
     .header-zh    { font-size: 11px; letter-spacing: 2px; }
+    .header-bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .header-mozz { font-size: 10px; }
+    .header-date { text-align: right; }
+    .header-date .d { font-size: 11px; }
   }
 
   /* ── LEAD ── */
   .lead {
-    background: #003057;
+    background: #0c6e87;
     color: #fff;
     padding: 14px 18px;
     border-radius: 3px;
@@ -182,7 +191,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     font-size: 9px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #7ec8e3;
+    color: #a8e6f0;
     margin-bottom: 4px;
   }
   .lead-item .li-title {
@@ -193,7 +202,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   }
   .lead-item .li-sub {
     font-size: 10px;
-    color: #a0c4d8;
+    color: #b8dce8;
     margin-top: 3px;
   }
   .lead-divider {
