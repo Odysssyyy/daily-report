@@ -29,15 +29,13 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
 
   /* 数字和英文用 Helvetica，中文 fallback 到 Noto Sans SC / PingFang SC */
   @font-face {
-    font-family: "MixedBody";
+    font-family: "HelvSerifMix";
     src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
-    unicode-range: U+0000-00FF, U+0100-024F, U+0250-02AF, U+2000-206F, U+2070-209F,
-                   U+20A0-20CF, U+2100-214F, U+2150-218F, U+2190-21FF, U+2200-22FF,
-                   U+FF00-FFEF;
+    unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20A0-20CF, U+2100-214F, U+FF00-FFEF;
   }
 
   body {
-    font-family: "MixedBody", "Noto Sans SC", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    font-family: "HelvSerifMix", "Noto Sans SC", "PingFang SC", Arial, sans-serif;
     font-size: 12px;
     font-weight: 300;
     line-height: 1.6;
