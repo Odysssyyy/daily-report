@@ -181,7 +181,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     background: #0c6e87;
     color: #fff;
     padding: 14px 18px;
-    border-radius: 3px;
+    border-radius: 8px;
     margin-bottom: 22px;
     display: flex;
     gap: 24px;
@@ -644,7 +644,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
       transform: translateY(-50%) translateX(4px) !important;
       transition: opacity .15s, transform .15s;
     }
-    /* 回到顶部标签：只在 show-click 时可见，hover 不触发 */
+    /* 所有导航点：show-click 时标签可见 */
     #float-top-btn .float-nav-label {
       pointer-events: none;
     }
@@ -652,7 +652,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
       opacity: 0;
       transform: translateY(-50%) translateX(4px);
     }
-    #float-top-btn .float-nav-label.show-click {
+    .float-nav-label.show-click {
       opacity: 1 !important;
       transform: translateY(-50%) translateX(0) !important;
     }
@@ -1276,29 +1276,68 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
 
 
 <script>
-// 回到顶部：点击时显示标签2s后消失（不用hover）
+// 回到顶部：点击时显示标签 0.5s 后消失
 function floatTopClick() {
   window.scrollTo({top:0, behavior:'smooth'});
   var label = document.querySelector('#float-top-btn .float-nav-label');
   if (label) {
     label.classList.add('show-click');
     clearTimeout(label._hideTimer);
-    label._hideTimer = setTimeout(function(){ label.classList.remove('show-click'); }, 2000);
+    label._hideTimer = setTimeout(function(){ label.classList.remove('show-click'); }, 500);
   }
 }
 
-// 手机端：点击其他导航项后 300ms 自动隐藏标签
-if (window.innerWidth <= 700 || /Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-  document.querySelectorAll('.float-nav-item:not(.top-btn)').forEach(function(item) {
-    item.addEventListener('click', function() {
-      var label = item.querySelector('.float-nav-label');
-      if (label) {
-        label.classList.add('hide');
-        setTimeout(function(){ label.classList.remove('hide'); }, 1500);
-      }
-    });
+// 所有导航点（含手机/电脑）：点击后 0.5s 隐藏标签
+document.querySelectorAll('.float-nav-item:not(.top-btn)').forEach(function(item) {
+  item.addEventListener('click', function() {
+    var label = item.querySelector('.float-nav-label');
+    if (label) {
+      // 先让标签短暂可见（手机上 hover 不触发，需要 JS 临时显示）
+      label.classList.add('show-click');
+      clearTimeout(label._hideTimer);
+      label._hideTimer = setTimeout(function(){ label.classList.remove('show-click'); }, 500);
+    }
+  });
+});
+
+// ── 滚动高亮：随滚动位置高亮对应圆点 ──
+var NAV_MAP = [
+  { id: 'sec-semi',    dot: document.querySelector('.float-nav-item:nth-child(2) .float-nav-dot') },
+  { id: 'sec-ai-hw',  dot: document.querySelector('.float-nav-item:nth-child(3) .float-nav-dot') },
+  { id: 'sec-ai-app', dot: document.querySelector('.float-nav-item:nth-child(4) .float-nav-dot') },
+  { id: 'sec-pharma', dot: document.querySelector('.float-nav-item:nth-child(5) .float-nav-dot') },
+  { id: 'sec-device', dot: document.querySelector('.float-nav-item:nth-child(6) .float-nav-dot') },
+  { id: 'sec-service',dot: document.querySelector('.float-nav-item:nth-child(7) .float-nav-dot') },
+  { id: 'sec-market', dot: document.querySelector('.float-nav-item:nth-child(8) .float-nav-dot') },
+];
+
+function updateNavHighlight() {
+  var scrollY = window.scrollY || window.pageYOffset;
+  var winH = window.innerHeight;
+  var active = null;
+  for (var i = NAV_MAP.length - 1; i >= 0; i--) {
+    var el = document.getElementById(NAV_MAP[i].id);
+    if (el && el.getBoundingClientRect().top <= winH * 0.4) {
+      active = i;
+      break;
+    }
+  }
+  NAV_MAP.forEach(function(item, idx) {
+    if (!item.dot) return;
+    if (idx === active) {
+      item.dot.style.opacity = '1';
+      item.dot.style.background = '#00aaff';
+      item.dot.style.transform = 'scale(1.4)';
+    } else {
+      item.dot.style.opacity = '0.3';
+      item.dot.style.background = '#003057';
+      item.dot.style.transform = '';
+    }
   });
 }
+
+window.addEventListener('scroll', updateNavHighlight, { passive: true });
+updateNavHighlight();
 </script>
 
 </body>
