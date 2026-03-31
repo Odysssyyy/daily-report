@@ -476,22 +476,40 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   /* ── 悬浮导航 ── */
   .float-nav {
     position: fixed;
-    right: 12px;
+    /* 桌面端：紧贴卡片区右侧，.page max-width 740px，居中后右边缘在 50%+370px */
+    left: calc(50% + 390px);
     top: 50%;
     transform: translateY(-50%);
     z-index: 888;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 8px;
   }
   .float-nav-item {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 8px;
     cursor: pointer;
     position: relative;
+  }
+  /* 桌面端：标签在点的右侧弹出 */
+  .float-nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #003057;
+    opacity: 0.3;
+    flex-shrink: 0;
+    transition: opacity .2s, transform .2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: #fff;
+    line-height: 1;
   }
   .float-nav-label {
     display: flex;
@@ -505,20 +523,10 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     border-radius: 20px;
     white-space: nowrap;
     opacity: 0;
-    transform: translateX(8px);
+    transform: translateX(-4px);
     transition: opacity .2s, transform .2s;
     pointer-events: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-  }
-  .float-nav-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #003057;
-    opacity: 0.3;
-    flex-shrink: 0;
-    transition: opacity .2s, transform .2s;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
   }
   .float-nav-item:hover .float-nav-dot {
     opacity: 1;
@@ -528,29 +536,38 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     opacity: 1;
     transform: translateX(0);
   }
-  /* 顶部箭头点特殊样式 */
+  /* 回到顶部：大小和其他点一致，内部显示 ↑ */
   .float-nav-item.top-btn .float-nav-dot {
-    background: #003057;
     opacity: 0.5;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: #fff;
-    line-height: 1;
+    width: 8px;
+    height: 8px;
+    font-size: 7px;
   }
   .float-nav-item.top-btn:hover .float-nav-dot {
     opacity: 1;
-    transform: scale(1.15);
+    transform: scale(1.3);
   }
-  @media (max-width: 520px) {
-    .float-nav { right: 6px; gap: 6px; }
-    .float-nav-dot { width: 7px; height: 7px; }
-    .float-nav-item.top-btn .float-nav-dot { width: 20px; height: 20px; font-size: 10px; }
-    .float-nav-label { font-size: 10px; padding: 3px 8px; }
+  /* 手机端：右侧贴边，标签向左弹出，点击后自动隐藏标签 */
+  @media (max-width: 700px) {
+    .float-nav {
+      left: auto;
+      right: 6px;
+      align-items: flex-end;
+    }
+    .float-nav-item {
+      flex-direction: row-reverse;
+    }
+    .float-nav-label {
+      transform: translateX(4px);
+    }
+    .float-nav-item:hover .float-nav-label {
+      transform: translateX(0);
+    }
+    .float-nav-label.hide {
+      opacity: 0 !important;
+      transform: translateX(4px) !important;
+      transition: opacity .15s, transform .15s;
+    }
   }
 
 </style>
@@ -1168,6 +1185,22 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   btn.addEventListener('click', check);
   input.addEventListener('keydown', function(e) { if (e.key === 'Enter') check(); });
 })();
+</script>
+
+
+<script>
+// 手机端：点击导航项后 300ms 自动隐藏标签
+if (window.innerWidth <= 700 || /Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+  document.querySelectorAll('.float-nav-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var label = item.querySelector('.float-nav-label');
+      if (label) {
+        label.classList.add('hide');
+        setTimeout(function(){ label.classList.remove('hide'); }, 1500);
+      }
+    });
+  });
+}
 </script>
 
 </body>
