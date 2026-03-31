@@ -714,5 +714,127 @@
   </div>
 
 </div>
+
+<style>
+  #pw-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,20,40,0.92);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+  }
+  #pw-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 32px 28px;
+    width: 320px;
+    max-width: 90vw;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    text-align: center;
+  }
+  #pw-box .pw-logo {
+    font-family: "Playfair Display", "Noto Serif SC", Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #003057;
+    margin-bottom: 6px;
+  }
+  #pw-box .pw-hint {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  #pw-box .pw-hint b {
+    color: #555;
+    font-weight: 500;
+  }
+  #pw-input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 1px;
+    outline: none;
+    transition: border-color .2s;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  #pw-input:focus { border-color: #003057; }
+  #pw-input.error { border-color: #e53935; animation: shake .3s; }
+  @keyframes shake {
+    0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)}
+  }
+  #pw-btn {
+    margin-top: 14px;
+    width: 100%;
+    padding: 11px;
+    background: #003057;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  #pw-btn:hover { background: #004b8d; }
+  #pw-error {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #e53935;
+    min-height: 16px;
+  }
+</style>
+
+<div id="pw-overlay">
+  <div id="pw-box">
+    <div class="pw-logo">Frontier Industry Info Hub</div>
+    <div class="pw-hint">
+      <b>My Puppy's name.today</b><br>
+      示例格式：xxxx.0331
+    </div>
+    <input id="pw-input" type="text" placeholder="输入密码" autocomplete="off" spellcheck="false" />
+    <button id="pw-btn">进入</button>
+    <div id="pw-error"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const ANSWER = 'mozz.0331';
+  const input = document.getElementById('pw-input');
+  const btn = document.getElementById('pw-btn');
+  const err = document.getElementById('pw-error');
+  const overlay = document.getElementById('pw-overlay');
+
+  function check() {
+    if (input.value.trim().toLowerCase() === ANSWER) {
+      overlay.style.display = 'none';
+      sessionStorage.setItem('pw_ok_20260331', '1');
+    } else {
+      err.textContent = '密码错误，请重试';
+      input.classList.add('error');
+      setTimeout(() => input.classList.remove('error'), 400);
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  if (sessionStorage.getItem('pw_ok_20260331') === '1') {
+    overlay.style.display = 'none';
+  }
+
+  btn.addEventListener('click', check);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+  input.focus();
+})();
+</script>
+
 </body>
 </html>
