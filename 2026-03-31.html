@@ -223,6 +223,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
 
   /* ── SECTION ── */
   .section {
+    scroll-margin-top: 16px;
     margin-bottom: 18px;
     background: #f7f9fc;
     border-radius: 8px;
@@ -708,31 +709,31 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
       <div class="float-nav-label">回到顶部</div>
       <div class="float-nav-dot">▲</div>
     </div>
-    <div class="float-nav-item" onclick="document.getElementById('sec-semi').scrollIntoView({behavior:'smooth'})">
+    <div class="float-nav-item" onclick="scrollToSection('sec-semi')">
       <div class="float-nav-label">🛠 半导体硬件</div>
       <div class="float-nav-dot"></div>
     </div>
-    <div class="float-nav-item" onclick="document.getElementById('sec-ai-hw').scrollIntoView({behavior:'smooth'})">
+    <div class="float-nav-item" onclick="scrollToSection('sec-ai-hw')">
       <div class="float-nav-label">💻 AI 硬件</div>
       <div class="float-nav-dot"></div>
     </div>
-    <div class="float-nav-item" onclick="document.getElementById('sec-ai-app').scrollIntoView({behavior:'smooth'})">
+    <div class="float-nav-item" onclick="scrollToSection('sec-ai-app')">
       <div class="float-nav-label">🤖 AI 应用</div>
       <div class="float-nav-dot"></div>
     </div>
-    <div class="float-nav-item" onclick="document.getElementById('sec-pharma').scrollIntoView({behavior:'smooth'})">
+    <div class="float-nav-item" onclick="scrollToSection('sec-pharma')">
       <div class="float-nav-label">💊 创新药</div>
       <div class="float-nav-dot"></div>
     </div>
-    <div class="float-nav-item" onclick="document.getElementById('sec-device').scrollIntoView({behavior:'smooth'})">
+    <div class="float-nav-item" onclick="scrollToSection('sec-device')">
       <div class="float-nav-label">🔬 医疗器械</div>
       <div class="float-nav-dot"></div>
     </div>
-    <div class="float-nav-item" onclick="document.getElementById('sec-service').scrollIntoView({behavior:'smooth'})">
+    <div class="float-nav-item" onclick="scrollToSection('sec-service')">
       <div class="float-nav-label">🏨 医疗服务</div>
       <div class="float-nav-dot"></div>
     </div>
-    <div class="float-nav-item" onclick="document.getElementById('sec-market').scrollIntoView({behavior:'smooth'})">
+    <div class="float-nav-item" onclick="scrollToSection('sec-market')">
       <div class="float-nav-label">📈 市场情绪</div>
       <div class="float-nav-dot"></div>
     </div>
@@ -1300,6 +1301,16 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
 </script>
 
 
+<script>
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var banner = document.querySelector('.header');
+  var bannerH = banner ? banner.offsetHeight : 0;
+  var top = el.getBoundingClientRect().top + window.pageYOffset - bannerH - 8;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+}
+</script>
 <script>
 // 回到顶部：点击时显示标签 0.5s 后消失
 function floatTopClick() {
