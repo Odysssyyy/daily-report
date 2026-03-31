@@ -256,6 +256,60 @@
     vertical-align: middle;
     letter-spacing: 0.5px;
   }
+
+  /* ── 移动端适配 ── */
+  @media (max-width: 480px) {
+    .banner {
+      height: auto;
+      min-height: 220px;
+    }
+    .banner-inner {
+      padding: 32px 20px 22px;
+      gap: 20px;
+    }
+    .banner-title-en {
+      font-size: 22px;
+      letter-spacing: -0.3px;
+    }
+    .banner-title-zh {
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+    .banner-byline {
+      font-size: 11px;
+    }
+    .banner-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tags-bar {
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .banner-deco {
+      width: 160px;
+      height: 160px;
+      right: -20px;
+      bottom: 10px;
+      opacity: 0.08;
+    }
+    .main {
+      padding: 22px 16px 48px;
+    }
+    .report-item a {
+      padding: 13px 14px;
+    }
+    .ri-title {
+      font-size: 13px;
+      white-space: normal;
+    }
+    .ri-sub {
+      font-size: 10px;
+      white-space: normal;
+      word-break: break-all;
+    }
+  }
 </style>
 </head>
 <body>
