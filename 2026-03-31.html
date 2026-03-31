@@ -127,7 +127,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   }
   .header-mozz {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     font-style: italic;
     color: rgba(255,255,255,0.45);
     letter-spacing: 1.5px;
@@ -527,6 +527,8 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     flex-wrap: wrap;
     gap: 6px;
     margin-bottom: 18px;
+    justify-content: center;
+    align-items: center;
   }
   .nav-bar a {
     font-size: 10px;
@@ -645,7 +647,8 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
       transform: translateY(-50%) translateX(4px);
     }
     .float-nav-item:hover .float-nav-label {
-      transform: translateY(-50%) translateX(0);
+      opacity: 0;
+      transform: translateY(-50%) translateX(4px);
     }
     .float-nav-label.hide {
       opacity: 0 !important;
