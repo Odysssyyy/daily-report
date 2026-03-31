@@ -675,56 +675,6 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     }
   }
 
-
-  /* ── Banner 折叠动画（手机端）── */
-  .header { transition: padding .28s ease, box-shadow .28s ease; }
-  .header-brand { transition: font-size .28s ease; }
-  .header-zh    { transition: opacity .2s ease, max-height .28s ease, margin .2s ease; overflow: hidden; max-height: 60px; }
-  .header-bottom { transition: opacity .2s ease, max-height .28s ease, margin .2s ease; overflow: hidden; max-height: 60px; }
-
-  @media (max-width: 700px) {
-    .header.collapsed {
-      padding: 8px 16px !important;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
-    .header.collapsed .header-zh,
-    .header.collapsed .header-bottom {
-      opacity: 0 !important;
-      max-height: 0 !important;
-      margin: 0 !important;
-    }
-    /* header-brand 缩小，内联显示 */
-    .header.collapsed .header-brand {
-      font-size: 13px !important;
-      letter-spacing: 0 !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      display: inline-block;
-      max-width: calc(100% - 90px);
-      vertical-align: middle;
-    }
-    /* 折叠日期：绝对定位到右侧 */
-    .header-collapsed-date {
-      display: none;
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 11px;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-    .header.collapsed .header-collapsed-date {
-      display: block;
-    }
-    /* header 折叠时加 relative，让绝对定位日期参照 */
-    .header.collapsed {
-      position: sticky;
-    }
-  }
 </style>
 </head>
 <body>
@@ -786,7 +736,7 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     <div class="float-nav-item" onclick="scrollToSection('sec-market')">
       <div class="float-nav-label">📈 市场情绪</div>
       <div class="float-nav-dot"></div>
-    <span class="header-collapsed-date">26/03/31</span>
+    </div>
   </div>
 
   <!-- 导航 -->
@@ -1426,17 +1376,5 @@ window.addEventListener('scroll', updateNavHighlight, { passive: true });
 updateNavHighlight();
 </script>
 
-<script>
-(function() {
-  var header = document.querySelector('.header');
-  function update() {
-    if (window.innerWidth > 700) { header.classList.remove('collapsed'); return; }
-    if (window.pageYOffset > 30) header.classList.add('collapsed');
-    else header.classList.remove('collapsed');
-  }
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
-})();
-</script>
 </body>
 </html>
