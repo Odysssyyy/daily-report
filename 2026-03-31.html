@@ -901,10 +901,6 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     margin-bottom: 20px;
     line-height: 1.6;
   }
-  #pw-box .pw-hint b {
-    color: #555;
-    font-weight: 500;
-  }
   #pw-input {
     width: 100%;
     padding: 11px 14px;
@@ -943,103 +939,6 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     color: #e53935;
     min-height: 16px;
   }
-
-  /* ── 移动端适配 (@media ≤ 520px) ── */
-  @media (max-width: 520px) {
-    .page {
-      padding: 20px 16px 40px;
-    }
-
-    /* Header */
-    .header {
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: flex-start;
-    }
-    .header-brand {
-      font-size: 14px;
-    }
-    .header-sub {
-      font-size: 9px;
-      letter-spacing: 0.8px;
-    }
-    .header-date {
-      text-align: left;
-    }
-    .header-date .d { font-size: 12px; }
-
-    /* Lead: 竖排 */
-    .lead {
-      flex-direction: column;
-      gap: 14px;
-      padding: 12px 14px;
-    }
-    .lead-divider {
-      width: 100%;
-      height: 1px;
-    }
-    .lead-item .li-title { font-size: 11.5px; }
-
-    /* Section */
-    .section {
-      padding: 12px 12px 8px;
-      border-radius: 6px;
-    }
-    .section-title {
-      font-size: 9px;
-      letter-spacing: 1.5px;
-    }
-
-    /* News item: tag 竖排到上方 */
-    .item {
-      grid-template-columns: 1fr;
-      gap: 6px 0;
-      padding: 10px 0;
-    }
-    .item-tag {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      padding-top: 0;
-    }
-    .item-tag .tag {
-      margin-bottom: 0;
-    }
-    .item-title {
-      font-size: 12px;
-    }
-    .item-text {
-      font-size: 10.5px;
-    }
-    .kv { font-size: 10px; }
-
-    /* Market table: 缩小字号 */
-    .market-table th,
-    .market-table td {
-      font-size: 10px;
-      padding: 5px 6px 5px 0;
-    }
-
-    /* Footer */
-    .footer {
-      flex-direction: row;
-      align-items: center;
-      flex-wrap: nowrap;
-      gap: 0;
-    }
-    .footer-left {
-      font-size: 8.5px;
-      line-height: 1.4;
-      flex: 1;
-      min-width: 0;
-    }
-    .footer-right {
-      font-size: 8.5px;
-      flex-shrink: 0;
-      margin-left: 8px;
-    }
-  }
-
 </style>
 
 <div id="pw-overlay">
@@ -1047,7 +946,8 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     <div class="pw-logo">Frontier Industry Info Hub</div>
     <div class="pw-hint">
       <b>My Puppy's name + today's date</b><br>
-      示例格式：<b style="color:#555;">xxxx0331</b><br><span style="color:#999;font-size:11px;">（不区分大小写）</span>
+      示例格式：<b style="color:#555;">xxxx0331</b><br>
+      <span style="color:#999;font-size:11px;">（不区分大小写）</span>
     </div>
     <input id="pw-input" type="text" placeholder="输入密码" autocomplete="off" spellcheck="false" />
     <button id="pw-btn">进入</button>
@@ -1057,40 +957,17 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
 
 <script>
 (function() {
-  const ANSWER = 'mozz0331';
-  const input = document.getElementById('pw-input');
-  const btn = document.getElementById('pw-btn');
-  const err = document.getElementById('pw-error');
-  const overlay = document.getElementById('pw-overlay');
+  var ANSWER = 'mozz0331';
+  var input   = document.getElementById('pw-input');
+  var btn     = document.getElementById('pw-btn');
+  var err     = document.getElementById('pw-error');
+  var overlay = document.getElementById('pw-overlay');
 
-  function check() {
-    if (input.value.trim().toLowerCase() === ANSWER) {
-      overlay.style.display = 'none';
-      sessionStorage.setItem('pw_ok_20260331', '1');
-      window.scrollTo(0, 0);
-      setTimeout(function(){ window.scrollTo(0, 0); }, 0);
-      setTimeout(function(){ window.scrollTo(0, 0); }, 50);
-      setTimeout(function(){ window.scrollTo(0, 0); }, 150);
-      setTimeout(function(){ window.scrollTo(0, 0); }, 300);
-    } else {
-      err.textContent = '密码错误，请重试';
-      input.classList.add('error');
-      setTimeout(() => input.classList.remove('error'), 400);
-      input.value = '';
-      input.focus();
-    }
+  function lockBody() {
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
   }
-
-  if (sessionStorage.getItem('pw_ok_20260331') === '1') {
-    overlay.style.display = 'none';
-  }
-
-  btn.addEventListener('click', check);
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
-  // 锁住背景页面滚动
-  document.body.style.overflow = 'hidden';
-  document.body.style.position = 'fixed';
-  document.body.style.width = '100%';
 
   function unlockBody() {
     document.body.style.overflow = '';
@@ -1098,27 +975,41 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     document.body.style.width = '';
   }
 
+  function scrollTop() {
+    window.scrollTo(0, 0);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 0);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 50);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 150);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 300);
+  }
+
   function check() {
     if (input.value.trim().toLowerCase() === ANSWER) {
       overlay.style.display = 'none';
       unlockBody();
-      window.scrollTo(0, 0);
-      setTimeout(function(){ window.scrollTo(0, 0); }, 0);
-      setTimeout(function(){ window.scrollTo(0, 0); }, 50);
-      setTimeout(function(){ window.scrollTo(0, 0); }, 150);
-      setTimeout(function(){ window.scrollTo(0, 0); }, 300);
+      scrollTop();
       sessionStorage.setItem('pw_ok_20260331', '1');
     } else {
       err.textContent = '密码错误，请重试';
       input.classList.add('error');
-      setTimeout(() => input.classList.remove('error'), 400);
+      setTimeout(function(){ input.classList.remove('error'); }, 400);
       input.value = '';
       input.focus();
     }
   }
 
-  input.focus();
-});
+  if (sessionStorage.getItem('pw_ok_20260331') === '1') {
+    overlay.style.display = 'none';
+    unlockBody();
+    scrollTop();
+  } else {
+    lockBody();
+    input.focus();
+  }
+
+  btn.addEventListener('click', check);
+  input.addEventListener('keydown', function(e) { if (e.key === 'Enter') check(); });
+})();
 </script>
 
 </body>
