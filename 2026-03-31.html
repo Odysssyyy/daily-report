@@ -53,52 +53,118 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
     min-height: 100vh;
   }
 
-  /* ── HEADER ── */
+  /* ── BANNER (daily report) ── */
   .header {
-    border-bottom: 3px solid #003057;
-    padding-bottom: 14px;
-    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    background: #002847;
+    overflow: hidden;
+    margin: -36px -40px 24px;
+    width: calc(100% + 80px);
+    padding: 40px 40px 28px;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,160,255,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,160,255,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -80px; right: -60px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(0,120,255,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-inner {
+    position: relative;
+    z-index: 2;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .header-accent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .header-accent-dot  { width:6px;height:6px;border-radius:50%;background:#00aaff; }
+  .header-accent-line { width:24px;height:2px;background:#00aaff;border-radius:2px; }
+  .header-accent-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #00aaff;
+    text-transform: uppercase;
   }
   .header-brand {
     font-family: "Playfair Display", "Noto Serif SC", Georgia, serif;
-    font-size: 17px;
+    font-size: 26px;
     font-weight: 700;
-    color: #003057;
-    letter-spacing: 0.3px;
-    line-height: 1.35;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+  }
+  .header-zh {
+    font-family: "Noto Serif SC", Georgia, serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 3px;
+    margin-top: 6px;
+  }
+  .header-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
   }
   .header-mozz {
-    font-family: "Noto Serif SC", Georgia, serif;
     font-size: 11px;
-    font-weight: 400;
     font-style: italic;
-    color: #003057;
-    letter-spacing: 0;
-    margin-bottom: 3px;
-  }
-  .header-sub {
-    font-size: 10px;
-    color: #888;
-    margin-top: 3px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.5px;
   }
   .header-date {
     text-align: right;
   }
   .header-date .d {
     font-family: "Noto Serif SC", Georgia, serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: #003057;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 1px;
   }
-  .header-date .w {
-    font-size: 10px;
-    color: #aaa;
-    margin-top: 1px;
+  .header-date .mozz-line {
+    font-size: 11px;
+    font-style: italic;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+  }
+  /* banner 装饰圆圈 */
+  .header-deco {
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    z-index: 1;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  @media (max-width: 520px) {
+    .header {
+      margin: -20px -16px 18px;
+      width: calc(100% + 32px);
+      padding: 28px 20px 20px;
+    }
+    .header-brand { font-size: 19px; }
+    .header-zh    { font-size: 11px; letter-spacing: 2px; }
   }
 
   /* ── LEAD ── */
