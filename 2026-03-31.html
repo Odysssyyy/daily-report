@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行业日报 2026-03-31</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* 数字和英文用 Helvetica，中文 fallback 到 Noto Sans SC / PingFang SC */
+  @font-face {
+    font-family: "MixedBody";
+    src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
+    unicode-range: U+0000-00FF, U+0100-024F, U+0250-02AF, U+2000-206F, U+2070-209F,
+                   U+20A0-20CF, U+2100-214F, U+2150-218F, U+2190-21FF, U+2200-22FF,
+                   U+FF00-FFEF;
+  }
+
+  body {
+    font-family: "MixedBody", "Noto Sans SC", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #f9f9f7;
+  }
+
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 36px 40px 52px;
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    border-bottom: 3px solid #003057;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header-brand {
+    font-family: "Noto Serif SC", Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #003057;
+    letter-spacing: 0.5px;
+  }
+  .header-sub {
+    font-size: 10px;
+    color: #888;
+    margin-top: 3px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .header-date {
+    text-align: right;
+  }
+  .header-date .d {
+    font-family: "Noto Serif SC", Georgia, serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #003057;
+  }
+  .header-date .w {
+    font-size: 10px;
+    color: #aaa;
+    margin-top: 1px;
+  }
+
+  /* ── LEAD ── */
+  .lead {
+    background: #003057;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 3px;
+    margin-bottom: 22px;
+    display: flex;
+    gap: 24px;
+  }
+  .lead-item { flex: 1; }
+  .lead-item .li-label {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7ec8e3;
+    margin-bottom: 4px;
+  }
+  .lead-item .li-title {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #fff;
+  }
+  .lead-item .li-sub {
+    font-size: 10px;
+    color: #a0c4d8;
+    margin-top: 3px;
+  }
+  .lead-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 18px;
+    background: #f7f9fc;
+    border-radius: 8px;
+    padding: 14px 16px 10px;
+    border: 1px solid #eaeef4;
+  }
+
+  /* 不同板块用各自的淡底色 */
+  .section.sec-semi    { background: #f5f7fb; border-color: #e4eaf4; }
+  .section.sec-ai-hw   { background: #f4f9f5; border-color: #dff0e3; }
+  .section.sec-ai-app  { background: #fdf6f6; border-color: #f5e4e4; }
+  .section.sec-pharma  { background: #fdf9f4; border-color: #f0e8d8; }
+  .section.sec-device  { background: #f5f8fd; border-color: #dce8f5; }
+  .section.sec-service { background: #f8f5fd; border-color: #e8ddf5; }
+  .section.sec-market  { background: #f6f6f6; border-color: #e8e8e8; }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+  .section-icon {
+    font-size: 13px;
+  }
+  .section-title {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #003057;
+  }
+  .section-count {
+    font-size: 9px;
+    color: #bbb;
+    margin-left: auto;
+  }
+
+  /* ── NEWS ITEM ── */
+  .item {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 0 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .item:last-child { border-bottom: none; }
+
+  .item-tag {
+    padding-top: 2px;
+  }
+  /* tag 色块底部与正文之间留出间距 */
+  .item-tag .tag {
+    margin-bottom: 8px;
+    display: block;
+    width: fit-content;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    padding: 2px 5px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .tag-red    { background: #fde8e8; color: #c0392b; }
+  .tag-blue   { background: #e8f0fe; color: #1a56a0; }
+  .tag-green  { background: #e8f5e9; color: #1e7e34; }
+  .tag-amber  { background: #fff3e0; color: #c57600; }
+  .tag-star   { background: #003057; color: #fff; }
+  .tag-purple { background: #f3e8ff; color: #6b21a8; }
+
+  .item-body {}
+  .item-title {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #111;
+    line-height: 1.45;
+    margin-bottom: 3px;
+  }
+  .item-text {
+    font-size: 11px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 5px;
+  }
+  .item-text strong { color: #222; font-weight: 500; }
+
+  .item-kv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin-bottom: 5px;
+  }
+  .kv { font-size: 10.5px; color: #444; }
+  .kv span { color: #888; font-size: 10px; }
+
+  .sources {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .src {
+    font-size: 10px;
+    color: #1a56a0;
+    text-decoration: none;
+    border-bottom: 1px solid #c8d9f0;
+    padding-bottom: 0px;
+  }
+  .src:hover { color: #003057; border-color: #003057; }
+
+  /* ── MARKET TABLE ── */
+  .market-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    margin-top: 4px;
+  }
+  .market-table th {
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
+    text-align: left;
+    padding: 4px 8px 4px 0;
+    border-bottom: 1px solid #e8e8e8;
+    font-weight: 400;
+  }
+  .market-table td {
+    padding: 6px 8px 6px 0;
+    border-bottom: 1px solid #f4f4f4;
+    vertical-align: top;
+    color: #333;
+  }
+  .market-table tr:last-child td { border-bottom: none; }
+  .down { color: #c0392b; font-weight: 500; }
+  .up   { color: #1e7e34; font-weight: 500; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 30px;
+    padding-top: 12px;
+    border-top: 1px solid #e8e8e8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left {
+    font-size: 9.5px;
+    color: #bbb;
+    line-height: 1.5;
+  }
+  .footer-right {
+    font-size: 9.5px;
+    color: #ccc;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="header-brand">行业日报</div>
+      <div class="header-sub">半导体 · AI · 创新药 · 医疗</div>
+    </div>
+    <div class="header-date">
+      <div class="d">2026-03-31</div>
+      <div class="w">Tuesday</div>
+    </div>
+  </div>
+
+  <!-- Lead: 今日置顶 2 条 -->
+  <div class="lead">
+    <div class="lead-item">
+      <div class="li-label">⭐ Today's Lead</div>
+      <div class="li-title">OpenAI 正式关停 Sora，Google Veo 4 趁势填空</div>
+      <div class="li-sub">日均推理成本 1500 万美元 · AI 视频格局重塑</div>
+    </div>
+    <div class="lead-divider"></div>
+    <div class="lead-item">
+      <div class="li-label">⭐ Also Watching</div>
+      <div class="li-title">创新药 BD 出海 Q1 破 600 亿美元，接近去年全年一半</div>
+      <div class="li-sub">ADC + 小核酸赛道最活跃 · 礼来 200 亿元购减重药授权</div>
+    </div>
+  </div>
+
+  <!-- Section: 半导体硬件 -->
+  <div class="section sec-semi">
+    <div class="section-head">
+      <span class="section-icon">🔬</span>
+      <div class="section-title">半导体硬件</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-green">融资·IPO</span></div>
+      <div class="item-body">
+        <div class="item-title">韩国 AI 推理芯片初创 Rebellions 完成 4 亿美元融资</div>
+        <div class="item-kv">
+          <div class="kv"><span>估值</span> 23.4 亿美元</div>
+          <div class="kv"><span>领投</span> 三星 · SK 海力士 · 韩国国家成长基金</div>
+          <div class="kv"><span>计划</span> 赴美 IPO</div>
+        </div>
+        <div class="item-text">韩国 AI 芯片生态系统重量级进展，三星与 SK 海力士联合押注本土算力独立路径。</div>
+        <div class="sources">
+          <a class="src" href="https://www.cnbc.com/2026/03/30/ai-chip-startup-rebellions-raises-400-million-ipo.html">CNBC</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-red">IPO·港股</span></div>
+      <div class="item-body">
+        <div class="item-title">碳化硅外延龙头瀚天天成（02726.HK）港股上市，开盘暴涨 44%</div>
+        <div class="item-kv">
+          <div class="kv"><span>市值</span> 约 468 亿港元</div>
+          <div class="kv"><span>华为哈勃</span> 持股 4.03%</div>
+          <div class="kv"><span>基石锁定</span> 厦门国资约 47% 发行量</div>
+        </div>
+        <div class="item-text">国内碳化硅外延材料核心供应商，华为哈勃背书，第三代半导体国产替代逻辑受追捧。</div>
+        <div class="sources">
+          <a class="src" href="https://m.36kr.com/p/3744908391448577">36Kr</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">公司动态</span></div>
+      <div class="item-body">
+        <div class="item-title">NVIDIA GB300（Blackwell Ultra）持续主导全球 AI 服务器市场</div>
+        <div class="item-text">预计占据 <strong>80% 以上</strong>机架出货份额；Vera Rubin 平台下半年推进，英伟达对高端算力的把持未见松动。</div>
+        <div class="sources">
+          <a class="src" href="https://www.nvidia.com/en-us/data-center/dgx-gb300/">NVIDIA</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-amber">地缘</span></div>
+      <div class="item-body">
+        <div class="item-title">美对伊朗石油设施施压，HBM 内存紧缺态势持续</div>
+        <div class="item-text">地缘局势升温叠加 AI 需求，高带宽内存供应缺口短期难缓解，关注 SK 海力士 / 三星 HBM 出货节奏。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: AI硬件 -->
+  <div class="section sec-ai-hw">
+    <div class="section-head">
+      <span class="section-icon">💻</span>
+      <div class="section-title">AI 硬件</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-green">融资</span></div>
+      <div class="item-body">
+        <div class="item-title">Cerebras Systems 完成 10 亿美元融资，估值 230 亿美元</div>
+        <div class="item-kv">
+          <div class="kv"><span>时间</span> 2026 年 2 月</div>
+          <div class="kv"><span>估值</span> 230 亿美元（6 个月前约 80 亿）</div>
+          <div class="kv"><span>投资方</span> 阿布扎比 G42 · Benchmark</div>
+        </div>
+        <div class="item-text">AI 推理芯片赛道估值飙升逾三倍，与 Rebellions 同向印证全球资本对非英伟达算力路线的押注加速。</div>
+        <div class="sources">
+          <a class="src" href="https://theaiinsider.tech/2026/02/09/cerebras-systems-closes-1b-in-funding-at-23b-valuation/">The AI Insider</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-red">IPO·港股</span></div>
+      <div class="item-body">
+        <div class="item-title">协作机器人华沿机器人（01021.HK）港股上市</div>
+        <div class="item-kv">
+          <div class="kv"><span>募资净额</span> 约 12.8 亿港元</div>
+          <div class="kv"><span>基石</span> 高瓴 · 广发基金</div>
+        </div>
+        <div class="item-text">协作机器人赛道 IPO 放量，头部机构基石确认。同日惠泰医疗 PFA/RFA 房颤消融系统获 NMPA 批准。</div>
+        <div class="sources">
+          <a class="src" href="https://m.36kr.com/p/3744908391448577">36Kr</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">产品</span></div>
+      <div class="item-body">
+        <div class="item-title">NVIDIA GTC 2026：医疗机器人专用数据集 + 「物理 AI」开发蓝图</div>
+        <div class="item-text">推动手术机器人等具身智能落地，"物理 AI"概念正从 PPT 走向可量产路径。</div>
+        <div class="sources">
+          <a class="src" href="https://finance.sina.com.cn/wm/2026-03-26/doc-inhshhra0403002.shtml">新浪财经</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-amber">并购</span></div>
+      <div class="item-body">
+        <div class="item-title">英伟达去年 12 月完成对 Groq 约 200 亿美元收购</div>
+        <div class="item-text">AI 推理芯片赛道加速整合，英伟达同时掌控训练与推理硬件生态，竞争壁垒进一步加深。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: AI应用 -->
+  <div class="section sec-ai-app">
+    <div class="section-head">
+      <span class="section-icon">🤖</span>
+      <div class="section-title">AI 应用</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-red">关停</span></div>
+      <div class="item-body">
+        <div class="item-title">OpenAI 正式关停 Sora 消费端 App 及 API</div>
+        <div class="item-kv">
+          <div class="kv"><span>上线时长</span> 仅 6 个月</div>
+          <div class="kv"><span>日推理成本</span> 1500 万美元</div>
+          <div class="kv"><span>关联</span> 终止与迪士尼约 10 亿美元合作</div>
+        </div>
+        <div class="item-text">Sora 关停暴露 AI 视频推理成本敞口——生成内容 <strong>商业可持续性</strong>成为下一阶段核心命题。</div>
+        <div class="sources">
+          <a class="src" href="https://techcrunch.com/2026/03/29/why-openai-really-shut-down-sora/">TechCrunch</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-green">竞争</span></div>
+      <div class="item-body">
+        <div class="item-title">Google DeepMind 预告 Veo 4，定价仅为 Sora 的 1/7</div>
+        <div class="item-text">基于 Genie 世界模型，支持实时交互视频生成。Sora 关停后真空窗口期约 2 周，AI 视频格局重塑进行时。</div>
+        <div class="sources">
+          <a class="src" href="https://www.vo3ai.com/blog/google-deepmind-teases-veo-4-days-after-openai-kills-sora-the-ai-video-power-vac-2026-03-30">vo3ai</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-red">IPO·港股</span></div>
+      <div class="item-body">
+        <div class="item-title">AI 视觉算法平台极视角（06636.HK）港股上市，开涨近 50%</div>
+        <div class="item-kv">
+          <div class="kv"><span>纪录</span> 递表到上市仅 69 天，创港股最快纪录</div>
+          <div class="kv"><span>基石</span> 高通中国持股约 5%</div>
+        </div>
+        <div class="item-text">高通中国背书，AI 视觉赛道 IPO 速度创纪录，机构信心强烈。</div>
+        <div class="sources">
+          <a class="src" href="https://m.36kr.com/p/3744908391448577">36Kr</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-amber">融资周报</span></div>
+      <div class="item-body">
+        <div class="item-title">3 月 20-26 日 AI 板块单周融资 66.4 亿元，单笔最高 7.87 亿美元</div>
+        <div class="item-text">全国各行业中 AI 融资额最高，资金集中度持续上升，非头部赛道获资难度加大。</div>
+        <div class="sources">
+          <a class="src" href="https://news.qq.com/rain/a/20260328A05BTU00">腾讯新闻</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 创新药 -->
+  <div class="section sec-pharma">
+    <div class="section-head">
+      <span class="section-icon">💊</span>
+      <div class="section-title">创新药</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-star">头条</span></div>
+      <div class="item-body">
+        <div class="item-title">Q1 创新药 BD 出海总额超 600 亿美元，接近 2025 年全年一半</div>
+        <div class="item-kv">
+          <div class="kv"><span>2025 全年</span> 1357 亿美元</div>
+          <div class="kv"><span>Q1 已批创新药</span> 10 款（其中 8 款首个同类）</div>
+        </div>
+        <div class="item-text">国家药监局 Q1 数据，中国创新药出海加速超预期，「商业化兑现元年」确立。</div>
+        <div class="sources">
+          <a class="src" href="https://www.thepaper.cn/newsDetail_forward_32860813">澎湃新闻</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">公司动态</span></div>
+      <div class="item-body">
+        <div class="item-title">恒瑞医药 2025 年报：创新药收入增速目标上调至超 30%</div>
+        <div class="item-kv">
+          <div class="kv"><span>已上市 1 类创新药</span> 24 款</div>
+          <div class="kv"><span>机构预测 2026 净利润</span> 约 100 亿元（YoY +27%）</div>
+        </div>
+        <div class="item-text">创新转型持续兑现，目标上调，商业化阶段估值重塑逻辑清晰。</div>
+        <div class="sources">
+          <a class="src" href="https://xueqiu.com/1333325987/381768705">雪球</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-red">IPO·港股</span></div>
+      <div class="item-body">
+        <div class="item-title">医学影像大模型第一股德适生物（02526.HK）港股上市，开盘暴涨 121%</div>
+        <div class="item-kv">
+          <div class="kv"><span>市值</span> 约 200 亿港元</div>
+          <div class="kv"><span>核心产品</span> AI AutoVision — 染色体 AI，全球唯一进入药监局第三类创新医疗器械绿色通道</div>
+        </div>
+        <div class="item-text">医学影像 AI + 创新器械双重溢价，开盘涨幅创近期港股新股之最。</div>
+        <div class="sources">
+          <a class="src" href="https://m.36kr.com/p/3744908391448577">36Kr</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-amber">BD 交易</span></div>
+      <div class="item-body">
+        <div class="item-title">礼来花逾 200 亿元购入中国 AI 公司减重药授权</div>
+        <div class="item-kv">
+          <div class="kv"><span>Q1 BD 事件</span> 49 起</div>
+          <div class="kv"><span>首付款合计</span> 超 33 亿美元</div>
+          <div class="kv"><span>最活跃赛道</span> ADC + 小核酸</div>
+        </div>
+        <div class="item-text">「医药界英伟达」礼来持续押注中国创新资产，减重赛道成为跨国药企并购首选。</div>
+        <div class="sources">
+          <a class="src" href="https://www.36kr.com/p/3745377703608832">36Kr</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 医疗器械 -->
+  <div class="section sec-device">
+    <div class="section-head">
+      <span class="section-icon">🏥</span>
+      <div class="section-title">医疗器械</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-star">年报</span></div>
+      <div class="item-body">
+        <div class="item-title">迈瑞医疗（300760）2025 年报：营收 332.8 亿元，「启元」AI 大模型落地</div>
+        <div class="item-kv">
+          <div class="kv"><span>营收 YoY</span> <span class="down">−9.4%</span></div>
+          <div class="kv"><span>国际业务占比</span> 53%（欧洲 +17%）</div>
+          <div class="kv"><span>新兴业务</span> 53.8 亿元（YoY +38.9%）</div>
+        </div>
+        <div class="item-text">发布检验 / 重症 / 围术期三大 AI 大模型「启元」，已在仁济医院、浙大一院等顶级医院部署。国内承压 + 海外增长双轨并行。</div>
+        <div class="sources">
+          <a class="src" href="https://paper.cnstock.com/html/2026-03/31/content_2194339.htm">上海证券报</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-amber">集采</span></div>
+      <div class="item-body">
+        <div class="item-title">中国国际医疗设备集采平台 2 月上线，器械集采常态化推进</div>
+        <div class="item-text">国产替代逻辑持续强化，短期业绩承压但中长期利好国产龙头市占率提升。</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-green">IPO·港股</span></div>
+      <div class="item-body">
+        <div class="item-title">傅里叶（康复机器人）今日港股上市；铜师傅亦同日登陆</div>
+        <div class="item-text">机器人 + 医疗器械板块 IPO 持续放量，Q1 港股发行窗口热度高涨。</div>
+        <div class="sources">
+          <a class="src" href="https://m.36kr.com/p/3744908391448577">36Kr</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">监管</span></div>
+      <div class="item-body">
+        <div class="item-title">DRG/DIP 改革深化推进，IVD 集采持续影响短期业绩</div>
+        <div class="item-text">体外诊断试剂集采压力延续，行业整体弱复苏态势，关注价格底部信号。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 医疗服务 -->
+  <div class="section sec-service">
+    <div class="section-head">
+      <span class="section-icon">🏨</span>
+      <div class="section-title">医疗服务</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-amber">延迟上市</span></div>
+      <div class="item-body">
+        <div class="item-title">同仁堂医养（02667.HK）宣布延迟全球发售，基石已锁定逾 46%</div>
+        <div class="item-text">官方理由"考虑现行市况"，原定昨日上市。市场情绪结构性分化再次被印证，优质基石仍难对冲发行窗口风险。</div>
+        <div class="sources">
+          <a class="src" href="https://m.36kr.com/p/3744908391448577">36Kr</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">战略合作</span></div>
+      <div class="item-body">
+        <div class="item-title">迈瑞医疗 × IHH Healthcare 签署全面战略合作</div>
+        <div class="item-text">覆盖马来西亚、印度、土耳其等多国医院设备采购，国际化深度布局延续。</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-purple">AI 赋能</span></div>
+      <div class="item-body">
+        <div class="item-title">NVIDIA GTC 2026：2030 年全球医护缺口 1100 万人，AI 辅助诊疗提速</div>
+        <div class="item-text">手术机器人与影像 AI 列为重点方向，AI 医疗基础设施投入进入加速期。</div>
+        <div class="sources">
+          <a class="src" href="https://www.thepaper.cn/newsDetail_forward_32801679">澎湃新闻</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">投资布局</span></div>
+      <div class="item-body">
+        <div class="item-title">腾讯投资医疗 IPO 布局延续，已涉及多家创新药/器械标的</div>
+        <div class="item-text">持续关注腾讯系医疗投资组合进展，AI + 医疗双轮驱动逻辑强化。</div>
+        <div class="sources">
+          <a class="src" href="https://eu.36kr.com/zh/p/3734772421853192">36Kr</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 市场情绪 -->
+  <div class="section sec-market">
+    <div class="section-head">
+      <span class="section-icon">📌</span>
+      <div class="section-title">市场情绪 &amp; 趋势小结</div>
+    </div>
+    <table class="market-table">
+      <tr>
+        <th style="width:160px">主题</th>
+        <th>信号</th>
+        <th>关键事件</th>
+      </tr>
+      <tr>
+        <td>港股 IPO 市场</td>
+        <td class="up">Q1 延续强劲</td>
+        <td>机器人 / AI 视觉 / 碳化硅 / 医学影像 AI 集中上市，基石信心足；同仁堂医养延迟提示结构性分化</td>
+      </tr>
+      <tr>
+        <td>创新药 BD 出海</td>
+        <td class="up">持续超预期</td>
+        <td>Q1 总额已破 600 亿美元；ADC + 减重赛道成跨国药企并购首选</td>
+      </tr>
+      <tr>
+        <td>AI 应用淘汰赛</td>
+        <td style="color:#c57600">加速洗牌</td>
+        <td>Sora 关停暴露成本敞口；Google / 字节下代视频模型即将填补真空</td>
+      </tr>
+      <tr>
+        <td>AI 推理芯片</td>
+        <td class="up">估值高涨</td>
+        <td>Rebellions +Cerebras 合计超 14 亿美元融资，非英伟达路线获资本认可</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      来源：CNBC · 36Kr · 上海证券报 · 国家药监局 · 华尔街见闻 · 澎湃新闻 · 腾讯新闻<br>
+      由 OpenClaw AI 自动生成，仅供参考，不构成投资建议
+    </div>
+    <div class="footer-right">
+      行业日报<br>
+      2026-03-31
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
