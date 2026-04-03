@@ -510,37 +510,31 @@ function buildCardRow(r, isNew) {
   return a;
 }
 
-// 构建单月堆叠组（reports 已按日期倒序）
-function buildMonthGroup(reports, newestDate) {
+// 构建单月堆叠组（reports 已按日期倒序，defaultExpanded 控制初始状态）
+function buildMonthGroup(reports, newestDate, defaultExpanded) {
   const li = document.createElement('li');
-
-  if (reports.length === 1) {
-    // 单篇：直接渲染普通 report-item
-    li.className = 'report-item';
-    li.appendChild(buildCardRow(reports[0], reports[0].date === newestDate));
-    return li;
-  }
-
-  // 多篇：堆叠效果
   li.className = 'stack-item';
 
-  // 鬼牌（最多2层）
-  const numGhosts = Math.min(reports.length - 1, 2);
+  const top = reports[0];
+  const isTopNew = top.date === newestDate;
+
+  // 鬼牌（单篇也显示1层，多篇最多2层，已展开时隐藏）
+  const numGhosts = reports.length === 1 ? 1 : Math.min(reports.length - 1, 2);
   for (let i = numGhosts; i >= 1; i--) {
     const g = document.createElement('div');
     g.className = 'stack-ghost g' + i;
     li.appendChild(g);
   }
 
-  // 计数徽章
-  const badge = document.createElement('div');
-  badge.className = 'stack-badge';
-  badge.textContent = reports.length + ' 篇';
-  li.appendChild(badge);
+  // 计数徽章（单篇不显示数字，仅多篇显示）
+  if (reports.length > 1) {
+    const badge = document.createElement('div');
+    badge.className = 'stack-badge';
+    badge.textContent = reports.length + ' 篇';
+    li.appendChild(badge);
+  }
 
-  // 顶部卡片（最新一篇，可展开）
-  const top = reports[0];
-  const isTopNew = top.date === newestDate;
+  // 顶部卡片（可展开）
   const topCard = document.createElement('div');
   topCard.className = 'stack-top';
   topCard.innerHTML = `
@@ -553,7 +547,7 @@ function buildMonthGroup(reports, newestDate) {
     <span class="stack-chevron">›</span>
   `;
 
-  // 展开列表（全部子卡片）
+  // 展开列表（子卡片）
   const subList = document.createElement('div');
   subList.className = 'stack-sub-list';
   reports.forEach(r => {
@@ -569,26 +563,34 @@ function buildMonthGroup(reports, newestDate) {
   collapseBtn.textContent = '收起';
 
   let expanded = false;
+  function doExpand() {
+    expanded = true;
+    li.classList.add('expanded');
+  }
+  function doCollapse() {
+    expanded = false;
+    li.classList.remove('expanded');
+  }
+
   topCard.addEventListener('click', () => {
     if (!expanded) {
-      expanded = true;
-      li.classList.add('expanded');
+      doExpand();
     } else {
-      // 已展开时再点顶卡直接打开报告
+      // 已展开时点顶卡 → 打开最新报告
       window.open(top.file, '_blank');
     }
   });
-  collapseBtn.addEventListener('click', () => {
-    expanded = false;
-    li.classList.remove('expanded');
-  });
+  collapseBtn.addEventListener('click', doCollapse);
 
   li.appendChild(topCard);
   li.appendChild(subList);
   li.appendChild(collapseBtn);
 
-  // 为鬼牌留底部空间
+  // 鬼牌底部留白
   li.style.marginBottom = (numGhosts * 6) + 'px';
+
+  // 默认展开
+  if (defaultExpanded) doExpand();
 
   return li;
 }
@@ -605,9 +607,10 @@ fetch('index.json')
       return;
     }
 
-    // 全局最新日期
+    // 全局最新日期 & 当前月份
     reports.sort((a, b) => b.date.localeCompare(a.date));
     const newestDate = reports[0].date;
+    const currentMonth = new Date().toISOString().substring(0, 7); // "2026-04"
 
     // 按月分组
     const groups = {};
@@ -615,7 +618,7 @@ fetch('index.json')
     reports.forEach(r => {
       const m = monthKey(r.date);
       if (!groups[m]) { groups[m] = []; monthOrder.push(m); }
-      groups[m].push(r); // 已倒序
+      groups[m].push(r);
     });
 
     monthOrder.forEach(ym => {
@@ -625,8 +628,9 @@ fetch('index.json')
       labelLi.textContent = monthDisplay(ym);
       list.appendChild(labelLi);
 
-      // 堆叠组
-      list.appendChild(buildMonthGroup(groups[ym], newestDate));
+      // 当前月份默认展开，过去月份默认折叠
+      const isCurrentMonth = ym === currentMonth;
+      list.appendChild(buildMonthGroup(groups[ym], newestDate, isCurrentMonth));
     });
   })
   .catch(() => {
