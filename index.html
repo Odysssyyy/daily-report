@@ -3,447 +3,637 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Frontier Industry Info Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Frontier Industry Info Hub · 前沿产业资讯</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
 
-  :root {
-    --bg: #f0f2f5;
-    --card-bg: #ffffff;
-    --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    --card-shadow-hover: 0 6px 24px rgba(0,0,0,0.13);
-    --accent: #003057;
-    --accent-light: #1a5276;
-    --teal: #7ec8e3;
-    --text-main: #1a1a2e;
-    --text-sub: #6b7280;
-    --text-tiny: #9ca3af;
-    --new-badge: #22c55e;
-    --stack-offset: 6px;
-    --radius: 16px;
-    --radius-sm: 10px;
+  /* 数字和英文走 Helvetica，中文 fallback Noto Serif SC / Noto Sans SC */
+  @font-face {
+    font-family: "HelvSerifMix";
+    src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
+    unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20A0-20CF, U+2100-214F, U+FF00-FFEF;
   }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
-    font-family: "Noto Sans SC", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
-    background: var(--bg);
+    font-family: "HelvSerifMix", "Noto Sans SC", "PingFang SC", Arial, sans-serif;
+    background: #f4f5f7;
+    color: #1a1a1a;
     min-height: 100vh;
-    color: var(--text-main);
   }
 
   /* ── BANNER ── */
   .banner {
-    background: linear-gradient(135deg, #001e3c 0%, #003057 55%, #004a80 100%);
-    padding: 48px 24px 40px;
-    text-align: center;
     position: relative;
+    width: 100%;
+    height: 260px;
+    background: #002847;
     overflow: hidden;
   }
+
+  /* 网格线背景 */
   .banner::before {
     content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(126,200,227,0.18) 0%, transparent 70%);
-  }
-  .banner-inner { position: relative; z-index: 1; }
-  .banner-eyebrow {
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--teal); margin-bottom: 12px; opacity: 0.9;
-  }
-  .banner-title {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(26px, 5vw, 42px);
-    font-weight: 900;
-    color: #fff;
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-  }
-  .banner-title span { color: var(--teal); }
-  .banner-subtitle {
-    font-size: 12px; color: rgba(255,255,255,0.55);
-    margin-top: 10px; letter-spacing: 2px;
-  }
-  .banner-meta {
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    margin-top: 18px;
-  }
-  .banner-version {
-    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-    background: rgba(126,200,227,0.18); color: var(--teal);
-    padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(126,200,227,0.3);
-  }
-  .banner-by {
-    font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 1px;
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,160,255,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,160,255,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
-  /* ── CONTENT ── */
-  .content {
-    max-width: 640px; margin: 0 auto; padding: 32px 16px 60px;
+  /* 光晕 */
+  .banner::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -60px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0,120,255,0.18) 0%, transparent 70%);
+    pointer-events: none;
   }
 
-  /* ── MONTH GROUP ── */
-  .month-group { margin-bottom: 28px; }
-
-  .month-label {
-    font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--text-sub); margin-bottom: 14px; padding-left: 4px;
-  }
-
-  /* ── STACK WRAPPER ── */
-  .stack-wrap {
+  .banner-inner {
     position: relative;
-    /* height managed by JS / transition */
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 32px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 28px;
   }
 
-  /* ghost cards behind the top card */
+  .banner-top {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* 装饰线 */
+  .banner-accent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .banner-accent-line {
+    width: 28px;
+    height: 2px;
+    background: #00aaff;
+    border-radius: 2px;
+  }
+  .banner-accent-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00aaff;
+  }
+  .banner-accent-label {
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #00aaff;
+    text-transform: uppercase;
+  }
+
+  .banner-title-en {
+    font-family: "Playfair Display", "Noto Serif SC", Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .banner-title-zh {
+    font-family: "Noto Serif SC", Georgia, serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 3px;
+    margin-top: 8px;
+  }
+
+  .banner-byline {
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1px;
+    margin-top: 6px;
+  }
+
+  .banner-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .banner-version {
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 1.5px;
+  }
+
+  /* 右侧装饰圆圈 */
+  .banner-deco {
+    position: absolute;
+    right: 80px;
+    bottom: 20px;
+    z-index: 1;
+    opacity: 0.12;
+  }
+
+  /* 标签栏 */
+  .tags-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tag-chip {
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .report-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* 原始单卡样式（供 sub-card 复用）*/
+  .report-item a {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 16px 20px;
+    background: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1a1a1a;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
+    transition: box-shadow .15s, border-color .15s;
+  }
+  .report-item a:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-color: #cce4ff;
+  }
+
+  .ri-icon {
+    font-size: 20px;
+    margin-right: 14px;
+    flex-shrink: 0;
+  }
+
+  .ri-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ri-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ri-sub {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 2px;
+  }
+
+  .ri-date {
+    font-family: "HelvSerifMix", "Noto Serif SC", Georgia, serif;
+    font-size: 11px;
+    color: #bbb;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .ri-new {
+    font-size: 9px;
+    font-weight: 600;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-left: 8px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── STACK (月份堆叠) ── */
+  .stack-item {
+    position: relative;
+  }
+
+  /* 叠放的影子卡片（最多2层） */
   .stack-ghost {
     position: absolute;
-    left: 0; right: 0;
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    box-shadow: var(--card-shadow);
+    left: 4px; right: 4px;
+    height: 52px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     pointer-events: none;
-    transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s;
+    transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s, bottom 0.35s;
   }
+  .stack-ghost.g1 { bottom: -6px; opacity: 0.7; z-index: 1; }
+  .stack-ghost.g2 { left: 8px; right: 8px; bottom: -11px; opacity: 0.4; z-index: 0; }
 
-  /* ── CARD ── */
-  .card {
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    box-shadow: var(--card-shadow);
-    padding: 18px 20px;
+  /* 展开时隐藏鬼牌 */
+  .stack-item.expanded .stack-ghost { opacity: 0 !important; bottom: 0 !important; }
+
+  /* 计数徽章 */
+  .stack-badge {
+    position: absolute;
+    top: -7px; right: 14px;
+    z-index: 20;
+    background: #002847;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,40,71,0.3);
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+  .stack-item.expanded .stack-badge { opacity: 0; }
+
+  /* 顶部卡片（最新一篇），可点击展开 */
+  .stack-top {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 16px 20px;
+    background: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1a1a1a;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
     cursor: pointer;
-    transition: box-shadow 0.2s, transform 0.2s;
     position: relative;
     z-index: 10;
+    transition: box-shadow .15s, border-color .15s;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
-  .card:hover { box-shadow: var(--card-shadow-hover); }
-  .card:active { transform: scale(0.99); }
+  .stack-top:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); border-color: #cce4ff; }
 
-  .card-head {
-    display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  .stack-chevron {
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-size: 13px;
+    color: #bbb;
+    transition: transform 0.3s;
   }
-  .card-icon { font-size: 26px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
-  .card-info { flex: 1; min-width: 0; }
-  .card-title {
-    font-size: 15px; font-weight: 700; color: var(--text-main);
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .card-date-row {
-    display: flex; align-items: center; gap: 8px; margin-top: 4px;
-  }
-  .card-date { font-size: 12px; color: var(--text-sub); }
-  .card-weekday { font-size: 11px; color: var(--text-tiny); }
-  .badge-new {
-    font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-    background: var(--new-badge); color: #fff;
-    padding: 2px 7px; border-radius: 20px; flex-shrink: 0;
-  }
-  .card-keywords {
-    margin-top: 10px; font-size: 11px; color: var(--text-sub);
-    line-height: 1.6; padding-top: 10px;
-    border-top: 1px solid #f3f4f6;
-  }
+  .stack-item.expanded .stack-chevron { transform: rotate(90deg); }
 
-  /* stack-count badge on collapsed stack */
-  .stack-count {
-    position: absolute; top: -8px; right: 16px; z-index: 20;
-    background: var(--accent); color: #fff;
-    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-    padding: 3px 9px; border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0,48,87,0.35);
-    transition: opacity 0.25s;
-  }
-  .stack-wrap.expanded .stack-count { opacity: 0; pointer-events: none; }
-
-  /* chevron */
-  .chevron {
-    flex-shrink: 0; color: var(--text-tiny); font-size: 14px;
-    transition: transform 0.3s; margin-top: 4px;
-  }
-  .stack-wrap.expanded .card:first-of-type .chevron,
-  .single-card .card .chevron { display: none; }
-
-  /* ── EXPANDED list of sub-cards ── */
-  .sub-list {
+  /* 展开后的子卡片列表 */
+  .stack-sub-list {
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.4s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 0;
   }
-  .sub-list.open { max-height: 2000px; }
+  .stack-item.expanded .stack-sub-list {
+    max-height: 2000px;
+    padding-top: 8px;
+  }
 
-  .sub-card {
-    background: var(--card-bg);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
-    padding: 14px 18px;
-    margin-top: 8px;
-    cursor: pointer;
-    display: flex; align-items: center; gap: 14px;
-    transition: box-shadow 0.2s, background 0.15s;
-    text-decoration: none; color: inherit;
-  }
-  .sub-card:hover { box-shadow: 0 3px 14px rgba(0,0,0,0.11); background: #f9fafb; }
-  .sub-card-icon { font-size: 20px; flex-shrink: 0; }
-  .sub-card-info { flex: 1; min-width: 0; }
-  .sub-card-title { font-size: 13px; font-weight: 600; color: var(--text-main); }
-  .sub-card-meta {
-    display: flex; align-items: center; gap: 8px; margin-top: 3px;
-  }
-  .sub-card-date { font-size: 11px; color: var(--text-sub); }
-  .sub-card-kw { font-size: 10px; color: var(--text-tiny); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .sub-card-arrow { color: var(--text-tiny); font-size: 12px; flex-shrink: 0; }
-
-  /* collapse button */
-  .collapse-btn {
+  /* 收起按钮 */
+  .stack-collapse {
     display: none;
-    width: 100%; margin-top: 10px;
-    background: none; border: 1.5px solid #e5e7eb; border-radius: var(--radius-sm);
-    padding: 9px; font-size: 12px; color: var(--text-sub);
-    cursor: pointer; text-align: center;
+    width: 100%;
+    margin-top: 4px;
+    background: none;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 11px;
+    color: #aaa;
+    cursor: pointer;
+    text-align: center;
     transition: background 0.15s, color 0.15s;
+    font-family: inherit;
   }
-  .collapse-btn:hover { background: #f3f4f6; color: var(--text-main); }
-  .stack-wrap.expanded .collapse-btn { display: block; }
+  .stack-collapse:hover { background: #f3f4f6; color: #555; }
+  .stack-item.expanded .stack-collapse { display: block; }
 
-  /* single card (no stacking) */
-  .single-card .card { cursor: default; }
-  .single-card .card:hover { box-shadow: var(--card-shadow); transform: none; }
-
-  /* loading / empty */
-  .state-msg {
-    text-align: center; padding: 60px 20px;
-    color: var(--text-tiny); font-size: 13px;
+  /* 月份标签 */
+  .month-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #bbb;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 4px;
+    padding-left: 2px;
   }
-  .state-msg .icon { font-size: 36px; margin-bottom: 10px; }
+
+  /* ── 移动端适配 ── */
+  @media (max-width: 480px) {
+    .banner {
+      height: auto;
+      min-height: 220px;
+    }
+    .banner-inner {
+      padding: 32px 20px 22px;
+      gap: 20px;
+    }
+    .banner-title-en {
+      font-size: 22px;
+      letter-spacing: -0.3px;
+    }
+    .banner-title-zh {
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+    .banner-byline {
+      font-size: 11px;
+    }
+    .banner-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tags-bar {
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .banner-deco {
+      width: 160px;
+      height: 160px;
+      right: -20px;
+      bottom: 10px;
+      opacity: 0.08;
+    }
+    .main {
+      padding: 22px 16px 48px;
+    }
+    .report-item a, .stack-top {
+      padding: 13px 14px;
+    }
+    .ri-title {
+      font-size: 13px;
+      white-space: normal;
+    }
+    .ri-sub {
+      font-size: 10px;
+      white-space: normal;
+      word-break: break-all;
+    }
+  }
 </style>
 </head>
 <body>
 
-<header class="banner">
+<!-- Banner -->
+<div class="banner">
+  <svg class="banner-deco" width="280" height="280" viewBox="0 0 280 280" fill="none">
+    <circle cx="140" cy="140" r="135" stroke="white" stroke-width="1"/>
+    <circle cx="140" cy="140" r="100" stroke="white" stroke-width="0.5"/>
+    <circle cx="140" cy="140" r="65" stroke="white" stroke-width="0.5"/>
+    <circle cx="140" cy="140" r="30" stroke="white" stroke-width="1"/>
+    <line x1="5" y1="140" x2="275" y2="140" stroke="white" stroke-width="0.5"/>
+    <line x1="140" y1="5" x2="140" y2="275" stroke="white" stroke-width="0.5"/>
+    <circle cx="140" cy="140" r="4" fill="white"/>
+  </svg>
+
   <div class="banner-inner">
-    <div class="banner-eyebrow">Daily Intelligence</div>
-    <div class="banner-title">Frontier Industry<br><span>Info Hub</span></div>
-    <div class="banner-subtitle">硬件 · AI · 创新药 · 医疗器械及服务</div>
-    <div class="banner-meta">
-      <span class="banner-version">v1.0 2026</span>
-      <span class="banner-by">by mozz.ai</span>
+    <div class="banner-top">
+      <div class="banner-accent">
+        <div class="banner-accent-dot"></div>
+        <div class="banner-accent-line"></div>
+        <div class="banner-accent-label">Industry Intelligence</div>
+      </div>
+      <div class="banner-title-en">Frontier Industry Info Hub</div>
+      <div class="banner-title-zh">前沿产业资讯</div>
+      <div class="banner-byline">by mozz.ai</div>
+    </div>
+
+    <div class="banner-bottom">
+      <div class="banner-version">v1.0 2026</div>
+      <div class="tags-bar">
+        <span class="tag-chip">硬件</span>
+        <span class="tag-chip">AI</span>
+        <span class="tag-chip">创新药</span>
+        <span class="tag-chip">医疗器械及服务</span>
+      </div>
     </div>
   </div>
-</header>
+</div>
 
-<div class="content" id="content">
-  <div class="state-msg"><div class="icon">⏳</div>加载中...</div>
+<!-- 归档列表 -->
+<div class="main">
+  <div class="section-label">Feeds:</div>
+  <ul class="report-list" id="report-list">
+    <li style="color:#bbb;font-size:13px;padding:20px 0">加载中...</li>
+  </ul>
 </div>
 
 <script>
 const WEEKDAYS = ['周日','周一','周二','周三','周四','周五','周六'];
-const MONTH_NAMES = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+const MONTH_NAMES = {
+  '01':'Jan','02':'Feb','03':'Mar','04':'Apr','05':'May','06':'Jun',
+  '07':'Jul','08':'Aug','09':'Sep','10':'Oct','11':'Nov','12':'Dec'
+};
 
-function weekday(d) { return WEEKDAYS[new Date(d).getDay()]; }
-function monthLabel(ym) {
+function weekday(d) { return WEEKDAYS[new Date(d + 'T00:00:00').getDay()]; }
+function fmtDate(d) {
+  const [,m,day] = d.split('-');
+  return MONTH_NAMES[m] + ' ' + parseInt(day, 10);
+}
+function monthKey(d) { return d.substring(0, 7); } // "2026-04"
+function monthDisplay(ym) {
   const [y, m] = ym.split('-');
-  return `${y}年 ${MONTH_NAMES[parseInt(m,10)-1]}`;
+  return MONTH_NAMES[m] + ' ' + y;
 }
 
-function openReport(file) {
-  window.open('reports/' + file, '_blank');
-}
-
-function buildSingleCard(r, isNewest) {
-  const wrap = document.createElement('div');
-  wrap.className = 'single-card';
-
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.innerHTML = `
-    <div class="card-head">
-      <div class="card-icon">${r.icon || '📄'}</div>
-      <div class="card-info">
-        <div class="card-title">${r.date} Info Report</div>
-        <div class="card-date-row">
-          <span class="card-date">${r.date}</span>
-          <span class="card-weekday">${weekday(r.date)}</span>
-          ${isNewest ? '<span class="badge-new">NEW</span>' : ''}
-        </div>
-      </div>
+// 构建单条卡片（<a> 行）
+function buildCardRow(r, isNew) {
+  const a = document.createElement('a');
+  a.href = 'reports/' + r.file;
+  a.target = '_blank';
+  a.innerHTML = `
+    <div class="ri-icon">${r.icon || '📄'}</div>
+    <div class="ri-body">
+      <div class="ri-title">${r.date} Info Report${isNew ? ' <span class="ri-new">NEW</span>' : ''}</div>
+      <div class="ri-sub">${r.keywords || ''}</div>
     </div>
-    ${r.keywords ? `<div class="card-keywords">${r.keywords}</div>` : ''}
+    <div class="ri-date">${fmtDate(r.date)} ${weekday(r.date)}</div>
   `;
-  card.addEventListener('click', () => openReport(r.file));
-  wrap.appendChild(card);
-  return wrap;
+  return a;
 }
 
-function buildStackGroup(reports, isNewestGroup, newestDate) {
-  // reports sorted newest first
-  const top = reports[0];
-  const wrap = document.createElement('div');
-  wrap.className = 'stack-wrap';
+// 构建单月堆叠组（reports 已按日期倒序）
+function buildMonthGroup(reports, newestDate) {
+  const li = document.createElement('li');
 
-  // ghost cards (behind top)
+  if (reports.length === 1) {
+    // 单篇：直接渲染普通 report-item
+    li.className = 'report-item';
+    li.appendChild(buildCardRow(reports[0], reports[0].date === newestDate));
+    return li;
+  }
+
+  // 多篇：堆叠效果
+  li.className = 'stack-item';
+
+  // 鬼牌（最多2层）
   const numGhosts = Math.min(reports.length - 1, 2);
   for (let i = numGhosts; i >= 1; i--) {
-    const ghost = document.createElement('div');
-    ghost.className = 'stack-ghost';
-    const offset = i * 6;
-    ghost.style.cssText = `
-      height: 80px;
-      bottom: -${offset}px;
-      transform: scaleX(${1 - i * 0.03});
-      opacity: ${1 - i * 0.25};
-      z-index: ${10 - i};
-    `;
-    wrap.appendChild(ghost);
+    const g = document.createElement('div');
+    g.className = 'stack-ghost g' + i;
+    li.appendChild(g);
   }
 
-  // count badge
-  const countBadge = document.createElement('div');
-  countBadge.className = 'stack-count';
-  countBadge.textContent = `${reports.length} 篇`;
-  wrap.appendChild(countBadge);
+  // 计数徽章
+  const badge = document.createElement('div');
+  badge.className = 'stack-badge';
+  badge.textContent = reports.length + ' 篇';
+  li.appendChild(badge);
 
-  // top card (shows latest)
-  const isNewest = isNewestGroup && top.date === newestDate;
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.innerHTML = `
-    <div class="card-head">
-      <div class="card-icon">${top.icon || '📄'}</div>
-      <div class="card-info">
-        <div class="card-title">${top.date} Info Report</div>
-        <div class="card-date-row">
-          <span class="card-date">${top.date}</span>
-          <span class="card-weekday">${weekday(top.date)}</span>
-          ${isNewest ? '<span class="badge-new">NEW</span>' : ''}
-        </div>
-      </div>
-      <span class="chevron">›</span>
+  // 顶部卡片（最新一篇，可展开）
+  const top = reports[0];
+  const isTopNew = top.date === newestDate;
+  const topCard = document.createElement('div');
+  topCard.className = 'stack-top';
+  topCard.innerHTML = `
+    <div class="ri-icon">${top.icon || '📄'}</div>
+    <div class="ri-body">
+      <div class="ri-title">${top.date} Info Report${isTopNew ? ' <span class="ri-new">NEW</span>' : ''}</div>
+      <div class="ri-sub">${top.keywords || ''}</div>
     </div>
-    ${top.keywords ? `<div class="card-keywords">${top.keywords}</div>` : ''}
+    <div class="ri-date">${fmtDate(top.date)} ${weekday(top.date)}</div>
+    <span class="stack-chevron">›</span>
   `;
 
-  // sub-list
+  // 展开列表（全部子卡片）
   const subList = document.createElement('div');
-  subList.className = 'sub-list';
-  reports.forEach((r, idx) => {
-    const isNew = isNewestGroup && r.date === newestDate;
-    const a = document.createElement('a');
-    a.className = 'sub-card';
-    a.href = 'reports/' + r.file;
-    a.target = '_blank';
-    a.innerHTML = `
-      <div class="sub-card-icon">${r.icon || '📄'}</div>
-      <div class="sub-card-info">
-        <div class="sub-card-title">${r.date} Info Report${isNew ? ' <span class="badge-new">NEW</span>' : ''}</div>
-        <div class="sub-card-meta">
-          <span class="sub-card-date">${r.date} ${weekday(r.date)}</span>
-          ${r.keywords ? `<span class="sub-card-kw">${r.keywords}</span>` : ''}
-        </div>
-      </div>
-      <span class="sub-card-arrow">↗</span>
-    `;
-    subList.appendChild(a);
+  subList.className = 'stack-sub-list';
+  reports.forEach(r => {
+    const subLi = document.createElement('div');
+    subLi.className = 'report-item';
+    subLi.appendChild(buildCardRow(r, r.date === newestDate));
+    subList.appendChild(subLi);
   });
 
-  // collapse button
+  // 收起按钮
   const collapseBtn = document.createElement('button');
-  collapseBtn.className = 'collapse-btn';
+  collapseBtn.className = 'stack-collapse';
   collapseBtn.textContent = '收起';
 
-  // toggle logic
   let expanded = false;
-  function expand() {
-    expanded = true;
-    wrap.classList.add('expanded');
-    subList.classList.add('open');
-    // hide ghost cards
-    wrap.querySelectorAll('.stack-ghost').forEach(g => {
-      g.style.opacity = '0'; g.style.bottom = '0';
-    });
-  }
-  function collapse() {
-    expanded = false;
-    wrap.classList.remove('expanded');
-    subList.classList.remove('open');
-    wrap.querySelectorAll('.stack-ghost').forEach((g, i) => {
-      const idx = numGhosts - i;
-      g.style.opacity = `${1 - idx * 0.25}`;
-      g.style.bottom = `-${idx * 6}px`;
-    });
-  }
-
-  card.addEventListener('click', () => {
-    if (!expanded) expand();
-    else openReport(top.file);
+  topCard.addEventListener('click', () => {
+    if (!expanded) {
+      expanded = true;
+      li.classList.add('expanded');
+    } else {
+      // 已展开时再点顶卡直接打开报告
+      window.open('reports/' + top.file, '_blank');
+    }
   });
-  collapseBtn.addEventListener('click', collapse);
+  collapseBtn.addEventListener('click', () => {
+    expanded = false;
+    li.classList.remove('expanded');
+  });
 
-  wrap.appendChild(card);
-  wrap.appendChild(subList);
-  wrap.appendChild(collapseBtn);
+  li.appendChild(topCard);
+  li.appendChild(subList);
+  li.appendChild(collapseBtn);
 
-  // extra bottom padding for ghost cards
-  if (numGhosts > 0) {
-    wrap.style.marginBottom = `${numGhosts * 6 + 8}px`;
-  }
+  // 为鬼牌留底部空间
+  li.style.marginBottom = (numGhosts * 6) + 'px';
 
-  return wrap;
+  return li;
 }
 
+// 读取 JSON，渲染
 fetch('reports/index.json')
   .then(r => r.json())
   .then(reports => {
-    const content = document.getElementById('content');
-    content.innerHTML = '';
+    const list = document.getElementById('report-list');
+    list.innerHTML = '';
 
     if (!reports || reports.length === 0) {
-      content.innerHTML = '<div class="state-msg"><div class="icon">📭</div>暂无日报</div>';
+      list.innerHTML = '<li style="color:#bbb;font-size:13px;padding:20px 0">暂无日报</li>';
       return;
     }
 
-    // sort all newest first
-    reports.sort((a,b) => b.date.localeCompare(a.date));
+    // 全局最新日期
+    reports.sort((a, b) => b.date.localeCompare(a.date));
     const newestDate = reports[0].date;
 
-    // group by month
+    // 按月分组
     const groups = {};
     const monthOrder = [];
     reports.forEach(r => {
-      const m = r.date.substring(0, 7);
+      const m = monthKey(r.date);
       if (!groups[m]) { groups[m] = []; monthOrder.push(m); }
-      groups[m].push(r);
+      groups[m].push(r); // 已倒序
     });
 
-    monthOrder.forEach((ym, gi) => {
-      const grp = groups[ym];
-      const isNewestGroup = gi === 0;
+    monthOrder.forEach(ym => {
+      // 月份标签
+      const labelLi = document.createElement('li');
+      labelLi.className = 'month-label';
+      labelLi.textContent = monthDisplay(ym);
+      list.appendChild(labelLi);
 
-      const section = document.createElement('div');
-      section.className = 'month-group';
-
-      const label = document.createElement('div');
-      label.className = 'month-label';
-      label.textContent = monthLabel(ym);
-      section.appendChild(label);
-
-      // stack wrap
-      const stackWrap = document.createElement('div');
-      if (grp.length === 1) {
-        stackWrap.appendChild(buildSingleCard(grp[0], isNewestGroup && grp[0].date === newestDate));
-      } else {
-        stackWrap.appendChild(buildStackGroup(grp, isNewestGroup, newestDate));
-      }
-      section.appendChild(stackWrap);
-      content.appendChild(section);
+      // 堆叠组
+      list.appendChild(buildMonthGroup(groups[ym], newestDate));
     });
   })
   .catch(() => {
-    document.getElementById('content').innerHTML =
-      '<div class="state-msg"><div class="icon">⚠️</div>加载失败，请稍后刷新</div>';
+    document.getElementById('report-list').innerHTML =
+      '<li style="color:#bbb;font-size:13px;padding:20px 0">加载失败，请稍后刷新</li>';
   });
 </script>
+
 </body>
 </html>
