@@ -477,7 +477,7 @@
 </div>
 
 <script>
-const WEEKDAYS = ['周日','周一','周二','周三','周四','周五','周六'];
+const WEEKDAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const MONTH_NAMES = {
   '01':'Jan','02':'Feb','03':'Mar','04':'Apr','05':'May','06':'Jun',
   '07':'Jul','08':'Aug','09':'Sep','10':'Oct','11':'Nov','12':'Dec'
@@ -526,13 +526,11 @@ function buildMonthGroup(reports, newestDate, defaultExpanded) {
     li.appendChild(g);
   }
 
-  // 计数徽章（单篇不显示数字，仅多篇显示）
-  if (reports.length > 1) {
-    const badge = document.createElement('div');
-    badge.className = 'stack-badge';
-    badge.textContent = reports.length + ' 篇';
-    li.appendChild(badge);
-  }
+  // 计数徽章（单篇也显示，多篇显示数量）
+  const badge = document.createElement('div');
+  badge.className = 'stack-badge';
+  badge.textContent = reports.length === 1 ? '1 篇' : reports.length + ' 篇';
+  li.appendChild(badge);
 
   // 顶部卡片（可展开）
   const topCard = document.createElement('div');
@@ -633,9 +631,8 @@ fetch('index.json')
       labelLi.textContent = monthDisplay(ym);
       list.appendChild(labelLi);
 
-      // 当前月份默认展开，过去月份默认折叠
-      const isCurrentMonth = ym === currentMonth;
-      list.appendChild(buildMonthGroup(groups[ym], newestDate, isCurrentMonth));
+      // 所有月份默认折叠
+      list.appendChild(buildMonthGroup(groups[ym], newestDate, false));
     });
   })
   .catch(() => {
