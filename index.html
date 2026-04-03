@@ -547,10 +547,10 @@ function buildMonthGroup(reports, newestDate, defaultExpanded) {
     <span class="stack-chevron">›</span>
   `;
 
-  // 展开列表（子卡片）
+  // 展开列表（子卡片，跳过第0篇，顶部卡已代表它）
   const subList = document.createElement('div');
   subList.className = 'stack-sub-list';
-  reports.forEach(r => {
+  reports.slice(1).forEach(r => {
     const subLi = document.createElement('div');
     subLi.className = 'report-item';
     subLi.appendChild(buildCardRow(r, r.date === newestDate));
@@ -574,7 +574,12 @@ function buildMonthGroup(reports, newestDate, defaultExpanded) {
 
   topCard.addEventListener('click', () => {
     if (!expanded) {
-      doExpand();
+      if (reports.length === 1) {
+        // 单篇：展开只是去掉鬼牌视觉，顶卡点击直接打开
+        window.open(top.file, '_blank');
+      } else {
+        doExpand();
+      }
     } else {
       // 已展开时点顶卡 → 打开最新报告
       window.open(top.file, '_blank');
