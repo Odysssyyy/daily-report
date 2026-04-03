@@ -497,7 +497,7 @@ function monthDisplay(ym) {
 // 构建单条卡片（<a> 行）
 function buildCardRow(r, isNew) {
   const a = document.createElement('a');
-  a.href = 'reports/' + r.file;
+  a.href = r.file;
   a.target = '_blank';
   a.innerHTML = `
     <div class="ri-icon">${r.icon || '📄'}</div>
@@ -575,7 +575,7 @@ function buildMonthGroup(reports, newestDate) {
       li.classList.add('expanded');
     } else {
       // 已展开时再点顶卡直接打开报告
-      window.open('reports/' + top.file, '_blank');
+      window.open(top.file, '_blank');
     }
   });
   collapseBtn.addEventListener('click', () => {
@@ -594,7 +594,7 @@ function buildMonthGroup(reports, newestDate) {
 }
 
 // 读取 JSON，渲染
-fetch('reports/index.json')
+fetch('index.json')
   .then(r => r.json())
   .then(reports => {
     const list = document.getElementById('report-list');
