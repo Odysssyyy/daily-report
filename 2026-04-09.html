@@ -4,18 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <script>
-// 密码保护
-(function(){
-  var pwd = localStorage.getItem('mozzauth_20260409');
-  if(pwd !== 'mozz0409'){
-    var input = prompt('🔑 请输入访问密码');
-    if(input !== 'mozz0409'){
-      document.documentElement.innerHTML = '<body style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#555;font-size:14px;background:#f9f9f7;">密码错误，访问被拒绝。</body>';
-      return;
-    }
-    localStorage.setItem('mozzauth_20260409', input);
-  }
-})();
 // 微信 WebView 强制滚顶
 if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
 document.addEventListener('DOMContentLoaded', function(){ window.scrollTo(0,0); });
@@ -182,11 +170,6 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
       <circle cx="110" cy="110" r="3" fill="white"/>
     </svg>
     <div class="header-inner">
-      <div class="header-accent">
-        <div class="header-accent-dot"></div>
-        <div class="header-accent-line"></div>
-        <div class="header-accent-label">Daily Intelligence</div>
-      </div>
       <div class="header-brand">Frontier Industry Info Daily Report</div>
       <div class="header-zh">前沿产业资讯日报</div>
       <div class="header-bottom">
@@ -755,5 +738,90 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
   </div>
 
 </div>
+
+<style>
+  #pw-overlay {
+    position: fixed; inset: 0; background: rgba(0,20,40,0.92); z-index: 9999;
+    display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px);
+  }
+  #pw-box {
+    background: #fff; border-radius: 16px; padding: 36px 32px 28px;
+    width: 320px; max-width: 90vw; box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center;
+  }
+  #pw-box .pw-logo { font-family:"Playfair Display","Noto Serif SC",Georgia,serif;font-size:15px;font-weight:700;color:#003057;margin-bottom:6px; }
+  #pw-box .pw-hint { font-size:12px;color:#aaa;margin-bottom:20px;line-height:1.6; }
+  #pw-input { width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:8px;font-size:14px;font-family:"Helvetica Neue",Arial,sans-serif;letter-spacing:1px;outline:none;transition:border-color .2s;box-sizing:border-box;text-align:center; }
+  #pw-input:focus { border-color: #003057; }
+  #pw-input.error { border-color:#e53935;animation:shake .3s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  #pw-btn { margin-top:14px;width:100%;padding:11px;background:#003057;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:background .15s; }
+  #pw-btn:hover { background: #004b8d; }
+  #pw-error { margin-top:10px;font-size:12px;color:#e53935;min-height:16px; }
+</style>
+
+<div id="pw-overlay">
+  <div id="pw-box">
+    <div class="pw-logo">Frontier Industry Info Hub</div>
+    <div class="pw-hint">
+      <b>My Puppy's name + today's date</b><br>
+      示例格式：<b style="color:#555;">xxxx0331，不区分大小写</b>
+    </div>
+    <input id="pw-input" type="text" placeholder="输入密码" autocomplete="off" spellcheck="false" />
+    <button id="pw-btn">进入</button>
+    <div id="pw-error"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var ANSWER = 'mozz0409';
+  var input   = document.getElementById('pw-input');
+  var btn     = document.getElementById('pw-btn');
+  var err     = document.getElementById('pw-error');
+  var overlay = document.getElementById('pw-overlay');
+
+  function lockBody() {
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+  }
+  function unlockBody() {
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+  }
+  function scrollTop() {
+    window.scrollTo(0, 0);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 0);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 50);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 150);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 300);
+  }
+  function check() {
+    if (input.value.trim().toLowerCase() === ANSWER) {
+      overlay.style.display = 'none';
+      unlockBody();
+      scrollTop();
+      sessionStorage.setItem('pw_ok_20260409', '1');
+    } else {
+      err.textContent = '密码错误，请重试';
+      input.classList.add('error');
+      setTimeout(function(){ input.classList.remove('error'); }, 400);
+      input.value = '';
+      input.focus();
+    }
+  }
+  if (sessionStorage.getItem('pw_ok_20260409') === '1') {
+    overlay.style.display = 'none';
+    unlockBody();
+    scrollTop();
+  } else {
+    lockBody();
+    input.focus();
+  }
+  btn.addEventListener('click', check);
+  input.addEventListener('keydown', function(e){ if(e.key==='Enter') check(); });
+})();
+</script>
 </body>
 </html>
