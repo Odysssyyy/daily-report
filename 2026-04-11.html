@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前沿产业资讯日报 2026-04-11</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 13px; line-height: 1.6; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── PASSWORD OVERLAY ── */
+  #pw-overlay {
+    position: fixed; inset: 0; background: rgba(10,12,20,0.96);
+    display: flex; align-items: center; justify-content: center; z-index: 9999;
+  }
+  #pw-box {
+    background: #fff; border-radius: 16px; padding: 40px 36px 32px;
+    width: min(90vw, 380px); text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  #pw-box .pw-logo { font-size: 28px; font-weight: 800; color: #0066ff; letter-spacing: -1px; margin-bottom: 6px; }
+  #pw-box .pw-sub { font-size: 12px; color: #888; margin-bottom: 24px; }
+  #pw-box input {
+    width: 100%; padding: 12px 16px; border: 1.5px solid #e0e0e0; border-radius: 8px;
+    font-size: 14px; outline: none; margin-bottom: 12px; letter-spacing: 1px;
+    transition: border-color 0.2s;
+  }
+  #pw-box input:focus { border-color: #0066ff; }
+  #pw-box button {
+    width: 100%; padding: 12px; background: #0066ff; color: #fff;
+    border: none; border-radius: 8px; font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s;
+  }
+  #pw-box button:hover { background: #0055dd; }
+  #pw-box .pw-hint { font-size: 11px; color: #aaa; margin-top: 14px; }
+  #pw-box .pw-err { color: #e53935; font-size: 12px; margin-top: 8px; min-height: 16px; }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #0a0e1a 0%, #0d1b3e 50%, #091428 100%);
+    padding: 28px 24px 22px; position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -40px; right: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(0,102,255,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-brand {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    color: rgba(0,150,255,0.9); text-transform: uppercase; margin-bottom: 4px;
+  }
+  .header-zh {
+    font-size: 22px; font-weight: 800; color: #fff; letter-spacing: 0.5px; line-height: 1.2;
+  }
+  .header-mozz {
+    font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.5px; margin-top: 3px;
+  }
+  .header-date {
+    margin-top: 14px; display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px; padding: 5px 12px;
+    font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 500;
+  }
+
+  /* ── NAV ── */
+  .nav-bar {
+    display: flex; gap: 4px; flex-wrap: wrap; padding: 10px 16px;
+    background: #fff; border-bottom: 1px solid #e8eaf0; position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .nav-bar a {
+    font-size: 11px; font-weight: 600; color: #555;
+    padding: 4px 9px; border-radius: 20px; background: #f5f5f5;
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .nav-bar a:hover { background: #0066ff; color: #fff; }
+
+  /* ── LEAD ── */
+  .lead {
+    display: flex; gap: 0; background: linear-gradient(135deg, #001a4d 0%, #002060 100%);
+    margin: 0; padding: 0;
+  }
+  .lead-item { flex: 1; padding: 16px 20px; }
+  .lead-divider { width: 1px; background: rgba(255,255,255,0.12); }
+  .li-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #4dabf7; margin-bottom: 5px; text-transform: uppercase; }
+  .li-title { font-size: 13px; font-weight: 700; color: #fff; line-height: 1.4; margin-bottom: 4px; }
+  .li-sub { font-size: 11px; color: rgba(255,255,255,0.55); }
+  @media (max-width: 600px) { .lead { flex-direction: column; } .lead-divider { width: auto; height: 1px; } }
+
+  /* ── SECTION ── */
+  .section { background: #fff; margin: 12px 12px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .section:last-child { margin-bottom: 12px; }
+  .section-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 18px 12px; border-bottom: 1px solid #f0f2f5;
+    background: linear-gradient(90deg, #fafbff 0%, #fff 100%);
+  }
+  .section-icon { font-size: 18px; }
+  .section-title { font-size: 15px; font-weight: 800; color: #111; flex: 1; }
+  .section-count { font-size: 11px; color: #999; background: #f5f5f5; padding: 2px 8px; border-radius: 10px; }
+
+  /* ── ITEM ── */
+  .item { display: flex; gap: 0; padding: 14px 18px; border-bottom: 1px solid #f4f5f8; transition: background 0.15s; }
+  .item:last-child { border-bottom: none; }
+  .item:hover { background: #fafbff; }
+  .item-tag { width: 72px; min-width: 72px; padding-top: 2px; }
+  .item-body { flex: 1; }
+  .item-title { font-size: 13px; font-weight: 700; color: #111; line-height: 1.4; margin-bottom: 6px; }
+  .item-kv { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 7px; }
+  .kv { font-size: 11px; color: #555; }
+  .kv span { font-weight: 700; color: #333; margin-right: 3px; }
+  .item-text { font-size: 12px; color: #666; line-height: 1.6; margin-bottom: 8px; }
+  .sources { display: flex; flex-wrap: wrap; gap: 6px; }
+  .news-link, .src {
+    font-size: 10px; font-weight: 600; color: #0066ff;
+    background: #f0f5ff; border: 1px solid #d0e3ff;
+    padding: 2px 8px; border-radius: 10px;
+    transition: all 0.2s;
+  }
+  .news-link:hover, .src:hover { background: #0066ff; color: #fff; border-color: #0066ff; }
+
+  /* ── TAGS ── */
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.3px; white-space: nowrap; }
+  .tag-green  { background: #e8f5e9; color: #2e7d32; }
+  .tag-blue   { background: #e3f2fd; color: #1565c0; }
+  .tag-red    { background: #fce4ec; color: #c62828; }
+  .tag-amber  { background: #fff8e1; color: #e65100; }
+  .tag-purple { background: #f3e5f5; color: #6a1b9a; }
+  .tag-gray   { background: #f5f5f5; color: #555; }
+  .tag-teal   { background: #e0f2f1; color: #00695c; }
+  .tag-orange { background: #fff3e0; color: #bf360c; }
+
+  /* ── MARKET SECTION ── */
+  .market-section { background: #fff; margin: 12px 12px 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .market-head { padding: 14px 18px 12px; border-bottom: 1px solid #f0f2f5; background: linear-gradient(90deg, #fafbff 0%, #fff 100%); display: flex; align-items: center; gap: 10px; }
+  .market-title { font-size: 15px; font-weight: 800; color: #111; }
+  .mkt-row { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid #f4f5f8; }
+  .mkt-row:last-child { border-bottom: none; }
+  .mkt-left { padding: 12px 18px; flex: 1; min-width: 160px; }
+  .mkt-right { padding: 12px 18px; flex: 2; min-width: 200px; border-left: 1px solid #f4f5f8; }
+  .mkt-label { font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+  .mkt-val { font-size: 18px; font-weight: 800; }
+  .mkt-val.up { color: #2e7d32; }
+  .mkt-val.down { color: #c62828; }
+  .mkt-val.neutral { color: #555; }
+  .mkt-change { font-size: 11px; font-weight: 600; margin-top: 2px; }
+  .mkt-change.up { color: #43a047; }
+  .mkt-change.down { color: #e53935; }
+  .mkt-note { font-size: 12px; color: #555; line-height: 1.6; }
+  @media (max-width: 520px) { .mkt-left { min-width: unset; width: 100%; } .mkt-right { border-left: none; border-top: 1px solid #f4f5f8; } }
+
+  /* ── FLOAT NAV ── */
+  .float-nav {
+    position: fixed; right: 12px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 8px; z-index: 200;
+  }
+  .float-nav-item {
+    display: flex; align-items: center; gap: 6px; cursor: pointer;
+    background: rgba(255,255,255,0.95); border-radius: 20px;
+    padding: 5px 10px 5px 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    transition: all 0.2s;
+  }
+  .float-nav-item:hover { background: #0066ff; }
+  .float-nav-item:hover .float-nav-label { color: #fff; }
+  .float-nav-item:hover .float-nav-dot { background: #fff; }
+  .float-nav-label { font-size: 10px; font-weight: 600; color: #333; white-space: nowrap; }
+  .float-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #0066ff; flex-shrink: 0; }
+  @media (max-width: 768px) { .float-nav { display: none; } }
+
+  /* ── FOOTER ── */
+  .footer { text-align: center; padding: 24px 16px 32px; color: #bbb; font-size: 11px; line-height: 1.8; }
+  .footer strong { color: #888; }
+</style>
+</head>
+<body>
+
+<!-- ── PASSWORD OVERLAY ── -->
+<div id="pw-overlay">
+  <div id="pw-box">
+    <div class="pw-logo">mozz.ai</div>
+    <div class="pw-sub">前沿产业资讯日报 · 访问验证</div>
+    <input type="password" id="pw-input" placeholder="请输入访问密码" autocomplete="off" />
+    <button onclick="checkPw()">进入日报</button>
+    <div class="pw-hint">示例格式：xxxx0331，不区分大小写</div>
+    <div class="pw-err" id="pw-err"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var key = 'pw_ok_20260411';
+  if(sessionStorage.getItem(key)==='1'){ document.getElementById('pw-overlay').style.display='none'; }
+  document.getElementById('pw-input').addEventListener('keydown',function(e){ if(e.key==='Enter') checkPw(); });
+})();
+function checkPw(){
+  var v = document.getElementById('pw-input').value.trim().toLowerCase();
+  if(v==='mozz0411'){
+    sessionStorage.setItem('pw_ok_20260411','1');
+    document.getElementById('pw-overlay').style.display='none';
+  } else {
+    document.getElementById('pw-err').textContent='密码错误，请重试';
+    document.getElementById('pw-input').value='';
+  }
+}
+function scrollToSection(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }
+</script>
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="header-brand">Frontier Industry Info Daily Report</div>
+  <div class="header-zh">前沿产业资讯日报</div>
+  <div class="header-mozz">by mozz.ai</div>
+  <div class="header-date">📅 2026年4月11日（周六）</div>
+</div>
+
+<!-- ── FLOAT NAV ── -->
+<div class="float-nav">
+  <div class="float-nav-item" onclick="scrollToSection('sec-semi')">
+    <div class="float-nav-label">🛠 半导体硬件</div>
+    <div class="float-nav-dot"></div>
+  </div>
+  <div class="float-nav-item" onclick="scrollToSection('sec-ai-hw')">
+    <div class="float-nav-label">💻 AI 硬件</div>
+    <div class="float-nav-dot"></div>
+  </div>
+  <div class="float-nav-item" onclick="scrollToSection('sec-ai-app')">
+    <div class="float-nav-label">🤖 AI 应用</div>
+    <div class="float-nav-dot"></div>
+  </div>
+  <div class="float-nav-item" onclick="scrollToSection('sec-pharma')">
+    <div class="float-nav-label">💊 创新药</div>
+    <div class="float-nav-dot"></div>
+  </div>
+  <div class="float-nav-item" onclick="scrollToSection('sec-device')">
+    <div class="float-nav-label">🔬 医疗器械</div>
+    <div class="float-nav-dot"></div>
+  </div>
+  <div class="float-nav-item" onclick="scrollToSection('sec-service')">
+    <div class="float-nav-label">🏨 医疗服务</div>
+    <div class="float-nav-dot"></div>
+  </div>
+  <div class="float-nav-item" onclick="scrollToSection('sec-market')">
+    <div class="float-nav-label">📈 市场情绪</div>
+    <div class="float-nav-dot"></div>
+  </div>
+</div>
+
+<!-- ── NAV BAR ── -->
+<nav class="nav-bar"><span style="font-size:10px;color:#555;font-weight:600;white-space:nowrap;align-self:center;">点击直达👉</span>
+  <a href="#sec-semi">🛠 半导体硬件</a>
+  <a href="#sec-ai-hw">💻 AI 硬件</a>
+  <a href="#sec-ai-app">🤖 AI 应用</a>
+  <a href="#sec-pharma">💊 创新药</a>
+  <a href="#sec-device">🔬 医疗器械</a>
+  <a href="#sec-service">🏨 医疗服务</a>
+  <a href="#sec-market">📈 市场情绪</a>
+</nav>
+
+<!-- ── LEAD ── -->
+<div class="lead">
+  <div class="lead-item">
+    <div class="li-label">⭐ Today's Lead</div>
+    <div class="li-title">台积电Q1营收创历史新高，同比+35%，AI需求超预期</div>
+    <div class="li-sub">NT$1.13万亿（约$356亿）· 分析师预测全年增长超30%目标</div>
+  </div>
+  <div class="lead-divider"></div>
+  <div class="lead-item">
+    <div class="li-label">⭐ Also Watching</div>
+    <div class="li-title">AMD与Meta签$600亿/6GW GPU大单，打破英伟达垄断</div>
+    <div class="li-sub">MI450定制芯片 · 2026H2开始交付 · Meta获10%股权认购权证</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 1: 半导体硬件
+════════════════════════════════════════════ -->
+<div class="section sec-semi" id="sec-semi">
+  <div class="section-head">
+    <span class="section-icon">🛠</span>
+    <div class="section-title">半导体硬件</div>
+    <div class="section-count">4 items</div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-green">业绩·营收</span></div>
+    <div class="item-body">
+      <div class="item-title">台积电Q1营收NT$1.13万亿，同比增长35%，创历史新高</div>
+      <div class="item-kv">
+        <div class="kv"><span>Q1营收</span> NT$1.13万亿（≈$356亿美元）</div>
+        <div class="kv"><span>同比</span> +35%，超分析师预期</div>
+        <div class="kv"><span>3月单月</span> 同比+45.2%</div>
+        <div class="kv"><span>预期毛利率</span> ~64%（Q1）</div>
+      </div>
+      <div class="item-text">AI算力基础设施军备竞赛持续驱动先进制程需求，苹果、英伟达等大客户订单饱满。中东局势未对需求造成明显冲击。SemiAnalysis分析师指出，台积电"有望轻松超越30%年增长目标"。先进封装CoWoS产能持续紧张，多家AI芯片设计公司开始布局自研芯片（包括Arm、Anthropic）进一步支撑长期订单。</div>
+      <div class="sources">
+        <a href="https://www.cnbc.com/2026/04/10/tsmc-q1-record-revenue-ai-chip-demand-strong.html" target="_blank" class="news-link">CNBC</a>
+        <a href="https://www.bloomberg.com/news/articles/2026-04-10/tsmc-s-sales-beat-estimates-after-war-fails-to-dent-ai-demand" target="_blank" class="news-link">Bloomberg</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-blue">战略合作</span></div>
+    <div class="item-body">
+      <div class="item-title">Intel正式加入马斯克$250亿Terafab项目，成主要晶圆代工伙伴</div>
+      <div class="item-kv">
+        <div class="kv"><span>项目规模</span> $250亿，Tesla+SpaceX+xAI联合出资</div>
+        <div class="kv"><span>地点</span> 德克萨斯州奥斯汀</div>
+        <div class="kv"><span>产品</span> AI推理芯片+HBM+先进封装一体化</div>
+        <div class="kv"><span>宣布时间</span> 2026年4月7日</div>
+      </div>
+      <div class="item-text">这是Intel自转型"代工优先"战略以来获得的最大战略客户，同时为马斯克旗下帝国提供机器人与数据中心所需的芯片制造基础设施。Terafab计划打造垂直整合半导体设施，覆盖逻辑芯片、存储、封装、测试及光掩膜。Tesla不会自建晶圆厂的外部认知得到证实。</div>
+      <div class="sources">
+        <a href="https://www.reuters.com/business/autos-transportation/intel-join-musks-terafab-mega-ai-chip-project-2026-04-07/" target="_blank" class="news-link">Reuters</a>
+        <a href="https://techcrunch.com/2026/04/07/intel-signs-on-to-elon-musks-terafab-chips-project/" target="_blank" class="news-link">TechCrunch</a>
+        <a href="https://www.forbes.com/sites/jonmarkman/2026/04/10/intel-joins-terafab-to-build-elon-musks-25b-ai-chip-project/" target="_blank" class="news-link">Forbes</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-red">大单·合作</span></div>
+    <div class="item-body">
+      <div class="item-title">Broadcom与Google签订2031年长约，独家定制AI芯片+高速互连组件</div>
+      <div class="item-kv">
+        <div class="kv"><span>合同期限</span> 至2031年</div>
+        <div class="kv"><span>内容</span> 定制TPU芯片+AI机架组件</div>
+        <div class="kv"><span>同步</span> 与Anthropic签署扩展协议</div>
+        <div class="kv"><span>宣布时间</span> 2026年4月6日</div>
+      </div>
+      <div class="item-text">Broadcom一举确立AI基础设施供应链核心地位，同时锁定Google与Anthropic两大AI头部客户至2031年。超长合同期预示超大规模数据中心定制化芯片需求的确定性持续增强。定制ASIC路线（对抗英伟达通用GPU）进入全面加速阶段。</div>
+      <div class="sources">
+        <a href="https://www.reuters.com/business/broadcom-signs-long-term-deal-develop-googles-custom-ai-chips-2026-04-06/" target="_blank" class="news-link">Reuters</a>
+        <a href="https://www.cnbc.com/2026/04/06/broadcom-agrees-to-expanded-chip-deals-with-google-anthropic.html" target="_blank" class="news-link">CNBC</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-amber">股价·市场</span></div>
+    <div class="item-body">
+      <div class="item-title">AMD股价突破$250关口，台积电业绩超预期提振板块整体情绪</div>
+      <div class="item-kv">
+        <div class="kv"><span>AMD</span> 逼近$250，年内涨幅可观</div>
+        <div class="kv"><span>催化剂</span> 台积电Q1强劲 + AMD-Meta $600亿大单</div>
+        <div class="kv"><span>板块</span> 半导体ETF（SOX）同步上行</div>
+      </div>
+      <div class="item-text">台积电Q1业绩超预期为整个半导体板块注入信心，AMD受AMD-Meta战略大单与台积电2nm产能支撑双重驱动，机构纷纷上调目标价。德意志银行指出，今年AI芯片设计商整体跑输大盘，目前正在补涨。</div>
+      <div class="sources">
+        <a href="https://www.fxleaders.com/news/2026/04/10/the-amd-stock-climbs-toward-250-as-tsmc-q1-strength-fuels-semiconductor-optimism/" target="_blank" class="news-link">FX Leaders</a>
+        <a href="https://www.investopedia.com/ai-chip-demand-shows-no-signs-of-slowing-can-chip-stocks-keep-up-11947616" target="_blank" class="news-link">Investopedia</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2: AI 硬件
+════════════════════════════════════════════ -->
+<div class="section sec-ai-hw" id="sec-ai-hw">
+  <div class="section-head">
+    <span class="section-icon">💻</span>
+    <div class="section-title">AI 硬件</div>
+    <div class="section-count">3 items</div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-red">战略大单</span></div>
+    <div class="item-body">
+      <div class="item-title">AMD与Meta签署5年$600亿/6GW战略协议，MI450定制GPU打入Meta全球AI基础设施</div>
+      <div class="item-kv">
+        <div class="kv"><span>合同金额</span> $600亿（最高可达$1000亿）</div>
+        <div class="kv"><span>规模</span> 6GW算力容量</div>
+        <div class="kv"><span>芯片</span> 定制MI450（TSMC 2nm）+ 两代EPYC CPU</div>
+        <div class="kv"><span>首批交付</span> 2026年H2，1GW MI450加速器</div>
+        <div class="kv"><span>权证条款</span> Meta获1.6亿股AMD股票认购权（$0.01/股）</div>
+      </div>
+      <div class="item-text">这是AMD历史上最大的单一客户协议，基于AMD Helios机架级架构，MI450针对Meta推理工作负载联合定制，性能达40 PFLOPS（HBM4加持）。Meta通过"股权绑定"策略深度锁定AMD，同时大幅降低对英伟达的依赖度。英伟达垄断地位面临结构性挑战。</div>
+      <div class="sources">
+        <a href="https://ir.amd.com/news-events/press-releases/detail/1279/amd-and-meta-announce-expanded-strategic-partnership-to-deploy-6-gigawatts-of-amd-gpus" target="_blank" class="news-link">AMD官方IR</a>
+        <a href="https://www.jonpeddie.com/news/amd-and-meta-announce-60b-6-gw-ai-partnership/" target="_blank" class="news-link">Jon Peddie</a>
+        <a href="https://theaitrack.com/meta-and-amd-60bn-ai-chip-deal-6gw/" target="_blank" class="news-link">The AI Track</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-blue">产品发布</span></div>
+    <div class="item-body">
+      <div class="item-title">Arm首款自研CPU正式发布，Meta成全球首个客户</div>
+      <div class="item-kv">
+        <div class="kv"><span>产品</span> Arm自研CPU（非IP授权模式）</div>
+        <div class="kv"><span>首客</span> Meta</div>
+        <div class="kv"><span>意义</span> Arm从IP供应商转型为芯片设计商</div>
+        <div class="kv"><span>报道时间</span> 2026年3月24日</div>
+      </div>
+      <div class="item-text">Arm此次战略转变颠覆其传统商业模式——不再仅授权IP，而是亲自设计并向大客户直接供货CPU。Meta同时作为AMD MI450与Arm CPU的首批战略客户，显示超大规模厂商全面推进算力供应链多元化。此举将影响高通、英特尔等传统Arm授权大客户的竞争格局。</div>
+      <div class="sources">
+        <a href="https://www.cnbc.com/2026/03/24/arm-launches-its-own-cpu-with-meta-as-first-customer.html" target="_blank" class="news-link">CNBC</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-purple">动向</span></div>
+    <div class="item-body">
+      <div class="item-title">Anthropic探索自研AI芯片，减少对英伟达/谷歌TPU的依赖</div>
+      <div class="item-kv">
+        <div class="kv"><span>信源</span> Reuters独家报道</div>
+        <div class="kv"><span>阶段</span> 早期探索，尚未公开确认</div>
+        <div class="kv"><span>背景</span> 同期与Broadcom签订芯片定制协议</div>
+      </div>
+      <div class="item-text">AI实验室自研芯片趋势蔓延至Anthropic。此前OpenAI已与台积电合作探索自研AI推理芯片。Anthropic同步与Broadcom签订定制化芯片协议，表明其正在多线布局，逐步摆脱对单一外部算力供应商的依赖。对现有AI芯片供应商中长期格局有深远影响。</div>
+      <div class="sources">
+        <a href="https://www.cnbc.com/2026/04/10/tsmc-q1-record-revenue-ai-chip-demand-strong.html" target="_blank" class="news-link">CNBC（引述）</a>
+        <a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-4-9-broadcom-cemented-as-ai-infrastructure-backbone-with-landmark-2031-google-and-anthropic-deals" target="_blank" class="news-link">Financial Content</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3: AI 应用
+════════════════════════════════════════════ -->
+<div class="section sec-ai-app" id="sec-ai-app">
+  <div class="section-head">
+    <span class="section-icon">🤖</span>
+    <div class="section-title">AI 应用</div>
+    <div class="section-count">4 items</div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-red">安全·限制</span></div>
+    <div class="item-body">
+      <div class="item-title">Anthropic发布Claude Mythos Preview：可自主发现并利用零日漏洞，被限定在12家安全联盟内</div>
+      <div class="item-kv">
+        <div class="kv"><span>发布时间</span> 2026年4月7日</div>
+        <div class="kv"><span>核心能力</span> 自主发现并利用所有主流OS及浏览器零日漏洞</div>
+        <div class="kv"><span>访问限制</span> 仅12家安全联盟企业（Project Glasswing）</div>
+        <div class="kv"><span>联盟成员</span> AWS、Apple、Broadcom、Cisco、CrowdStrike、Google、JPMorgan等</div>
+      </div>
+      <div class="item-text">这是AI历史上首次一个模型被证实具备大规模利用漏洞的能力而被主动限制分发。Anthropic同步启动"Project Glasswing"防御联盟，将Mythos用于主动安全加固而非进攻。这标志着AI能力边界已触及监管红线，行业安全治理范式正在被重塑。对网络安全赛道具有深远投资含义。</div>
+      <div class="sources">
+        <a href="https://www.cnbc.com/2026/04/07/anthropic-claude-mythos-ai-hackers-cyberattacks.html" target="_blank" class="news-link">CNBC</a>
+        <a href="https://fortune.com/2026/04/07/anthropic-claude-mythos-model-project-glasswing-cybersecurity/" target="_blank" class="news-link">Fortune</a>
+        <a href="https://postquantum.com/security-pqc/anthropic-mythos-preview-ai-offensive-security/" target="_blank" class="news-link">Post Quantum</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-blue">模型发布</span></div>
+    <div class="item-body">
+      <div class="item-title">四月AI模型混战：GPT-5.4 / Gemini 3.1 Pro / Claude Opus 4.6 / Zhipu GLM-5齐发</div>
+      <div class="item-kv">
+        <div class="kv"><span>GPT-5.4</span> OpenAI，代码、推理能力再升级</div>
+        <div class="kv"><span>Gemini 3.1 Pro</span> Google DeepMind，实时语音+图像分析</div>
+        <div class="kv"><span>GLM-5（Zhipu AI）</span> 开源，SWE-bench超越GPT-5.4</div>
+        <div class="kv"><span>趋势</span> 开源 vs 闭源、访问权限之争激化</div>
+      </div>
+      <div class="item-text">本月是AI模型发布密度最高的月份之一。Anthropic Mythos被锁在防火墙后，而智谱AI选择在同一天开源一个超越GPT-5.4编码能力的模型，形成强烈对比——开源社区正在填补闭源模型的能力真空。Google内存压缩算法将AI推理成本降低约6倍，有望重塑大模型部署经济学。</div>
+      <div class="sources">
+        <a href="https://deepmind.google/models/model-cards/gemini-3-1-pro/" target="_blank" class="news-link">Google DeepMind</a>
+        <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank" class="news-link">What LLM</a>
+        <a href="https://af.net/realtime/ai-models-in-april-2026-every-major-release-leak-and-future-developments/" target="_blank" class="news-link">AF.net</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-green">融资</span></div>
+    <div class="item-body">
+      <div class="item-title">数字健康Q1融资$40亿，AI成标配，Whoop / Verily / OpenEvidence领衔12宗超大额融资</div>
+      <div class="item-kv">
+        <div class="kv"><span>Q1总额</span> $40亿（同比+$10亿）</div>
+        <div class="kv"><span>交易量</span> 110笔</div>
+        <div class="kv"><span>驱动</span> 12宗mega-deal</div>
+        <div class="kv"><span>信源</span> Rock Health报告</div>
+      </div>
+      <div class="item-text">数字健康2026开年即爆发，$40亿创2021年以来最强Q1。AI已成数字健康公司标配叙事。Whoop健康可穿戴、Verily精准健康、OpenEvidence临床AI决策支持均获超大额融资。整体呈现"强者更强"特征：少数明星公司吃掉大部分资金，交易笔数反而低于去年同期。</div>
+      <div class="sources">
+        <a href="https://www.fiercehealthcare.com/digital-health/digital-health-startups-raked-4b-q1-12-megadeals-driving-investment-rock-health" target="_blank" class="news-link">Fierce Healthcare</a>
+        <a href="https://medcitynews.com/2026/04/digital-health-startups-investment/" target="_blank" class="news-link">MedCity News</a>
+        <a href="https://www.techtarget.com/VirtualHealthcare/news/366641340/Mega-deals-drive-Q1-digital-health-funding-to-4B" target="_blank" class="news-link">TechTarget</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-teal">研究突破</span></div>
+    <div class="item-body">
+      <div class="item-title">Google DeepMind & Anthropic联合论文：Chinchilla扩展定律在10万亿参数规模仍然成立，数据质量成主要瓶颈</div>
+      <div class="item-kv">
+        <div class="kv"><span>结论</span> 超大规模仍遵循性能预测规律</div>
+        <div class="kv"><span>新变量</span> 数据质量（非数量）成主导约束</div>
+        <div class="kv"><span>影响</span> 数据清洗/合成数据赛道战略价值大幅提升</div>
+      </div>
+      <div class="item-text">这是对"AI扩展定律已到极限"论断的正式反驳。两大顶级AI实验室罕见联合发表，确认即使在10万亿参数规模，算力投入仍能带来可预测的性能提升——前提是数据质量。这对高质量数据采购、数据合成公司（Scale AI等）及内容版权谈判具有重大战略意义。</div>
+      <div class="sources">
+        <a href="https://tokencalculator.com/ai-news" target="_blank" class="news-link">Token Calculator</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4: 创新药
+════════════════════════════════════════════ -->
+<div class="section sec-pharma" id="sec-pharma">
+  <div class="section-head">
+    <span class="section-icon">💊</span>
+    <div class="section-title">创新药</div>
+    <div class="section-count">4 items</div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-amber">FDA·待审</span></div>
+    <div class="item-body">
+      <div class="item-title">FDA本月四大PDUFA节点：肥胖症口服药 / 血液瘤细胞疗法 / HIV新型长效 / 阿尔茨海默激越行为</div>
+      <div class="item-kv">
+        <div class="kv"><span>orforglipron</span> 礼来GLP-1口服片，减重适应症</div>
+        <div class="kv"><span>Orca-T</span> Orca Bio，血液肿瘤细胞疗法</div>
+        <div class="kv"><span>HIV-1新药</span> 长效方案</div>
+        <div class="kv"><span>AD激越</span> 阿尔茨海默病激越行为治疗</div>
+      </div>
+      <div class="item-text">Q2 2026是近年来生物催化剂最密集的一个季度。其中orforglipron最受瞩目——若获批则成为首款无需注射的GLP-1减重药物，颠覆现有市场格局（司美格鲁肽/替尔泊肽）。Orca-T若获批将为血液肿瘤CAR-T领域提供全新竞争维度。投后重点关注标的PDUFA日期临近。</div>
+      <div class="sources">
+        <a href="https://www.empr.com/news/fda-drug-approval-decisions-expected-in-april-2026/" target="_blank" class="news-link">MPR</a>
+        <a href="https://www.biopharmadive.com/news/fda-approval-decisions-watch-2026/808684/" target="_blank" class="news-link">BioPharma Dive</a>
+        <a href="https://www.hcplive.com/view/q2-2026-preview-6-fda-decisions-to-watch" target="_blank" class="news-link">HCP Live</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-green">NMPA·申报</span></div>
+    <div class="item-body">
+      <div class="item-title">DualityBio HER2 ADC（BNT323/DB-1303）获NMPA受理，同时持有FDA突破性疗法认定</div>
+      <div class="item-kv">
+        <div class="kv"><span>适应症</span> HER2+不可切除/转移乳腺癌</div>
+        <div class="kv"><span>NMPA</span> 生物制品许可申请受理</div>
+        <div class="kv"><span>FDA加持</span> 突破性疗法认定（子宫内膜癌）+快速通道</div>
+        <div class="kv"><span>公司</span> DualityBio（映恩生物）</div>
+      </div>
+      <div class="item-text">映恩生物BNT323是中国本土ADC领域又一重量级品种进入NMPA审评通道，同时拥有FDA双重认定。HER2 ADC赛道竞争极为激烈（德曲妥珠单抗强势在位），但BNT323通过差异化的Topoisomerase I有效载荷寻求突围。对中国ADC出海投资逻辑具有参考价值。</div>
+      <div class="sources">
+        <a href="https://www.prnewswire.com/news-releases/dualitybio-announces-china-nmpa-acceptance-of-biologics-license-application-seeking-approval-for-trastuzumab-pamirtecan-for-the-treatment-of-unresectable-or-metastatic-her2-positive-adult-breast-cancer-302738227.html" target="_blank" class="news-link">PR Newswire</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-blue">监管政策</span></div>
+    <div class="item-body">
+      <div class="item-title">Q1 2026 FDA共批准42款新药，创近年Q1同期新高；Q2监管节奏不减速</div>
+      <div class="item-kv">
+        <div class="kv"><span>Q1批准</span> 42款（1月6款，2月19款，3月17款）</div>
+        <div class="kv"><span>重点领域</span> 罕见病、儿科、皮肤科、精神科、肝病</div>
+        <div class="kv"><span>Q1亮点</span> 首款TYK2抑制剂（PsA）、首款无针肾上腺素薄膜</div>
+      </div>
+      <div class="item-text">FDA审批效率在2026年延续高水位，Q1共42款新药创历史同期纪录。罕见病与儿科适应症频繁获批反映监管包容性提升，"加速审批"通道使用率持续走高。对持有FDA"突破性""孤儿药"等优先认定标的的投后组合具有直接正向催化作用。</div>
+      <div class="sources">
+        <a href="https://www.hcplive.com/view/q1-2026-recap-top-fda-approvals" target="_blank" class="news-link">HCP Live</a>
+        <a href="https://www.guidelinecentral.com/insights/q1-2026-approvals-med-rundown/" target="_blank" class="news-link">Guideline Central</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-purple">制造·政策</span></div>
+    <div class="item-body">
+      <div class="item-title">美国高关税压制下，跨国药企反而加速将美国市场生产外包至欧洲</div>
+      <div class="item-kv">
+        <div class="kv"><span>趋势</span> CMO/CDMO合同制造订单向欧洲流入</div>
+        <div class="kv"><span>背景</span> 美对欧药品加征关税创5年新高</div>
+        <div class="kv"><span>结果</span> 2025年美国CDMO合同数量5年最大降幅</div>
+        <div class="kv"><span>信源</span> The Pharmaletter，2026年4月7日</div>
+      </div>
+      <div class="item-text">贸易保护主义逻辑在药品制造领域产生反效果：美国高关税推高本土生产成本，反而促使企业外包欧洲。这对中国CDMO（药明康德、博腾等）的美国业务既是压力也是机会——需重点跟踪客户是否将欧洲外包转移策略蔓延至亚洲（成本更低）。</div>
+      <div class="sources">
+        <a href="https://www.thepharmaletter.com/us-fda" target="_blank" class="news-link">The Pharmaletter</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5: 医疗器械
+════════════════════════════════════════════ -->
+<div class="section sec-device" id="sec-device">
+  <div class="section-head">
+    <span class="section-icon">🔬</span>
+    <div class="section-title">医疗器械</div>
+    <div class="section-count">3 items</div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-blue">FDA·IDE</span></div>
+    <div class="item-body">
+      <div class="item-title">VDyne获FDA批准启动TTVR系统关键临床试验（IDE许可），经导管三尖瓣置换进入关键验证阶段</div>
+      <div class="item-kv">
+        <div class="kv"><span>产品</span> 经导管三尖瓣置换系统（TTVR）</div>
+        <div class="kv"><span>里程碑</span> FDA IDE关键临床试验批准</div>
+        <div class="kv"><span>背景</span> Jean Boulle Group旗下</div>
+        <div class="kv"><span>赛道</span> 结构性心脏病·三尖瓣介入</div>
+      </div>
+      <div class="item-text">三尖瓣反流是全球最大的未被满足的结构性心脏病市场之一（潜在患者>300万，美国）。TTVR获FDA IDE批准，意味着进入上市前最关键的监管路径。该赛道目前竞争日趋激烈（爱德华生命科学、Abbott等布局），但市场规模足够大，多方共存。对结构性心脏病投资组合具有重要参考意义。</div>
+      <div class="sources">
+        <a href="https://jeanboullegroup.com/medtech/jean-boulle-group-company-vdyne-receives-fda-approval-to-initiate-pivotal-trial/" target="_blank" class="news-link">Jean Boulle Group</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-green">监管协作</span></div>
+    <div class="item-body">
+      <div class="item-title">英美MHRA-FDA强化医疗器械监管合作，推进双边互认以加速创新器械上市</div>
+      <div class="item-kv">
+        <div class="kv"><span>合作方</span> 英国MHRA + 美国FDA</div>
+        <div class="kv"><span>目标</span> 对齐医疗器械法规，减少重复审批</div>
+        <div class="kv"><span>意义</span> 英美监管互认将降低器械企业双边上市成本</div>
+      </div>
+      <div class="item-text">英美监管互认若落地，将使符合条件的医疗器械在一个市场获批后可快速在另一市场上市，实质性缩短商业化周期。这对同时布局英美两个市场的中晚期医疗器械公司具有直接降本意义，也预示着全球主要监管机构加速协同的趋势。</div>
+      <div class="sources">
+        <a href="https://www.digitalhealth.net/2026/04/uk-and-us-strengthen-partnership-on-medtech-regulation/" target="_blank" class="news-link">Digital Health</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-amber">行业趋势</span></div>
+    <div class="item-body">
+      <div class="item-title">MedTech Dive：FDA将大幅增招医疗器械审评人员，AI+器械监管能力建设提速</div>
+      <div class="item-kv">
+        <div class="kv"><span>信号</span> FDA拟招募"相当数量"器械审评员</div>
+        <div class="kv"><span>背景</span> 前期FDA裁员冲击器械审批效率</div>
+        <div class="kv"><span>焦点</span> AI医疗器械审批框架建设加速</div>
+      </div>
+      <div class="item-text">FDA此前因DOGE主导的联邦裁员而削减器械审评队伍，导致510(k)和PMA审批周期拉长，行业怨声载道。此次明确提出大规模补充审评人员，是对行业压力的直接回应。AI医疗器械（SaMD类）审批框架的完善对以AI为核心卖点的数字疗法、影像AI公司而言是关键监管催化剂。</div>
+      <div class="sources">
+        <a href="https://www.medtechdive.com/topic/medical-devices/" target="_blank" class="news-link">MedTech Dive</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 6: 医疗服务
+════════════════════════════════════════════ -->
+<div class="section sec-service" id="sec-service">
+  <div class="section-head">
+    <span class="section-icon">🏨</span>
+    <div class="section-title">医疗服务</div>
+    <div class="section-count">3 items</div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-green">行业数据</span></div>
+    <div class="item-body">
+      <div class="item-title">Rock Health Q1报告：数字健康VC投资$40亿，AI成"入场门槛"而非差异化亮点</div>
+      <div class="item-kv">
+        <div class="kv"><span>Q1融资总额</span> $40亿，同比+$10亿</div>
+        <div class="kv"><span>交易笔数</span> 110笔（少于去年Q1的122笔）</div>
+        <div class="kv"><span>超大额融资</span> 12宗mega-deal主导</div>
+        <div class="kv"><span>趋势定性</span> "宽平台"时代终结，聚焦+运营纪律成新标准</div>
+      </div>
+      <div class="item-text">资本向头部集中趋势明显：少数超级融资轮撑起大盘，中腰部公司融资难度显著上升。AI已成行业标配叙事——没有AI概念几乎无法融资，但AI本身不再构成差异化。真正受青睐的是"聚焦特定临床路径+清晰盈利模型+运营效率"的公司。对评估数字健康投后企业价值逻辑具有直接指导意义。</div>
+      <div class="sources">
+        <a href="https://www.fiercehealthcare.com/digital-health/digital-health-startups-raked-4b-q1-12-megadeals-driving-investment-rock-health" target="_blank" class="news-link">Fierce Healthcare</a>
+        <a href="https://www.galengrowth.com/digital-health-q1-2026-trends/" target="_blank" class="news-link">Galen Growth</a>
+        <a href="https://www.beckershospitalreview.com/healthcare-information-technology/digital-health/digital-health-funding-concentrates-5-notes/" target="_blank" class="news-link">Becker's</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-blue">政策·远程医疗</span></div>
+    <div class="item-body">
+      <div class="item-title">数字健康4月趋势：AI渗透临床决策、远程医疗政策更新、医疗人力结构调整</div>
+      <div class="item-kv">
+        <div class="kv"><span>AI渗透</span> 从行政工具升级为临床辅助决策嵌入</div>
+        <div class="kv"><span>远程医疗</span> 政策框架持续演进，报销边界仍在博弈</div>
+        <div class="kv"><span>人力</span> 医疗人员与AI协作模式重构护理流程</div>
+      </div>
+      <div class="item-text">AI在医疗服务领域的应用正从"降低行政成本"升级至"嵌入临床路径"——包括手术规划、影像诊断辅助、实时临床建议等。远程医疗政策在疫情红利褪去后仍在寻找稳定报销框架。对已投数字健康公司的核心问题：AI集成深度是否足以支撑溢价定价？</div>
+      <div class="sources">
+        <a href="https://openloophealth.com/blog/digital-health-trends-news-april-2026" target="_blank" class="news-link">Open Loop Health</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag"><span class="tag tag-purple">并购·整合</span></div>
+    <div class="item-body">
+      <div class="item-title">数字健康进入"结构性整合"期：广平台模式失效，垂直聚焦+运营纪律成新并购逻辑</div>
+      <div class="item-kv">
+        <div class="kv"><span>整合驱动</span> 平台估值泡沫消化后，买方以低价收购细分赛道资产</div>
+        <div class="kv"><span>活跃赛道</span> 慢病管理、行为健康、临床AI工具</div>
+        <div class="kv"><span>退出路径</span> 战略并购 > IPO（短期内）</div>
+      </div>
+      <div class="item-text">Galen Growth分析指出，2026年数字健康M&A逻辑发生根本转变：过去买"平台故事"，现在买"可盈利的垂直单元"。行为健康、慢病管理、术后护理等细分领域出现大量并购机会。对投后企业而言，若缺乏清晰的单位经济，战略并购可能是比IPO更可行的退出路径。</div>
+      <div class="sources">
+        <a href="https://www.galengrowth.com/digital-health-q1-2026-trends/" target="_blank" class="news-link">Galen Growth</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 7: 市场情绪
+════════════════════════════════════════════ -->
+<div class="market-section" id="sec-market">
+  <div class="market-head">
+    <span style="font-size:18px;">📈</span>
+    <div class="market-title">市场情绪</div>
+    <span style="font-size:11px;color:#999;margin-left:auto;">截至 2026-04-11 开盘前</span>
+  </div>
+
+  <div class="mkt-row">
+    <div class="mkt-left">
+      <div class="mkt-label">半导体板块</div>
+      <div class="mkt-val up">强势↑</div>
+      <div class="mkt-change up">台积电Q1超预期 · AMD突破$250</div>
+    </div>
+    <div class="mkt-right">
+      <div class="mkt-label">本周核心驱动</div>
+      <div class="mkt-note">台积电Q1营收同比+35%创历史新高，AMDMeta $600亿大单，Broadcom Google 2031长约锁定，三大消息叠加推动SOX半导体指数全周强势上行。英伟达垄断地位受到结构性挑战，但短期需求端仍维持高景气。</div>
+    </div>
+  </div>
+
+  <div class="mkt-row">
+    <div class="mkt-left">
+      <div class="mkt-label">AI / 科技板块</div>
+      <div class="mkt-val up">偏多↑</div>
+      <div class="mkt-change up">模型发布密集 · 安全治理担忧并存</div>
+    </div>
+    <div class="mkt-right">
+      <div class="mkt-label">情绪分析</div>
+      <div class="mkt-note">GPT-5.4 / Gemini 3.1 / Claude Mythos密集发布，AI能力边界再度刷新。但Mythos因网络安全风险被强制限制分发——这一事件引发市场对AI治理不确定性的担忧，压制部分估值溢价释放。</div>
+    </div>
+  </div>
+
+  <div class="mkt-row">
+    <div class="mkt-left">
+      <div class="mkt-label">生物医药板块</div>
+      <div class="mkt-val neutral">中性→</div>
+      <div class="mkt-change">PDUFA催化剂等待期 · ADC赛道持续活跃</div>
+    </div>
+    <div class="mkt-right">
+      <div class="mkt-label">情绪分析</div>
+      <div class="mkt-note">Q2 PDUFA日历极为密集（减重口服药、血液瘤细胞疗法、HIV新药），市场处于催化剂等待期，风险偏好偏谨慎。ADC与小核酸赛道出海BD热度未退。FDA Q1审批42款创纪录新高提供政策背书。</div>
+    </div>
+  </div>
+
+  <div class="mkt-row">
+    <div class="mkt-left">
+      <div class="mkt-label">医疗器械板块</div>
+      <div class="mkt-val neutral">中性→</div>
+      <div class="mkt-change">FDA人员补充 · AI器械监管待明朗</div>
+    </div>
+    <div class="mkt-right">
+      <div class="mkt-label">情绪分析</div>
+      <div class="mkt-note">FDA计划大规模补充审评人员，缓解前期裁员压力；英美监管互认谈判推进。结构性心脏病（TTVR等）审批进度值得跟踪。AI+医疗器械（SaMD）监管框架落地仍是最大不确定性，但方向明确向好。</div>
+    </div>
+  </div>
+
+  <div class="mkt-row">
+    <div class="mkt-left">
+      <div class="mkt-label">宏观风险</div>
+      <div class="mkt-val down">需关注↓</div>
+      <div class="mkt-change down">中东局势 · 关税博弈 · AI治理监管</div>
+    </div>
+    <div class="mkt-right">
+      <div class="mkt-label">风险提示</div>
+      <div class="mkt-note">中东战事蔓延是芯片供应链的尾部风险（目前实际影响有限）。美国高关税对药品制造布局产生意外反效果。Anthropic Mythos事件预示AI监管政策可能加速出台，给高估值AI公司带来额外不确定性。地缘科技脱钩格局仍在演进。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <strong>mozz.ai</strong> · 前沿产业资讯日报<br>
+  本报告综合 Reuters、CNBC、Bloomberg、TechCrunch、BioPharma Dive、MedTech Dive、Fierce Healthcare、Rock Health 等权威信源<br>
+  仅供参考，不构成投资建议 · 2026年4月11日
+</div>
+
+</body>
+</html>
