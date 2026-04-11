@@ -699,79 +699,43 @@ setTimeout(function(){ window.scrollTo(0,0); }, 300);
 <!-- ══════════════════════════════════════════
      SECTION 7: 市场情绪
 ════════════════════════════════════════════ -->
-<div class="market-section" id="sec-market">
-  <div class="market-head">
-    <span style="font-size:18px;">📈</span>
-    <div class="market-title">市场情绪</div>
-    <span style="font-size:11px;color:#999;margin-left:auto;">截至 2026-04-11 开盘前</span>
-  </div>
-
-  <div class="mkt-row">
-    <div class="mkt-left">
-      <div class="mkt-label">半导体板块</div>
-      <div class="mkt-val up">强势↑</div>
-      <div class="mkt-change up">台积电Q1超预期 · AMD突破$250</div>
+<div class="section sec-market" id="sec-market">
+    <div class="section-head">
+      <span class="section-icon">📈</span>
+      <div class="section-title">市场情绪 &amp; 趋势小结</div>
     </div>
-    <div class="mkt-right">
-      <div class="mkt-label">本周核心驱动</div>
-      <div class="mkt-note">台积电Q1营收同比+35%创历史新高，AMDMeta $600亿大单，Broadcom Google 2031长约锁定，三大消息叠加推动SOX半导体指数全周强势上行。英伟达垄断地位受到结构性挑战，但短期需求端仍维持高景气。</div>
-    </div>
-  </div>
-
-  <div class="mkt-row">
-    <div class="mkt-left">
-      <div class="mkt-label">AI / 科技板块</div>
-      <div class="mkt-val up">偏多↑</div>
-      <div class="mkt-change up">模型发布密集 · 安全治理担忧并存</div>
-    </div>
-    <div class="mkt-right">
-      <div class="mkt-label">情绪分析</div>
-      <div class="mkt-note">GPT-5.4 / Gemini 3.1 / Claude Mythos密集发布，AI能力边界再度刷新。但Mythos因网络安全风险被强制限制分发——这一事件引发市场对AI治理不确定性的担忧，压制部分估值溢价释放。</div>
+    <div class="mkt-list">
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">半导体板块</span><span class="mkt-signal up">强势↑</span></div>
+        <div class="mkt-note">台积电Q1营收同比+35%创历史新高，AMD与Meta签订$600亿GPU大单，Broadcom锁定Google 2031长约；三大消息叠加推动SOX半导体指数强势上行。英伟达H20对华禁令扩大，国内替代路线加速</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">AI / 科技板块</span><span class="mkt-signal up">偏多↑</span></div>
+        <div class="mkt-note">GPT-5.4 / Gemini 3.1 / Claude Mythos密集发布，AI能力边界再度刷新。Mythos因网络安全风险被强制限制分发，引发市场对AI治理不确定性担忧。Arm、Anthropic等相继布局自研AI芯片，英伟达垄断地位面临结构性挑战</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">生物医药板块</span><span class="mkt-signal amber">中性→</span></div>
+        <div class="mkt-note">Q2 PDUFA日历密集（减重口服药、血液瘤细胞疗法、HIV新药），市场处于催化剂等待期，风险偏好偏谨慎。ADC与小核酸赛道出海BD热度未退；FDA Q1审批42款新药创历史记录，政策面正向支撑</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">医疗器械板块</span><span class="mkt-signal amber">中性→</span></div>
+        <div class="mkt-note">FDA计划大规模补充审评人员，缓解前期裁员压力；英美监管互认谈判推进。结构性心脏病（TTVR等）审批进度值得跟踪。AI+医疗器械（SaMD）监管框架方向明确向好，落地时间仍是最大不确定性</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">宏观风险</span><span class="mkt-signal down">需关注↓</span></div>
+        <div class="mkt-note">中东战事蔓延是芯片供应链的尾部风险（目前实际影响有限）。美国高关税对药品制造布局产生意外反效果。Anthropic Mythos事件预示AI监管政策可能加速出台，给高估值AI公司带来额外不确定性。地缘科技脱钩格局仍在演进</div>
+      </div>
     </div>
   </div>
-
-  <div class="mkt-row">
-    <div class="mkt-left">
-      <div class="mkt-label">生物医药板块</div>
-      <div class="mkt-val neutral">中性→</div>
-      <div class="mkt-change">PDUFA催化剂等待期 · ADC赛道持续活跃</div>
-    </div>
-    <div class="mkt-right">
-      <div class="mkt-label">情绪分析</div>
-      <div class="mkt-note">Q2 PDUFA日历极为密集（减重口服药、血液瘤细胞疗法、HIV新药），市场处于催化剂等待期，风险偏好偏谨慎。ADC与小核酸赛道出海BD热度未退。FDA Q1审批42款创纪录新高提供政策背书。</div>
-    </div>
-  </div>
-
-  <div class="mkt-row">
-    <div class="mkt-left">
-      <div class="mkt-label">医疗器械板块</div>
-      <div class="mkt-val neutral">中性→</div>
-      <div class="mkt-change">FDA人员补充 · AI器械监管待明朗</div>
-    </div>
-    <div class="mkt-right">
-      <div class="mkt-label">情绪分析</div>
-      <div class="mkt-note">FDA计划大规模补充审评人员，缓解前期裁员压力；英美监管互认谈判推进。结构性心脏病（TTVR等）审批进度值得跟踪。AI+医疗器械（SaMD）监管框架落地仍是最大不确定性，但方向明确向好。</div>
-    </div>
-  </div>
-
-  <div class="mkt-row">
-    <div class="mkt-left">
-      <div class="mkt-label">宏观风险</div>
-      <div class="mkt-val down">需关注↓</div>
-      <div class="mkt-change down">中东局势 · 关税博弈 · AI治理监管</div>
-    </div>
-    <div class="mkt-right">
-      <div class="mkt-label">风险提示</div>
-      <div class="mkt-note">中东战事蔓延是芯片供应链的尾部风险（目前实际影响有限）。美国高关税对药品制造布局产生意外反效果。Anthropic Mythos事件预示AI监管政策可能加速出台，给高估值AI公司带来额外不确定性。地缘科技脱钩格局仍在演进。</div>
-    </div>
-  </div>
-</div>
 
 <div class="footer">
-  <strong>mozz.ai</strong> · 前沿产业资讯日报<br>
-  本报告综合 Reuters、CNBC、Bloomberg、TechCrunch、BioPharma Dive、MedTech Dive、Fierce Healthcare、Rock Health 等权威信源<br>
-  仅供参考，不构成投资建议 · 2026年4月11日
-</div>
+    <div class="footer-left">
+      来源：EE Times · SemiAnalysis · Bloomberg · CNBC · TechCrunch · BioPharma Dive · MedTech Dive · Rock Health 等 &nbsp;·&nbsp; 由 AI 自动生成，仅供参考，不构成投资建议
+    </div>
+    <div class="footer-right">
+      如需转载请联系 GitHub 作者
+    </div>
+  </div>
 
 <style>
   #pw-overlay {
