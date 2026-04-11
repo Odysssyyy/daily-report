@@ -2,261 +2,251 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script>
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+document.addEventListener('DOMContentLoaded', function(){ window.scrollTo(0,0); });
+window.addEventListener('load', function(){ window.scrollTo(0,0); });
+setTimeout(function(){ window.scrollTo(0,0); }, 0);
+setTimeout(function(){ window.scrollTo(0,0); }, 100);
+setTimeout(function(){ window.scrollTo(0,0); }, 300);
+</script>
 <title>前沿产业资讯日报 2026-04-11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 13px; line-height: 1.6; }
-  a { color: inherit; text-decoration: none; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { -webkit-text-size-adjust: 100%; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @font-face {
+    font-family: "HelvSerifMix";
+    src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
+    unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20A0-20CF, U+2100-214F, U+FF00-FFEF;
+  }
+  body {
+    font-family: "HelvSerifMix", "Noto Sans SC", "PingFang SC", Arial, sans-serif;
+    font-size: 12px; font-weight: 300; line-height: 1.6; color: #1a1a1a; background: #f9f9f7;
+  }
+  .page { max-width: 740px; margin: 0 auto; padding: 36px 40px 52px; background: #fff; min-height: 100vh; }
 
-  /* ── PASSWORD OVERLAY ── */
-  #pw-overlay {
-    position: fixed; inset: 0; background: rgba(10,12,20,0.96);
-    display: flex; align-items: center; justify-content: center; z-index: 9999;
-  }
-  #pw-box {
-    background: #fff; border-radius: 16px; padding: 40px 36px 32px;
-    width: min(90vw, 380px); text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
-  #pw-box .pw-logo { font-size: 28px; font-weight: 800; color: #0066ff; letter-spacing: -1px; margin-bottom: 6px; }
-  #pw-box .pw-sub { font-size: 12px; color: #888; margin-bottom: 24px; }
-  #pw-box input {
-    width: 100%; padding: 12px 16px; border: 1.5px solid #e0e0e0; border-radius: 8px;
-    font-size: 14px; outline: none; margin-bottom: 12px; letter-spacing: 1px;
-    transition: border-color 0.2s;
-  }
-  #pw-box input:focus { border-color: #0066ff; }
-  #pw-box button {
-    width: 100%; padding: 12px; background: #0066ff; color: #fff;
-    border: none; border-radius: 8px; font-size: 14px; font-weight: 600;
-    cursor: pointer; transition: background 0.2s;
-  }
-  #pw-box button:hover { background: #0055dd; }
-  #pw-box .pw-hint { font-size: 11px; color: #aaa; margin-top: 14px; }
-  #pw-box .pw-err { color: #e53935; font-size: 12px; margin-top: 8px; min-height: 16px; }
-
-  /* ── HEADER ── */
+  /* BANNER */
   .header {
-    background: linear-gradient(135deg, #0a0e1a 0%, #0d1b3e 50%, #091428 100%);
-    padding: 28px 24px 22px; position: relative; overflow: hidden;
+    position: sticky; top: 0; z-index: 100;
+    width: calc(100% + 80px); margin: -36px -40px 24px;
+    background: #002847; overflow: hidden; padding: 18px 40px 14px;
   }
   .header::before {
-    content: ''; position: absolute; top: -40px; right: -60px;
-    width: 280px; height: 280px;
-    background: radial-gradient(circle, rgba(0,102,255,0.18) 0%, transparent 70%);
-    border-radius: 50%;
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(0,160,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,160,255,0.07) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none;
   }
-  .header-brand {
-    font-size: 11px; font-weight: 700; letter-spacing: 2px;
-    color: rgba(0,150,255,0.9); text-transform: uppercase; margin-bottom: 4px;
+  .header::after {
+    content: ''; position: absolute; top: -80px; right: -60px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(0,120,255,0.18) 0%, transparent 70%);
+    pointer-events: none;
   }
-  .header-zh {
-    font-size: 22px; font-weight: 800; color: #fff; letter-spacing: 0.5px; line-height: 1.2;
-  }
-  .header-mozz {
-    font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.5px; margin-top: 3px;
-  }
-  .header-date {
-    margin-top: 14px; display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 6px; padding: 5px 12px;
-    font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 500;
+  .header-inner { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 4px; }
+  .header-brand { font-family: "Playfair Display", "Noto Serif SC", Georgia, serif; font-size: 32px; font-weight: 700; color: #ffffff; letter-spacing: -0.5px; line-height: 1.1; }
+  .header-zh { font-family: "Noto Serif SC", Georgia, serif; font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.6); letter-spacing: 3px; margin-top: 4px; }
+  .header-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+  .header-mozz { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; font-style: italic; color: rgba(255,255,255,0.45); letter-spacing: 1.5px; }
+  .header-date { text-align: right; }
+  .header-date .d { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.45); letter-spacing: 1.5px; }
+  .header-deco { position: absolute; right: 30px; bottom: 10px; z-index: 1; opacity: 0.1; pointer-events: none; }
+  @media (max-width: 520px) {
+    .header { margin: -20px -16px 18px; width: calc(100% + 32px); padding: 14px 16px 12px; }
+    .header-brand { font-size: clamp(15px, 4.2vw, 24px); letter-spacing: -0.5px; white-space: nowrap; overflow: hidden; }
+    .header-zh { font-size: 15px; letter-spacing: 2px; }
+    .header-bottom { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-end; }
+    .header-mozz { font-size: 10px; }
+    .header-date .d { font-size: 11px; }
   }
 
-  /* ── NAV ── */
-  .nav-bar {
-    display: flex; gap: 4px; flex-wrap: wrap; padding: 10px 16px;
-    background: #fff; border-bottom: 1px solid #e8eaf0; position: sticky; top: 0; z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  .nav-bar a {
-    font-size: 11px; font-weight: 600; color: #555;
-    padding: 4px 9px; border-radius: 20px; background: #f5f5f5;
-    transition: all 0.2s; white-space: nowrap;
-  }
-  .nav-bar a:hover { background: #0066ff; color: #fff; }
+  /* LEAD */
+  .lead { background: linear-gradient(135deg, #0a5f76 0%, #0e8fa8 50%, #0a7a9a 100%); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 12px rgba(10,95,118,0.25); padding: 14px 18px; border-radius: 8px; margin-bottom: 22px; display: flex; gap: 24px; }
+  .lead-item { flex: 1; }
+  .lead-item .li-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #a8e6f0; margin-bottom: 4px; }
+  .lead-item .li-title { font-size: 12px; font-weight: 500; line-height: 1.45; color: #fff; }
+  .lead-item .li-sub { font-size: 10px; color: #b8dce8; margin-top: 3px; }
+  .lead-divider { width: 1px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
 
-  /* ── LEAD ── */
-  .lead {
-    display: flex; gap: 0; background: linear-gradient(135deg, #001a4d 0%, #002060 100%);
-    margin: 0; padding: 0;
-  }
-  .lead-item { flex: 1; padding: 16px 20px; }
-  .lead-divider { width: 1px; background: rgba(255,255,255,0.12); }
-  .li-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #4dabf7; margin-bottom: 5px; text-transform: uppercase; }
-  .li-title { font-size: 13px; font-weight: 700; color: #fff; line-height: 1.4; margin-bottom: 4px; }
-  .li-sub { font-size: 11px; color: rgba(255,255,255,0.55); }
-  @media (max-width: 600px) { .lead { flex-direction: column; } .lead-divider { width: auto; height: 1px; } }
+  /* SECTION */
+  .section { scroll-margin-top: 16px; margin-bottom: 18px; background: #f7f9fc; border-radius: 8px; padding: 14px 16px 10px; border: 1px solid #eaeef4; }
+  .section.sec-semi    { background: #f5f7fb; border-color: #e4eaf4; }
+  .section.sec-ai-hw   { background: #f4f9f5; border-color: #dff0e3; }
+  .section.sec-ai-app  { background: #fdf6f6; border-color: #f5e4e4; }
+  .section.sec-pharma  { background: #fdf9f4; border-color: #f0e8d8; }
+  .section.sec-device  { background: #f5f8fd; border-color: #dce8f5; }
+  .section.sec-service { background: #f8f5fd; border-color: #e8ddf5; }
+  .section.sec-market  { background: #f6f6f6; border-color: #e8e8e8; }
+  .section-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .section-icon { font-size: 13px; }
+  .section-title { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #003057; }
+  .section-count { font-size: 9px; color: #bbb; margin-left: auto; }
 
-  /* ── SECTION ── */
-  .section { background: #fff; margin: 12px 12px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
-  .section:last-child { margin-bottom: 12px; }
-  .section-head {
-    display: flex; align-items: center; gap: 10px;
-    padding: 14px 18px 12px; border-bottom: 1px solid #f0f2f5;
-    background: linear-gradient(90deg, #fafbff 0%, #fff 100%);
-  }
-  .section-icon { font-size: 18px; }
-  .section-title { font-size: 15px; font-weight: 800; color: #111; flex: 1; }
-  .section-count { font-size: 11px; color: #999; background: #f5f5f5; padding: 2px 8px; border-radius: 10px; }
-
-  /* ── ITEM ── */
-  .item { display: flex; gap: 0; padding: 14px 18px; border-bottom: 1px solid #f4f5f8; transition: background 0.15s; }
+  /* NEWS ITEM */
+  .item { display: grid; grid-template-columns: 54px 1fr; gap: 0 18px; padding: 10px 0; border-bottom: 1px solid #f2f2f2; }
   .item:last-child { border-bottom: none; }
-  .item:hover { background: #fafbff; }
-  .item-tag { width: 72px; min-width: 72px; padding-top: 2px; }
-  .item-body { flex: 1; }
-  .item-title { font-size: 13px; font-weight: 700; color: #111; line-height: 1.4; margin-bottom: 6px; }
-  .item-kv { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 7px; }
-  .kv { font-size: 11px; color: #555; }
-  .kv span { font-weight: 700; color: #333; margin-right: 3px; }
-  .item-text { font-size: 12px; color: #666; line-height: 1.6; margin-bottom: 8px; }
-  .sources { display: flex; flex-wrap: wrap; gap: 6px; }
-  .news-link, .src {
-    font-size: 10px; font-weight: 600; color: #0066ff;
-    background: #f0f5ff; border: 1px solid #d0e3ff;
-    padding: 2px 8px; border-radius: 10px;
-    transition: all 0.2s;
+  .item-tag { padding-top: 2px; }
+  .item-tag .tag { margin-bottom: 8px; display: block; width: fit-content; }
+  .tag { display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: 0.3px; padding: 2px 5px; border-radius: 2px; white-space: nowrap; }
+  .tag-red    { background: #fde8e8; color: #c0392b; }
+  .tag-blue   { background: #e8f0fe; color: #1a56a0; }
+  .tag-green  { background: #e8f5e9; color: #1e7e34; }
+  .tag-amber  { background: #fff3e0; color: #c57600; }
+  .tag-star   { background: #003057; color: #fff; }
+  .tag-purple { background: #f3e8ff; color: #6b21a8; }
+  .item-title { font-size: 12.5px; font-weight: 500; color: #111; line-height: 1.45; margin-bottom: 3px; }
+  .item-text { font-size: 11px; color: #555; line-height: 1.6; margin-bottom: 5px; }
+  .item-text strong { color: #222; font-weight: 500; }
+  .item-kv { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 5px; }
+  .kv { font-size: 10.5px; color: #444; }
+  .kv span { color: #888; font-size: 10px; }
+  .sources { display: flex; gap: 6px; flex-wrap: wrap; }
+  .src { font-size: 10px; color: #1a56a0; text-decoration: none; border-bottom: 1px solid #c8d9f0; padding-bottom: 0px; }
+  .src:hover { color: #003057; border-color: #003057; }
+  @media (max-width: 520px) {
+    .page { padding: 20px 16px 40px; }
+    .lead { flex-direction: column; gap: 14px; padding: 12px 14px; }
+    .lead-divider { width: 100%; height: 1px; }
+    .section { padding: 12px 12px 8px; border-radius: 6px; }
+    .section-title { font-size: 11px; letter-spacing: 1px; }
+    .item { grid-template-columns: 1fr; gap: 6px 0; padding: 10px 0; }
+    .item-tag { display: flex; flex-wrap: wrap; gap: 4px; padding-top: 0; }
+    .item-tag .tag { margin-bottom: 0; }
+    .item-title { font-size: 12px; }
+    .item-text { font-size: 10.5px; }
+    .kv { font-size: 10px; }
   }
-  .news-link:hover, .src:hover { background: #0066ff; color: #fff; border-color: #0066ff; }
 
-  /* ── TAGS ── */
-  .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.3px; white-space: nowrap; }
-  .tag-green  { background: #e8f5e9; color: #2e7d32; }
-  .tag-blue   { background: #e3f2fd; color: #1565c0; }
-  .tag-red    { background: #fce4ec; color: #c62828; }
-  .tag-amber  { background: #fff8e1; color: #e65100; }
-  .tag-purple { background: #f3e5f5; color: #6a1b9a; }
-  .tag-gray   { background: #f5f5f5; color: #555; }
-  .tag-teal   { background: #e0f2f1; color: #00695c; }
-  .tag-orange { background: #fff3e0; color: #bf360c; }
-
-  /* ── MARKET SECTION ── */
-  .market-section { background: #fff; margin: 12px 12px 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
-  .market-head { padding: 14px 18px 12px; border-bottom: 1px solid #f0f2f5; background: linear-gradient(90deg, #fafbff 0%, #fff 100%); display: flex; align-items: center; gap: 10px; }
-  .market-title { font-size: 15px; font-weight: 800; color: #111; }
-  .mkt-row { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid #f4f5f8; }
+  /* 市场情绪 */
+  .mkt-list { display: flex; flex-direction: column; gap: 8px; }
+  .mkt-row { display: flex; align-items: baseline; gap: 10px; padding: 7px 0; border-bottom: 1px solid #f0f0f0; flex-wrap: wrap; }
   .mkt-row:last-child { border-bottom: none; }
-  .mkt-left { padding: 12px 18px; flex: 1; min-width: 160px; }
-  .mkt-right { padding: 12px 18px; flex: 2; min-width: 200px; border-left: 1px solid #f4f5f8; }
-  .mkt-label { font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
-  .mkt-val { font-size: 18px; font-weight: 800; }
-  .mkt-val.up { color: #2e7d32; }
-  .mkt-val.down { color: #c62828; }
-  .mkt-val.neutral { color: #555; }
-  .mkt-change { font-size: 11px; font-weight: 600; margin-top: 2px; }
-  .mkt-change.up { color: #43a047; }
-  .mkt-change.down { color: #e53935; }
-  .mkt-note { font-size: 12px; color: #555; line-height: 1.6; }
-  @media (max-width: 520px) { .mkt-left { min-width: unset; width: 100%; } .mkt-right { border-left: none; border-top: 1px solid #f4f5f8; } }
-
-  /* ── FLOAT NAV ── */
-  .float-nav {
-    position: fixed; right: 12px; top: 50%; transform: translateY(-50%);
-    display: flex; flex-direction: column; gap: 8px; z-index: 200;
+  .mkt-left { display: flex; align-items: center; gap: 7px; flex-shrink: 0; min-width: 160px; }
+  .mkt-topic { font-size: 11px; font-weight: 500; color: #222; white-space: nowrap; }
+  .mkt-signal { font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 3px; white-space: nowrap; }
+  .mkt-signal.up    { background: #e8f5e9; color: #1e7e34; }
+  .mkt-signal.amber { background: #fff3e0; color: #c57600; }
+  .mkt-signal.down  { background: #fde8e8; color: #c0392b; }
+  .mkt-note { font-size: 10.5px; color: #666; line-height: 1.55; flex: 1; min-width: 160px; }
+  @media (max-width: 520px) {
+    .mkt-left { min-width: unset; width: 100%; }
+    .mkt-note { min-width: unset; width: 100%; font-size: 10px; }
+    .mkt-row  { gap: 5px; }
   }
-  .float-nav-item {
-    display: flex; align-items: center; gap: 6px; cursor: pointer;
-    background: rgba(255,255,255,0.95); border-radius: 20px;
-    padding: 5px 10px 5px 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-    transition: all 0.2s;
-  }
-  .float-nav-item:hover { background: #0066ff; }
-  .float-nav-item:hover .float-nav-label { color: #fff; }
-  .float-nav-item:hover .float-nav-dot { background: #fff; }
-  .float-nav-label { font-size: 10px; font-weight: 600; color: #333; white-space: nowrap; }
-  .float-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #0066ff; flex-shrink: 0; }
-  @media (max-width: 768px) { .float-nav { display: none; } }
 
-  /* ── FOOTER ── */
-  .footer { text-align: center; padding: 24px 16px 32px; color: #bbb; font-size: 11px; line-height: 1.8; }
-  .footer strong { color: #888; }
+  /* 导航 */
+  .nav-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; justify-content: center; align-items: center; }
+  .nav-bar a { font-size: 10px; font-weight: 500; color: #003057; background: #eef3fa; border: 1px solid #d0dff0; border-radius: 20px; padding: 4px 10px; text-decoration: none; white-space: nowrap; transition: background .15s, color .15s; }
+  .nav-bar a:hover, .nav-bar a:active { background: #003057; color: #fff; border-color: #003057; }
+  @media (max-width: 520px) { .nav-bar a { font-size: 9.5px; padding: 3px 9px; } }
+
+  /* 悬浮导航 */
+  .float-nav { position: fixed; left: calc(50% + 390px); top: 50%; transform: translateY(-50%); z-index: 888; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .float-nav-item { position: relative; width: 14px; height: 14px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .float-nav-dot { width: 8px; height: 8px; border-radius: 50%; background: #003057; opacity: 0.3; flex-shrink: 0; transition: opacity .2s, transform .2s; box-shadow: 0 1px 4px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; font-size: 8px; color: #fff; line-height: 1; }
+  .float-nav-label { position: absolute; right: calc(100% + 8px); top: 50%; transform: translateY(-50%) translateX(4px); display: flex; align-items: center; gap: 5px; background: #003057; color: #fff; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px; white-space: nowrap; opacity: 0; transition: opacity .2s, transform .2s; pointer-events: none; box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+  .float-nav-item:hover .float-nav-dot { opacity: 1; transform: scale(1.3); }
+  .float-nav-item:hover .float-nav-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+  .float-nav-item.top-btn .float-nav-dot { opacity: 1; background: transparent; box-shadow: none; font-size: 10px; color: #002847; width: auto; height: auto; border-radius: 0; }
+  @media (max-width: 700px) {
+    .float-nav { left: auto; right: 8px; top: auto; bottom: 120px; transform: none; }
+    .float-nav-label { right: calc(100% + 8px); transform: translateY(-50%) translateX(4px); }
+    .float-nav-item:hover .float-nav-label { opacity: 0; }
+    .float-nav-label.show-click { opacity: 1 !important; transform: translateY(-50%) translateX(0) !important; }
+  }
+
+  /* Footer */
+  .footer { margin-top: 30px; padding-top: 12px; border-top: 1px solid #e8e8e8; display: flex; justify-content: space-between; align-items: center; }
+  .footer-left { font-size: 9.5px; color: #bbb; line-height: 1.5; }
+  .footer-right { font-size: 9.5px; color: #ccc; text-align: right; }
+  @media (max-width: 520px) {
+    .footer { flex-direction: row; align-items: center; flex-wrap: nowrap; gap: 0; }
+    .footer-left { font-size: 8.5px; line-height: 1.4; flex: 1; min-width: 0; }
+    .footer-right { font-size: 8.5px; flex-shrink: 0; margin-left: 8px; }
+  }
+  .down { color: #c0392b; font-weight: 500; }
+  .up   { color: #1e7e34; font-weight: 500; }
 </style>
 </head>
 <body>
+<div class="page">
 
-<!-- ── PASSWORD OVERLAY ── -->
-<div id="pw-overlay">
-  <div id="pw-box">
-    <div class="pw-logo">mozz.ai</div>
-    <div class="pw-sub">前沿产业资讯日报 · 访问验证</div>
-    <input type="password" id="pw-input" placeholder="请输入访问密码" autocomplete="off" />
-    <button onclick="checkPw()">进入日报</button>
-    <div class="pw-hint">示例格式：xxxx0331，不区分大小写</div>
-    <div class="pw-err" id="pw-err"></div>
+  <!-- Header -->
+  <div class="header">
+    <svg class="header-deco" width="220" height="220" viewBox="0 0 220 220" fill="none">
+      <circle cx="110" cy="110" r="105" stroke="white" stroke-width="1"/>
+      <circle cx="110" cy="110" r="75" stroke="white" stroke-width="0.5"/>
+      <circle cx="110" cy="110" r="45" stroke="white" stroke-width="0.5"/>
+      <line x1="5" y1="110" x2="215" y2="110" stroke="white" stroke-width="0.5"/>
+      <line x1="110" y1="5" x2="110" y2="215" stroke="white" stroke-width="0.5"/>
+      <circle cx="110" cy="110" r="3" fill="white"/>
+    </svg>
+    <div class="header-inner">
+      <div class="header-brand">Frontier Industry Info Daily Report</div>
+      <div class="header-zh">前沿产业资讯日报</div>
+      <div class="header-bottom">
+        <div class="header-mozz">by mozz.ai</div>
+        <div class="header-date">
+          <div class="d">26/04/11 Sat</div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<script>
-(function(){
-  var key = 'pw_ok_20260411';
-  if(sessionStorage.getItem(key)==='1'){ document.getElementById('pw-overlay').style.display='none'; }
-  document.getElementById('pw-input').addEventListener('keydown',function(e){ if(e.key==='Enter') checkPw(); });
-})();
-function checkPw(){
-  var v = document.getElementById('pw-input').value.trim().toLowerCase();
-  if(v==='mozz0411'){
-    sessionStorage.setItem('pw_ok_20260411','1');
-    document.getElementById('pw-overlay').style.display='none';
-  } else {
-    document.getElementById('pw-err').textContent='密码错误，请重试';
-    document.getElementById('pw-input').value='';
-  }
-}
-function scrollToSection(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }
-</script>
 
-<!-- ── HEADER ── -->
-<div class="header">
-  <div class="header-brand">Frontier Industry Info Daily Report</div>
-  <div class="header-zh">前沿产业资讯日报</div>
-  <div class="header-mozz">by mozz.ai</div>
-  <div class="header-date">📅 2026年4月11日（周六）</div>
-</div>
+  <!-- 悬浮导航 -->
+  <div class="float-nav">
+    <div class="float-nav-item top-btn" id="float-top-btn" onclick="floatTopClick()">
+      <div class="float-nav-label">回到顶部</div>
+      <div class="float-nav-dot">▲</div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-semi')">
+      <div class="float-nav-label">🛠 半导体硬件</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-ai-hw')">
+      <div class="float-nav-label">💻 AI 硬件</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-ai-app')">
+      <div class="float-nav-label">🤖 AI 应用</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-pharma')">
+      <div class="float-nav-label">💊 创新药</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-device')">
+      <div class="float-nav-label">🔬 医疗器械</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-service')">
+      <div class="float-nav-label">🏨 医疗服务</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-market')">
+      <div class="float-nav-label">📈 市场情绪</div>
+      <div class="float-nav-dot"></div>
+    </div>
+  </div>
 
-<!-- ── FLOAT NAV ── -->
-<div class="float-nav">
-  <div class="float-nav-item" onclick="scrollToSection('sec-semi')">
-    <div class="float-nav-label">🛠 半导体硬件</div>
-    <div class="float-nav-dot"></div>
-  </div>
-  <div class="float-nav-item" onclick="scrollToSection('sec-ai-hw')">
-    <div class="float-nav-label">💻 AI 硬件</div>
-    <div class="float-nav-dot"></div>
-  </div>
-  <div class="float-nav-item" onclick="scrollToSection('sec-ai-app')">
-    <div class="float-nav-label">🤖 AI 应用</div>
-    <div class="float-nav-dot"></div>
-  </div>
-  <div class="float-nav-item" onclick="scrollToSection('sec-pharma')">
-    <div class="float-nav-label">💊 创新药</div>
-    <div class="float-nav-dot"></div>
-  </div>
-  <div class="float-nav-item" onclick="scrollToSection('sec-device')">
-    <div class="float-nav-label">🔬 医疗器械</div>
-    <div class="float-nav-dot"></div>
-  </div>
-  <div class="float-nav-item" onclick="scrollToSection('sec-service')">
-    <div class="float-nav-label">🏨 医疗服务</div>
-    <div class="float-nav-dot"></div>
-  </div>
-  <div class="float-nav-item" onclick="scrollToSection('sec-market')">
-    <div class="float-nav-label">📈 市场情绪</div>
-    <div class="float-nav-dot"></div>
-  </div>
-</div>
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <span style="font-size:10px;color:#555;font-weight:600;white-space:nowrap;align-self:center;">点击直达👉</span>
+    <a href="#sec-semi">🛠 半导体硬件</a>
+    <a href="#sec-ai-hw">💻 AI 硬件</a>
+    <a href="#sec-ai-app">🤖 AI 应用</a>
+    <a href="#sec-pharma">💊 创新药</a>
+    <a href="#sec-device">🔬 医疗器械</a>
+    <a href="#sec-service">🏨 医疗服务</a>
+    <a href="#sec-market">📈 市场情绪</a>
+  </nav>
 
-<!-- ── NAV BAR ── -->
-<nav class="nav-bar"><span style="font-size:10px;color:#555;font-weight:600;white-space:nowrap;align-self:center;">点击直达👉</span>
-  <a href="#sec-semi">🛠 半导体硬件</a>
-  <a href="#sec-ai-hw">💻 AI 硬件</a>
-  <a href="#sec-ai-app">🤖 AI 应用</a>
-  <a href="#sec-pharma">💊 创新药</a>
-  <a href="#sec-device">🔬 医疗器械</a>
-  <a href="#sec-service">🏨 医疗服务</a>
-  <a href="#sec-market">📈 市场情绪</a>
-</nav>
-
-<!-- ── LEAD ── -->
+  <!-- Lead: 今日置顶 2 条 -->
+  <!-- ── LEAD ── -->
 <div class="lead">
   <div class="lead-item">
     <div class="li-label">⭐ Today's Lead</div>
@@ -782,6 +772,172 @@ function scrollToSection(id){ var el=document.getElementById(id); if(el) el.scro
   本报告综合 Reuters、CNBC、Bloomberg、TechCrunch、BioPharma Dive、MedTech Dive、Fierce Healthcare、Rock Health 等权威信源<br>
   仅供参考，不构成投资建议 · 2026年4月11日
 </div>
+
+<style>
+  #pw-overlay {
+    position: fixed; inset: 0; background: rgba(0,20,40,0.92);
+    z-index: 9999; display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(6px);
+  }
+  #pw-box {
+    background: #fff; border-radius: 16px; padding: 36px 32px 28px;
+    width: 320px; max-width: 90vw;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center;
+  }
+  #pw-box .pw-logo {
+    font-family: "Playfair Display", "Noto Serif SC", Georgia, serif;
+    font-size: 15px; font-weight: 700; color: #003057; margin-bottom: 6px;
+  }
+  #pw-box .pw-hint { font-size: 12px; color: #aaa; margin-bottom: 20px; line-height: 1.6; }
+  #pw-input {
+    width: 100%; padding: 11px 14px; border: 1.5px solid #ddd; border-radius: 8px;
+    font-size: 14px; font-family: "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 1px; outline: none; transition: border-color .2s;
+    box-sizing: border-box; text-align: center;
+  }
+  #pw-input:focus { border-color: #003057; }
+  #pw-input.error { border-color: #e53935; animation: shake .3s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  #pw-btn {
+    margin-top: 14px; width: 100%; padding: 11px;
+    background: #003057; color: #fff; border: none; border-radius: 8px;
+    font-size: 14px; font-weight: 500; cursor: pointer; transition: background .15s;
+  }
+  #pw-btn:hover { background: #004b8d; }
+  #pw-error { margin-top: 10px; font-size: 12px; color: #e53935; min-height: 16px; }
+</style>
+
+<div id="pw-overlay">
+  <div id="pw-box">
+    <div class="pw-logo">Frontier Industry Info Hub</div>
+    <div class="pw-hint">
+      <b>My Puppy's name + today's date</b><br>
+      示例格式：<b style="color:#555;">xxxx0331</b>，不区分大小写
+    </div>
+    <input id="pw-input" type="text" placeholder="输入密码" autocomplete="off" spellcheck="false" />
+    <button id="pw-btn">进入</button>
+    <div id="pw-error"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var ANSWER = 'mozz0411';
+  var input   = document.getElementById('pw-input');
+  var btn     = document.getElementById('pw-btn');
+  var err     = document.getElementById('pw-error');
+  var overlay = document.getElementById('pw-overlay');
+
+  function lockBody() {
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+  }
+  function unlockBody() {
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+  }
+  function scrollTop() {
+    window.scrollTo(0, 0);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 0);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 50);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 150);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 300);
+  }
+  function check() {
+    if (input.value.trim().toLowerCase() === ANSWER) {
+      overlay.style.display = 'none';
+      unlockBody();
+      scrollTop();
+      sessionStorage.setItem('pw_ok_20260411', '1');
+    } else {
+      err.textContent = '密码错误，请重试';
+      input.classList.add('error');
+      setTimeout(function(){ input.classList.remove('error'); }, 400);
+      input.value = '';
+      input.focus();
+    }
+  }
+  if (sessionStorage.getItem('pw_ok_20260411') === '1') {
+    overlay.style.display = 'none';
+    unlockBody();
+    scrollTop();
+  } else {
+    lockBody();
+    input.focus();
+  }
+  btn.addEventListener('click', check);
+  input.addEventListener('keydown', function(e) { if (e.key === 'Enter') check(); });
+})();
+</script>
+
+<script>
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var banner = document.querySelector('.header');
+  var bannerH = banner ? banner.offsetHeight : 0;
+  var top = el.getBoundingClientRect().top + window.pageYOffset - bannerH - 8;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+}
+</script>
+<script>
+function floatTopClick() {
+  window.scrollTo({top:0, behavior:'smooth'});
+  var label = document.querySelector('#float-top-btn .float-nav-label');
+  if (label) {
+    label.classList.add('show-click');
+    clearTimeout(label._hideTimer);
+    label._hideTimer = setTimeout(function(){ label.classList.remove('show-click'); }, 500);
+  }
+}
+document.querySelectorAll('.float-nav-item:not(.top-btn)').forEach(function(item) {
+  item.addEventListener('click', function() {
+    var label = item.querySelector('.float-nav-label');
+    if (label) {
+      label.classList.add('show-click');
+      clearTimeout(label._hideTimer);
+      label._hideTimer = setTimeout(function(){ label.classList.remove('show-click'); }, 500);
+    }
+  });
+});
+var NAV_MAP = [
+  { id: 'sec-semi',    dot: document.querySelector('.float-nav-item:nth-child(2) .float-nav-dot') },
+  { id: 'sec-ai-hw',  dot: document.querySelector('.float-nav-item:nth-child(3) .float-nav-dot') },
+  { id: 'sec-ai-app', dot: document.querySelector('.float-nav-item:nth-child(4) .float-nav-dot') },
+  { id: 'sec-pharma', dot: document.querySelector('.float-nav-item:nth-child(5) .float-nav-dot') },
+  { id: 'sec-device', dot: document.querySelector('.float-nav-item:nth-child(6) .float-nav-dot') },
+  { id: 'sec-service',dot: document.querySelector('.float-nav-item:nth-child(7) .float-nav-dot') },
+  { id: 'sec-market', dot: document.querySelector('.float-nav-item:nth-child(8) .float-nav-dot') },
+];
+function updateNavHighlight() {
+  var scrollY = window.scrollY || window.pageYOffset;
+  var winH = window.innerHeight;
+  var active = null;
+  for (var i = NAV_MAP.length - 1; i >= 0; i--) {
+    var el = document.getElementById(NAV_MAP[i].id);
+    if (el && el.getBoundingClientRect().top <= winH * 0.4) {
+      active = i;
+      break;
+    }
+  }
+  NAV_MAP.forEach(function(item, idx) {
+    if (!item.dot) return;
+    if (idx === active) {
+      item.dot.style.opacity = '1';
+      item.dot.style.background = '#0c6e87';
+      item.dot.style.transform = 'scale(1.4)';
+    } else {
+      item.dot.style.opacity = '0.3';
+      item.dot.style.background = '#003057';
+      item.dot.style.transform = '';
+    }
+  });
+}
+window.addEventListener('scroll', updateNavHighlight, { passive: true });
+updateNavHighlight();
+</script>
 
 </body>
 </html>
