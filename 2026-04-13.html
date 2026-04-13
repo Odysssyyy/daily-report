@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前沿产业资讯日报 · 2026/04/13</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 15px; }
+  body {
+    font-family: 'Inter', 'PingFang SC', 'Helvetica Neue', sans-serif;
+    background: #0d0d12;
+    color: #e2e2ec;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ===== PASSWORD OVERLAY ===== */
+  #pw-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(10,10,18,0.97);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #pw-box {
+    background: #16161f;
+    border: 1px solid #2a2a3a;
+    border-radius: 16px;
+    padding: 40px 48px;
+    text-align: center;
+    width: min(420px, 92vw);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  }
+  #pw-box .pw-logo {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+  #pw-box h2 {
+    font-size: 1.15rem;
+    color: #c8c8e0;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  #pw-box .pw-hint {
+    font-size: 0.78rem;
+    color: #6b6b88;
+    margin-bottom: 24px;
+  }
+  #pw-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #2e2e42;
+    background: #0d0d17;
+    color: #e2e2ec;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 12px;
+    letter-spacing: 0.08em;
+  }
+  #pw-input:focus { border-color: #7c6ff7; }
+  #pw-submit {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #7c6ff7, #5b8af5);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  #pw-submit:hover { opacity: 0.9; }
+  #pw-error {
+    color: #f07575;
+    font-size: 0.82rem;
+    margin-top: 10px;
+    min-height: 18px;
+  }
+
+  /* ===== PAGE ===== */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: relative;
+    padding: 48px 0 36px;
+    overflow: hidden;
+  }
+  .header-deco {
+    position: absolute;
+    top: 0; right: -60px;
+    width: 420px; height: 200px;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+  .header-inner { position: relative; z-index: 1; }
+  .header-brand {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7c6ff7;
+    margin-bottom: 6px;
+  }
+  .header-zh {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(120deg, #e8e6ff 0%, #a89df5 60%, #5b8af5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .header-bottom {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header-mozz {
+    font-size: 0.78rem;
+    color: #5b5b78;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+  .header-date .d {
+    font-size: 0.88rem;
+    color: #888aaa;
+    background: #1a1a28;
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid #2a2a3c;
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-bottom: 40px;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1e1e2e;
+  }
+  .section-icon { font-size: 1.3rem; }
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #d4d0ff;
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== NEWS CARD ===== */
+  .news-list { display: flex; flex-direction: column; gap: 14px; }
+  .news-card {
+    background: #13131e;
+    border: 1px solid #1f1f30;
+    border-radius: 12px;
+    padding: 16px 20px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .news-card:hover {
+    border-color: #3a3a58;
+    transform: translateY(-1px);
+  }
+  .news-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .news-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tag-semi   { background: #1e253a; color: #6ea8ff; border: 1px solid #253050; }
+  .tag-ai     { background: #1e2b2a; color: #52d9c0; border: 1px solid #1e3532; }
+  .tag-drug   { background: #2a1e36; color: #c07df5; border: 1px solid #3a2550; }
+  .tag-device { background: #1e2e20; color: #65d97d; border: 1px solid #1e3a20; }
+  .tag-health { background: #2e2318; color: #f0b05a; border: 1px solid #3e2e1a; }
+  .news-headline {
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: #dcdcf0;
+    line-height: 1.4;
+    flex: 1;
+  }
+  .news-body {
+    font-size: 0.84rem;
+    color: #8888a8;
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .news-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .news-meta {
+    font-size: 0.75rem;
+    color: #5a5a78;
+  }
+  .news-link {
+    font-size: 0.75rem;
+    color: #7c6ff7;
+    font-weight: 500;
+    border: 1px solid #2e2a50;
+    padding: 3px 10px;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .news-link:hover { background: #1e1a38; }
+
+  /* ===== SIGNAL BADGE ===== */
+  .signal {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.04em;
+  }
+  .signal-hot  { background: #3a1818; color: #f07070; border: 1px solid #5a2020; }
+  .signal-new  { background: #1a2e3a; color: #6ac0f0; border: 1px solid #1e3a50; }
+  .signal-deal { background: #2a2a18; color: #d4c040; border: 1px solid #3a3a20; }
+  .signal-risk { background: #2e2018; color: #f0905a; border: 1px solid #3e2a18; }
+
+  /* ===== MARKET SECTION ===== */
+  .sec-market .mkt-list { display: flex; flex-direction: column; gap: 12px; }
+  .mkt-row {
+    background: #13131e;
+    border: 1px solid #1f1f30;
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .mkt-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .mkt-topic {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #c8c8e8;
+  }
+  .mkt-signal {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 5px;
+    letter-spacing: 0.06em;
+  }
+  .mkt-signal.up    { background: #1a3020; color: #5ad88a; border: 1px solid #1e4028; }
+  .mkt-signal.amber { background: #2e2818; color: #d4b050; border: 1px solid #3a3020; }
+  .mkt-signal.down  { background: #2e1818; color: #f07070; border: 1px solid #3a2020; }
+  .mkt-note {
+    font-size: 0.82rem;
+    color: #7070a0;
+    line-height: 1.55;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    margin-top: 50px;
+    padding-top: 22px;
+    border-top: 1px solid #1a1a2a;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-left {
+    font-size: 0.75rem;
+    color: #4a4a68;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+  .footer-right {
+    font-size: 0.75rem;
+    color: #3a3a58;
+  }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD OVERLAY -->
+<div id="pw-overlay">
+  <div id="pw-box">
+    <div class="pw-logo">🔒</div>
+    <h2>前沿产业资讯日报</h2>
+    <div class="pw-hint">示例格式：xxxx0331，不区分大小写</div>
+    <input type="password" id="pw-input" placeholder="请输入访问密码" autocomplete="off" />
+    <button id="pw-submit">进入</button>
+    <div id="pw-error"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var KEY = 'pw_ok_20260413';
+  var PASS = 'mozz0413';
+  if (sessionStorage.getItem(KEY) === '1') {
+    document.getElementById('pw-overlay').style.display = 'none';
+  }
+  function check() {
+    var v = document.getElementById('pw-input').value.trim().toLowerCase();
+    if (v === PASS) {
+      sessionStorage.setItem(KEY, '1');
+      document.getElementById('pw-overlay').style.display = 'none';
+    } else {
+      document.getElementById('pw-error').textContent = '密码错误，请重试';
+      document.getElementById('pw-input').value = '';
+    }
+  }
+  document.getElementById('pw-submit').addEventListener('click', check);
+  document.getElementById('pw-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') check();
+  });
+})();
+</script>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <svg class="header-deco" viewBox="0 0 420 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="300" cy="80" rx="220" ry="120" fill="url(#hg)" />
+      <defs>
+        <radialGradient id="hg" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#7c6ff7"/>
+          <stop offset="100%" stop-color="#5b8af5" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+    </svg>
+    <div class="header-inner">
+      <div class="header-brand">Frontier Industry Info Daily Report</div>
+      <div class="header-zh">前沿产业资讯日报</div>
+      <div class="header-bottom">
+        <div class="header-mozz">by mozz.ai</div>
+        <div class="header-date"><div class="d">26/04/13 Monday</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: 半导体 / AI 硬件 -->
+  <div class="section" id="sec-semi">
+    <div class="section-head">
+      <span class="section-icon">💾</span>
+      <div class="section-title">半导体 &amp; AI 硬件</div>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-semi">半导体</span>
+          <div class="news-headline">Intel 与 Tesla、SpaceX 签订 Terafab 协议，马斯克系企业成晶圆厂锚定客户 <span class="signal signal-hot">重大合作</span></div>
+        </div>
+        <div class="news-body">Intel 宣布与 Tesla、SpaceX 及 xAI 签署 Terafab 制造合作协议，三家马斯克旗下企业将作为 Intel 晶圆代工扩产计划的锚定客户。分析师 Yole 指出 Terafab 更可能是 Intel 现有晶圆厂扩容，而非独立新合资体。值得关注的是，Intel 德克萨斯州厂区毗邻美国本土氦气储备，供应链安全相对占优；但裸晶圆仍高度依赖亚洲供应商。投后视角：对国内晶圆代工生态形成竞争压力，同时验证美国制造回流叙事可持续性。</div>
+        <div class="news-footer">
+          <span class="news-meta">EE Times · Apr 12, 2026</span>
+          <a href="https://www.eetimes.com/intel-enters-pact-with-tesla-and-spacex-for-terafab/" target="_blank" class="news-link">EE Times</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-semi">AI芯片</span>
+          <div class="news-headline">SiFive 完成 4 亿美元 G 轮，估值 36.5 亿美元，押注 Agentic AI 数据中心 CPU <span class="signal signal-deal">$400M G轮</span></div>
+        </div>
+        <div class="news-body">RISC-V 芯片公司 SiFive 完成 4 亿美元 G 轮融资，估值升至 36.5 亿美元。公司将加速面向数据中心 Agentic AI 工作负载的 CPU 路线图。随着 AI 推理从 GPU 中心向多样化算力演进，RISC-V 生态迎来新一轮机构资本背书。投后视角：国内 RISC-V 企业（如平头哥、玄铁）需关注 SiFive 在数据中心侧的产品定位升级，警惕其对国内生态的替代压力。</div>
+        <div class="news-footer">
+          <span class="news-meta">EE Times · Apr 11-12, 2026</span>
+          <a href="https://www.eetimes.com/sifive-400m-round-highlights-new-cpu-battleground-for-agentic-ai-demand/" target="_blank" class="news-link">EE Times</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-semi">供应链</span>
+          <div class="news-headline">欧洲半导体战略后 Nexperia 事件重审：聚焦应用相关性与供应链纵深 <span class="signal signal-risk">政策风险</span></div>
+        </div>
+        <div class="news-body">Nexperia 被荷兰强制出售事件持续发酵，促使欧洲重新审视半导体自主战略。分析人士认为，欧洲需优先关注"哪些芯片真正重要"——即应用相关性——而非全面自给自足。这一判断对中资持有欧洲半导体资产具有直接风险启示，跨境并购监管收紧信号明确。</div>
+        <div class="news-footer">
+          <span class="news-meta">EE Times · Apr 12, 2026</span>
+          <a href="https://www.eetimes.com/which-chips-actually-matter-europe-reassesses-its-semiconductor-strategy-after-nexperia-wakeup-call/" target="_blank" class="news-link">EE Times</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: AI 应用 -->
+  <div class="section" id="sec-ai">
+    <div class="section-head">
+      <span class="section-icon">🤖</span>
+      <div class="section-title">AI 应用</div>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-ai">AI医疗</span>
+          <div class="news-headline">FDA 拒绝行业提议的 AI 医疗器械去监管方案，强化 AI SaMD 合规框架 <span class="signal signal-risk">监管收紧</span></div>
+        </div>
+        <div class="news-body">据 STAT News 报道，尽管 Trump 政府整体倾向监管松绑，FDA 仍拒绝了行业提交的部分 AI 医疗器械豁免监管提案。此举表明 FDA 在 AI 医疗器械（SaMD）领域维持必要监管门槛的立场，对国内 AI 医疗器械出海美国的企业（如鹰瞳、推想等）具有重要合规参考意义。</div>
+        <div class="news-footer">
+          <span class="news-meta">STAT News · Apr 9, 2026</span>
+          <a href="https://www.statnews.com/2026/04/09/fda-rejects-proposal-to-deregulate-ai-devices-health-tech/" target="_blank" class="news-link">STAT News</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-ai">AI医疗</span>
+          <div class="news-headline">医疗机构 AI 信任危机与破局：MedStar、CommonSpirit 探索 AI 监督机制落地 <span class="signal signal-new">产业动态</span></div>
+        </div>
+        <div class="news-body">Modern Healthcare 调查显示，医疗机构 AI 部署中最大阻力来自临床医生信任缺失。MedStar Health、CommonSpirit 等大型系统正在试点"AI 监督委员会"和分级权限机制，以减少行政负担同时维护临床安全。这一趋势为 AI 医疗企业的落地路径和商业化模式提供了重要参考。</div>
+        <div class="news-footer">
+          <span class="news-meta">Modern Healthcare · Apr 12, 2026</span>
+          <a href="https://www.modernhealthcare.com/providers/mh-medstar-health-commonspirit-ai-oversight/" target="_blank" class="news-link">Modern Healthcare</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-ai">AI制药</span>
+          <div class="news-headline">大型制药企业加速布局量子计算：BigPharma"能否兑现？"引发行业热议 <span class="signal signal-new">前沿布局</span></div>
+        </div>
+        <div class="news-body">FierceBiotech 报道，罗氏、拜耳、默沙东等多家大型药企已与量子计算公司签署合作协议，用于分子模拟与药物发现。但业界对量子优势真实兑现时间线仍存争议，现阶段更多被视为战略卡位而非近期商业价值。投后视角：国内量子计算+制药赛道值得持续关注。</div>
+        <div class="news-footer">
+          <span class="news-meta">FierceBiotech · Apr 10, 2026</span>
+          <a href="https://www.fiercebiotech.com/biotech/can-it-actually-deliver-why-big-pharma-has-entered-quantum-realm" target="_blank" class="news-link">FierceBiotech</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: 创新药 -->
+  <div class="section" id="sec-drug">
+    <div class="section-head">
+      <span class="section-icon">💊</span>
+      <div class="section-title">创新药</div>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-drug">ADC</span>
+          <div class="news-headline">GSK ADC mo-rez Ph1b 数据亮眼（ORR 62-67%），直接推进 5 项 Ph3 研究 <span class="signal signal-hot">突破数据</span></div>
+        </div>
+        <div class="news-body">GSK 在 SGO 2026 年会发布其与翰森制药合作的 B7-H4 靶向 ADC mocertatug rezetecan (mo-rez) Ph1b 数据：铂耐药卵巢癌最高剂量组 ORR 62%（n=34），子宫内膜癌 67%（n=12），ILD 发生率仅 4%。安全性可管理，discontinuation 率 ≤4%。GSK 新任 CEO Miels 推动直接启动 5 项 Ph3（PROC / 铂敏感 / 一线 HRp 卵巢癌 / 一线 &amp; 二线子宫内膜癌）。**对翰森制药估值具有直接正面催化作用。**</div>
+        <div class="news-footer">
+          <span class="news-meta">FierceBiotech · Apr 12, 2026 · SGO 2026</span>
+          <a href="https://www.fiercebiotech.com/biotech/gsk-ceos-scientific-courage-propels-plans-medley-phase-3-trials-adc" target="_blank" class="news-link">FierceBiotech</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-drug">CAR-T</span>
+          <div class="news-headline">CAR-T 疗法首次驱动 3 种自身免疫病同时缓解，1 例患者全部进入 remission <span class="signal signal-hot">突破性研究</span></div>
+        </div>
+        <div class="news-body">STAT News 报道，研究人员首次在同一患者中实现 CAR-T 同时驱动 3 种自身免疫疾病缓解。这一结果进一步验证 CAR-T 在自免领域的跨适应症潜力，也推动 Cabaletta Bio、Kyverna 等专注自免 CAR-T 的公司估值逻辑。国内自免 CAR-T 布局（如科济药业）需关注这一临床证据积累速度。</div>
+        <div class="news-footer">
+          <span class="news-meta">STAT News / FierceBiotech · Apr 9, 2026</span>
+          <a href="https://www.fiercebiotech.com/research/first-car-t-cell-therapy-drives-3-autoimmune-diseases-remission-once" target="_blank" class="news-link">FierceBiotech</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-drug">融资</span>
+          <div class="news-headline">Sidewinder Therapeutics 完成 1.37 亿美元 B 轮，双特异性 ADC 赛道再获头部 VC 押注 <span class="signal signal-deal">$137M B轮</span></div>
+        </div>
+        <div class="news-body">Sidewinder Therapeutics 获 Frazier、OrbiMed、Goldman Sachs Alternatives、Novartis Venture Fund 等共投的 1.37 亿美元 B 轮。其核心管线为双特异性 ADC，靶向肺癌、头颈癌、胃肠道癌，计划 2027 年入组 Ph1。ADC 赛道头部机构持续加码，国内 ADC 企业（科伦博泰、荣昌生物、多禧生物等）出海竞争格局更趋激烈。</div>
+        <div class="news-footer">
+          <span class="news-meta">FierceBiotech · Apr 8, 2026</span>
+          <a href="https://www.fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-26" target="_blank" class="news-link">FierceBiotech</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-drug">CAR-T / IPO</span>
+          <div class="news-headline">中国 Oricell 完成 1.1 亿美元 Pre-IPO 融资，实体瘤 CAR-T (HCC) 全球首批箭在弦上 <span class="signal signal-deal">$110M Pre-IPO</span></div>
+        </div>
+        <div class="news-body">上海奥源细胞（Oricell Therapeutics）在 Vivo Capital、Qiming、E-Town Capital、NGS Super 等机构联合领投下完成超 1.1 亿美元 Pre-IPO 轮，正式启动上市准备。核心管线 Ori-C101 为 GPC3 靶向自体 CAR-T，Ph1 已完成（HCC 最高剂量组达到客观缓解），目标成为全球首个获批的实体瘤 CAR-T 疗法。</div>
+        <div class="news-footer">
+          <span class="news-meta">FierceBiotech · Apr 10, 2026</span>
+          <a href="https://www.fiercebiotech.com/biotech/chinas-oricell-raises-100m-carcinoma-car-t-plans-ahead-ipo-push" target="_blank" class="news-link">FierceBiotech</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-drug">FDA</span>
+          <div class="news-headline">FDA 二次拒绝 Replimune RP1 黑色素瘤 BLA，溶瘤病毒疗法监管路径面临重大挑战 <span class="signal signal-risk">二度被拒</span></div>
+        </div>
+        <div class="news-body">Replimune 的溶瘤病毒 RP1 在 FDA 第二次收到拒绝函（CRL），适应症为不可切除黑色素瘤。此前已于 2025 年首次被拒，此番再拒重击市场信心。对国内溶瘤病毒赛道（如亦诺微、锐诚生物）具有重要参考，表明该模式临床包装与监管策略仍需完善。</div>
+        <div class="news-footer">
+          <span class="news-meta">FierceBiotech / STAT News · Apr 10, 2026</span>
+          <a href="https://www.fiercebiotech.com/biotech/fda-refuses-replimunes-melanoma-prospect-second-time" target="_blank" class="news-link">FierceBiotech</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-drug">RNA疗法</span>
+          <div class="news-headline">Vivatides Therapeutics 完成 5400 万美元 A 轮，肝外递送 siRNA/ASO 平台加速入组 <span class="signal signal-deal">$54M A轮</span></div>
+        </div>
+        <div class="news-body">苏州 &amp; 波士顿双中心的 Vivatides Therapeutics 获启明创投、高捷资本等机构联投的 5400 万美元 A 轮。公司基于肝外递送平台开发 siRNA 和反义寡核苷酸（ASO）药物。国内 RNA 疗法赛道（瑞博生物、厦门甘鹿等）需关注此类"出海+国内双轮驱动"模式的竞争演化。</div>
+        <div class="news-footer">
+          <span class="news-meta">FierceBiotech · Apr 10, 2026</span>
+          <a href="https://www.fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-26" target="_blank" class="news-link">FierceBiotech</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: 医疗器械 -->
+  <div class="section" id="sec-device">
+    <div class="section-head">
+      <span class="section-icon">🩺</span>
+      <div class="section-title">医疗器械</div>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-device">AI器械</span>
+          <div class="news-headline">FDA 明确拒绝部分 AI SaMD 去监管提案，AI 医疗器械合规门槛稳定 <span class="signal signal-risk">监管明确</span></div>
+        </div>
+        <div class="news-body">同步覆盖 AI 应用板块。FDA 拒绝行业团体提交的部分 AI 软件器械（SaMD）豁免提案，表明即便在 Trump 监管松绑大背景下，AI 医疗器械仍需经过严格评审。国内 AI 医疗出海路径需按现行 510(k)/De Novo 流程规划，不应押注监管豁免。</div>
+        <div class="news-footer">
+          <span class="news-meta">STAT News · Apr 9, 2026</span>
+          <a href="https://www.statnews.com/2026/04/09/fda-rejects-proposal-to-deregulate-ai-devices-health-tech/" target="_blank" class="news-link">STAT News</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-device">并购</span>
+          <div class="news-headline">Orlando Health 宣布收购阿拉巴马州医疗系统，医疗服务 M&amp;A 动能持续 <span class="signal signal-deal">并购扩张</span></div>
+        </div>
+        <div class="news-body">Modern Healthcare 并购追踪显示，Orlando Health 宣布收购一家阿拉巴马州医疗系统，延续大型非营利医疗机构向周边州扩张的并购趋势。这类并购推动医疗器械、诊断及数字健康产品的集采谈判集中化，对相关供应商的渠道议价能力形成影响。</div>
+        <div class="news-footer">
+          <span class="news-meta">Modern Healthcare · Apr 12, 2026</span>
+          <a href="https://www.modernhealthcare.com/mergers-acquisitions/mh-healthcare-deals-live-updates/" target="_blank" class="news-link">Modern Healthcare</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-device">AI芯片安全</span>
+          <div class="news-headline">AI 芯片仿冒市场因硬件短缺扩大，硬件信任根成医疗级 AI 器械安全关键 <span class="signal signal-risk">安全隐患</span></div>
+        </div>
+        <div class="news-body">SemiEngineering 分析指出，AI 芯片持续短缺催生仿冒品市场，医疗级 AI 器械面临供应链安全风险。基于硬件信任根（Hardware Root of Trust）的芯片真实性验证机制成为解决路径。对使用第三方 AI 推理硬件的医疗器械厂商（含国内企业）具有供应链合规预警意义。</div>
+        <div class="news-footer">
+          <span class="news-meta">SemiEngineering · Apr 12, 2026</span>
+          <a href="https://semiengineering.com/hardware-root-of-trust-essential-for-ai-chip-integrity/" target="_blank" class="news-link">SemiEngineering</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5: 医疗服务 -->
+  <div class="section" id="sec-health">
+    <div class="section-head">
+      <span class="section-icon">🏥</span>
+      <div class="section-title">医疗服务</div>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-health">政策</span>
+          <div class="news-headline">CMS 拟将预授权（Prior Authorization）监管延伸至处方药，增加透明度要求 <span class="signal signal-new">政策拟议</span></div>
+        </div>
+        <div class="news-body">美国 CMS 发布拟议规则，计划将保险公司预授权时效性和信息披露要求延伸至处方药，此前该规定仅覆盖医疗服务项目。若正式实施，将显著改变 PBM 和保险公司的药品福利管理流程，对创新药商业化覆盖率有正面影响，但也可能推升保险公司管理成本。</div>
+        <div class="news-footer">
+          <span class="news-meta">Modern Healthcare · Apr 12, 2026</span>
+          <a href="https://www.modernhealthcare.com/insurance/mh-cms-prior-authorizations-prescription-drugs/" target="_blank" class="news-link">Modern Healthcare</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-health">政策</span>
+          <div class="news-headline">CMS 提议 2027 年住院患者支付（IPPS）上调并重启关节置换捆绑支付模型 <span class="signal signal-new">政策拟议</span></div>
+        </div>
+        <div class="news-body">CMS 发布 2027 财年住院预期支付规则（IPPS）草案，拟上调医院支付基准，同时重启关节置换（hip &amp; knee）捆绑支付模型。后者对骨科器械（DePuy Synthes、史赛克、国内春立医疗等）的采购模式及谈判格局具有直接影响，也为数字医疗提供围手术期管理入口。</div>
+        <div class="news-footer">
+          <span class="news-meta">Modern Healthcare · Apr 12, 2026</span>
+          <a href="https://www.modernhealthcare.com/politics-regulation/mh-cms-ipps-rule-medicare-2027-inpatient/" target="_blank" class="news-link">Modern Healthcare</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-tag tag-health">精神健康</span>
+          <div class="news-headline">美国医疗系统加速扩张心理健康业务，精神科接诊能力侵蚀持续收紧 <span class="signal signal-new">产业趋势</span></div>
+        </div>
+        <div class="news-body">Modern Healthcare 报道，多家美国大型医疗系统正在大规模扩张心理健康和行为健康服务，以应对全国性的精神科医生短缺与需求激增。对数字心理健康平台（如 Spring Health、Lyra Health）及远程心理咨询模式具有市场空间确认作用；国内数字心理健康企业可参考此路径。</div>
+        <div class="news-footer">
+          <span class="news-meta">Modern Healthcare · Apr 12, 2026</span>
+          <a href="https://www.modernhealthcare.com/providers/mh-health-system-behavioral-health-services/" target="_blank" class="news-link">Modern Healthcare</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 6: 市场情绪 & 趋势小结 -->
+  <div class="section sec-market" id="sec-market">
+    <div class="section-head">
+      <span class="section-icon">📈</span>
+      <div class="section-title">市场情绪 &amp; 趋势小结</div>
+    </div>
+    <div class="mkt-list">
+
+      <div class="mkt-row">
+        <div class="mkt-left">
+          <span class="mkt-topic">半导体 / AI 硬件</span>
+          <span class="mkt-signal amber">中性偏多 →</span>
+        </div>
+        <div class="mkt-note">Intel-Tesla/SpaceX Terafab 合作提振美国制造叙事，但实际商业化时间线仍不确定；SiFive G 轮验证 RISC-V 数据中心赛道机构信心。欧洲 Nexperia 后续监管收紧是跨境并购的隐性风险。关税压力下国内芯片替代叙事阶段性受益，但执行层面挑战不减。</div>
+      </div>
+
+      <div class="mkt-row">
+        <div class="mkt-left">
+          <span class="mkt-topic">AI 应用</span>
+          <span class="mkt-signal amber">中性 →</span>
+        </div>
+        <div class="mkt-note">FDA 拒绝 AI SaMD 去监管提案是本周最关键监管信号，表明合规路径不会大幅简化。医疗机构 AI 信任机制建设给落地型公司带来正向预期，但同步提高了产品治理要求。量子计算+制药主要停留在战略布局阶段，短期财务影响有限。</div>
+      </div>
+
+      <div class="mkt-row">
+        <div class="mkt-left">
+          <span class="mkt-topic">创新药</span>
+          <span class="mkt-signal up">偏多 ↑</span>
+        </div>
+        <div class="mkt-note">本周最强板块。ADC 赛道连续获得大额融资（Sidewinder $137M）且临床数据持续惊艳（GSK mo-rez 62-67% ORR）；CAR-T 自免适应症拓展令人振奋；中国 Oricell 实体瘤 CAR-T Pre-IPO 值得重点追踪。Replimune 二次被拒是溶瘤病毒路径的明确风险提示。VC 策略在中美关税摩擦背景下有所收缩，但顶级资产融资仍顺畅。</div>
+      </div>
+
+      <div class="mkt-row">
+        <div class="mkt-left">
+          <span class="mkt-topic">医疗器械</span>
+          <span class="mkt-signal amber">中性 →</span>
+        </div>
+        <div class="mkt-note">AI SaMD 监管稳定是双刃剑：不会出现大幅松绑，但也不会骤然收紧。医疗系统并购整合推进集采集中化。AI 芯片仿冒风险对供应链管理提出更高要求。骨科领域关注 CMS 捆绑支付模型重启的价格影响。</div>
+      </div>
+
+      <div class="mkt-row">
+        <div class="mkt-left">
+          <span class="mkt-topic">医疗服务</span>
+          <span class="mkt-signal amber">中性偏多 →↑</span>
+        </div>
+        <div class="mkt-note">CMS 双重政策拟议（处方药预授权 + 2027 IPPS 上调）对医院和创新药厂商总体中性偏正面。精神健康扩张确认数字心理健康长期需求。美国 HHS/RFK Jr. 监管重组动荡持续（各州诉讼推进），但对短期业务影响有限。</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      来源：EE Times · SemiEngineering · FierceBiotech · STAT News · Modern Healthcare &nbsp;·&nbsp; 由 AI 自动生成，仅供参考，不构成投资建议
+    </div>
+    <div class="footer-right">
+      如需转载请联系 GitHub 作者
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>
