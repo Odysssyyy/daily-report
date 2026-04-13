@@ -1,33 +1,87 @@
 [
-  {
-    "date": "2026-04-13",
-    "file": "2026-04-13.html",
-    "icon": "💉",
-    "keywords": "GSK ADC mo-rez · Oricell CAR-T IPO · Intel Terafab · SiFive RISC-V · FDA AI器械监管",
-    "new": true
-  },
-  {
-    "date": "2026-04-12",
-    "file": "2026-04-12.html",
-    "icon": "🧬",
-    "keywords": "CAR-T自免突破 · ADC融资潮 · 量子计算制药 · 半导体战略 · AI医疗监管"
-  },
-  {
-    "date": "2026-04-11",
-    "file": "2026-04-11.html",
-    "icon": "💊",
-    "keywords": "GLP-1竞争 · AI新药研发 · 半导体出口 · 医疗器械IPO · 医疗服务整合"
-  },
-  {
-    "date": "2026-04-10",
-    "file": "2026-04-10.html",
-    "icon": "🤖",
-    "keywords": "大模型推理 · ADC出海 · 芯片禁令 · 创新药审批 · 医疗AI落地"
-  },
-  {
-    "date": "2026-04-09",
-    "file": "2026-04-09.html",
-    "icon": "🔬",
-    "keywords": "量子计算布局 · CAR-T实体瘤 · RISC-V生态 · 医疗数字化 · 政策监管"
-  }
+    {
+        "date": "2026-04-13",
+        "file": "2026-04-13.html",
+        "icon": "💉",
+        "keywords": "GSK ADC mo-rez · Oricell CAR-T IPO · Intel Terafab · SiFive RISC-V · FDA AI器械监管",
+        "new": true
+    },
+    {
+        "date": "2026-04-12",
+        "file": "2026-04-12.html",
+        "icon": "🧬",
+        "keywords": "CAR-T自免突破 · ADC融资潮 · 量子计算制药 · 半导体战略 · AI医疗监管"
+    },
+    {
+        "date": "2026-04-11",
+        "file": "2026-04-11.html",
+        "icon": "💊",
+        "keywords": "GLP-1竞争 · AI新药研发 · 半导体出口 · 医疗器械IPO · 医疗服务整合"
+    },
+    {
+        "date": "2026-04-10",
+        "file": "2026-04-10.html",
+        "icon": "🤖",
+        "keywords": "大模型推理 · ADC出海 · 芯片禁令 · 创新药审批 · 医疗AI落地"
+    },
+    {
+        "date": "2026-04-09",
+        "file": "2026-04-09.html",
+        "icon": "🔬",
+        "keywords": "量子计算布局 · CAR-T实体瘤 · RISC-V生态 · 医疗数字化 · 政策监管"
+    },
+    {
+        "date": "2026-04-08",
+        "file": "2026-04-08.html",
+        "icon": "🛠",
+        "keywords": "Anthropic 300亿营收+3.5GW算力大单 · 芯片安全法案封堵中国合规版 · 台积电亚利桑那12座晶圆厂 · 礼来Foundayo口服GLP-1获批 · Hologic私有化183亿"
+    },
+    {
+        "date": "2026-04-07",
+        "file": "2026-04-07.html",
+        "icon": "⚡",
+        "keywords": "Meta Llama 4开源4000亿参数 · 三菱·罗姆·东芝功率半导体整合MoU · Arm首颗自研AGI CPU · 诺和诺德每周胰岛素FDA首批 · Stipple Bio 1亿融资"
+    },
+    {
+        "date": "2026-04-06",
+        "file": "2026-04-06.html",
+        "icon": "💊",
+        "keywords": "礼来Foundayo口服GLP-1全球首批 · Google Gemma 4开源 · Rubin Ultra双芯确认 · Cognichip 6000万融资 · Orca-T FDA延审"
+    },
+    {
+        "date": "2026-04-05",
+        "file": "2026-04-05.html",
+        "icon": "🤖",
+        "keywords": "Claude Mythos泄露 · 药品关税100% · H200向中国解禁 · 首个国产创新核药获批 · AI诊断纳入医保"
+    },
+    {
+        "date": "2026-04-04",
+        "file": "2026-04-04.html",
+        "icon": "💊",
+        "keywords": "礼来Foundayo口服GLP-1获批 · Q1 VC破3000亿历史记录 · Oracle裁员3万押注AI数据中心 · 磅策手术机器人B轮"
+    },
+    {
+        "date": "2026-04-03",
+        "file": "2026-04-03.html",
+        "icon": "🚀",
+        "keywords": "OpenAI 1220亿融资 · Anthropic双重泄露 · NVIDIA Vera Rubin量产 · Atacicept FDA优先审评"
+    },
+    {
+        "date": "2026-04-02",
+        "file": "2026-04-02.html",
+        "icon": "⚡",
+        "keywords": "对等关税落地 · 昇腾950PR大单500亿 · AACR倒计时 · 迈瑞首次年报下滑"
+    },
+    {
+        "date": "2026-04-01",
+        "file": "2026-04-01.html",
+        "icon": "💹",
+        "keywords": "芯片涨价潮 · GPT-5.4迭代 · ADC新药爆发 · 手术机器人医保"
+    },
+    {
+        "date": "2026-03-31",
+        "file": "2026-03-31.html",
+        "icon": "🚀",
+        "keywords": "Rebellions 4亿融资 · Sora关停 · 创新药出海600亿 · 迈瑞年报"
+    }
 ]
