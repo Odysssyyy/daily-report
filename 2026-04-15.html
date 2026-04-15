@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script>
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+document.addEventListener('DOMContentLoaded', function(){ window.scrollTo(0,0); });
+window.addEventListener('load', function(){ window.scrollTo(0,0); });
+setTimeout(function(){ window.scrollTo(0,0); }, 0);
+setTimeout(function(){ window.scrollTo(0,0); }, 100);
+setTimeout(function(){ window.scrollTo(0,0); }, 300);
+</script>
+<title>Frontier Info 2026-04-15</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { -webkit-text-size-adjust: 100%; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @font-face {
+    font-family: "HelvSerifMix";
+    src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
+    unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20A0-20CF, U+2100-214F, U+FF00-FFEF;
+  }
+  body {
+    font-family: "HelvSerifMix", "Noto Sans SC", "PingFang SC", Arial, sans-serif;
+    font-size: 12px; font-weight: 300; line-height: 1.6; color: #1a1a1a; background: #f9f9f7;
+  }
+  .page { max-width: 740px; margin: 0 auto; padding: 36px 40px 52px; background: #fff; min-height: 100vh; }
+
+  /* BANNER */
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    width: calc(100% + 80px); margin: -36px -40px 24px;
+    background: #002847; overflow: hidden; padding: 18px 40px 14px;
+  }
+  .header::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(0,160,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,160,255,0.07) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -80px; right: -60px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(0,120,255,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-inner { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 4px; }
+  .header-brand { font-family: "Playfair Display", "Noto Serif SC", Georgia, serif; font-size: 32px; font-weight: 700; color: #ffffff; letter-spacing: -0.5px; line-height: 1.1; }
+  .header-zh { font-family: "Noto Serif SC", Georgia, serif; font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.6); letter-spacing: 3px; margin-top: 4px; }
+  .header-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+  .header-mozz { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; font-style: italic; color: rgba(255,255,255,0.45); letter-spacing: 1.5px; }
+  .header-date { text-align: right; }
+  .header-date .d { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.45); letter-spacing: 1.5px; }
+  .header-deco { position: absolute; right: 30px; bottom: 10px; z-index: 1; opacity: 0.1; pointer-events: none; }
+  @media (max-width: 520px) {
+    .header { margin: -20px -16px 18px; width: calc(100% + 32px); padding: 14px 16px 12px; }
+    .header-brand { font-size: clamp(15px, 4.2vw, 24px); letter-spacing: -0.5px; white-space: nowrap; overflow: hidden; }
+    .header-zh { font-size: 15px; letter-spacing: 2px; }
+    .header-bottom { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-end; }
+    .header-mozz { font-size: 10px; }
+    .header-date .d { font-size: 11px; }
+  }
+
+  /* LEAD */
+  .lead { background: linear-gradient(135deg, #0a5f76 0%, #0e8fa8 50%, #0a7a9a 100%); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 12px rgba(10,95,118,0.25); padding: 14px 18px; border-radius: 8px; margin-bottom: 22px; display: flex; gap: 24px; }
+  .lead-item { flex: 1; }
+  .lead-item .li-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #a8e6f0; margin-bottom: 4px; }
+  .lead-item .li-title { font-size: 12px; font-weight: 500; line-height: 1.45; color: #fff; }
+  .lead-item .li-sub { font-size: 10px; color: #b8dce8; margin-top: 3px; }
+  .lead-divider { width: 1px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+
+  /* SECTION */
+  .section { scroll-margin-top: 16px; margin-bottom: 18px; background: #f7f9fc; border-radius: 8px; padding: 14px 16px 10px; border: 1px solid #eaeef4; }
+  .section.sec-semi    { background: #f5f7fb; border-color: #e4eaf4; }
+  .section.sec-ai-hw   { background: #f4f9f5; border-color: #dff0e3; }
+  .section.sec-ai-app  { background: #fdf6f6; border-color: #f5e4e4; }
+  .section.sec-pharma  { background: #fdf9f4; border-color: #f0e8d8; }
+  .section.sec-device  { background: #f5f8fd; border-color: #dce8f5; }
+  .section.sec-service { background: #f8f5fd; border-color: #e8ddf5; }
+  .section.sec-market  { background: #f6f6f6; border-color: #e8e8e8; }
+  .section-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .section-icon { font-size: 13px; }
+  .section-title { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #003057; }
+  .section-count { font-size: 9px; color: #bbb; margin-left: auto; }
+
+  /* NEWS ITEM */
+  .item { display: grid; grid-template-columns: 54px 1fr; gap: 0 18px; padding: 10px 0; border-bottom: 1px solid #f2f2f2; }
+  .item:last-child { border-bottom: none; }
+  .item-tag { padding-top: 2px; }
+  .item-tag .tag { margin-bottom: 8px; display: block; width: fit-content; }
+  .tag { display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: 0.3px; padding: 2px 5px; border-radius: 2px; white-space: nowrap; }
+  .tag-red    { background: #fde8e8; color: #c0392b; }
+  .tag-blue   { background: #e8f0fe; color: #1a56a0; }
+  .tag-green  { background: #e8f5e9; color: #1e7e34; }
+  .tag-amber  { background: #fff3e0; color: #c57600; }
+  .tag-star   { background: #003057; color: #fff; }
+  .tag-purple { background: #f3e8ff; color: #6b21a8; }
+  .item-title { font-size: 12.5px; font-weight: 500; color: #111; line-height: 1.45; margin-bottom: 3px; }
+  .item-text { font-size: 11px; color: #555; line-height: 1.6; margin-bottom: 5px; }
+  .item-text strong { color: #222; font-weight: 500; }
+  .item-kv { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 5px; }
+  .kv { font-size: 10.5px; color: #444; }
+  .kv span { color: #888; font-size: 10px; }
+  .sources { display: flex; gap: 6px; flex-wrap: wrap; }
+  .src { font-size: 10px; color: #1a56a0; text-decoration: none; border-bottom: 1px solid #c8d9f0; padding-bottom: 0px; }
+  .src:hover { color: #003057; border-color: #003057; }
+  @media (max-width: 520px) {
+    .page { padding: 20px 16px 40px; }
+    .lead { flex-direction: column; gap: 14px; padding: 12px 14px; }
+    .lead-divider { width: 100%; height: 1px; }
+    .section { padding: 12px 12px 8px; border-radius: 6px; }
+    .section-title { font-size: 11px; letter-spacing: 1px; }
+    .item { grid-template-columns: 1fr; gap: 6px 0; padding: 10px 0; }
+    .item-tag { display: flex; flex-wrap: wrap; gap: 4px; padding-top: 0; }
+    .item-tag .tag { margin-bottom: 0; }
+    .item-title { font-size: 12px; }
+    .item-text { font-size: 10.5px; }
+    .kv { font-size: 10px; }
+  }
+
+  /* 市场情绪 */
+  .mkt-list { display: flex; flex-direction: column; gap: 8px; }
+  .mkt-row { display: flex; align-items: baseline; gap: 10px; padding: 7px 0; border-bottom: 1px solid #f0f0f0; flex-wrap: wrap; }
+  .mkt-row:last-child { border-bottom: none; }
+  .mkt-left { display: flex; align-items: center; gap: 7px; flex-shrink: 0; min-width: 160px; }
+  .mkt-topic { font-size: 11px; font-weight: 500; color: #222; white-space: nowrap; }
+  .mkt-signal { font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 3px; white-space: nowrap; }
+  .mkt-signal.up    { background: #e8f5e9; color: #1e7e34; }
+  .mkt-signal.amber { background: #fff3e0; color: #c57600; }
+  .mkt-signal.down  { background: #fde8e8; color: #c0392b; }
+  .mkt-note { font-size: 10.5px; color: #666; line-height: 1.55; flex: 1; min-width: 160px; }
+  @media (max-width: 520px) {
+    .mkt-left { min-width: unset; width: 100%; }
+    .mkt-note { min-width: unset; width: 100%; font-size: 10px; }
+    .mkt-row  { gap: 5px; }
+  }
+
+  /* 导航 */
+  .nav-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; justify-content: center; align-items: center; }
+  .nav-bar a { font-size: 10px; font-weight: 500; color: #003057; background: #eef3fa; border: 1px solid #d0dff0; border-radius: 20px; padding: 4px 10px; text-decoration: none; white-space: nowrap; transition: background .15s, color .15s; }
+  .nav-bar a:hover, .nav-bar a:active { background: #003057; color: #fff; border-color: #003057; }
+  @media (max-width: 520px) { .nav-bar a { font-size: 9.5px; padding: 3px 9px; } }
+
+  /* 悬浮导航 */
+  .float-nav { position: fixed; left: calc(50% + 390px); top: 50%; transform: translateY(-50%); z-index: 888; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .float-nav-item { position: relative; width: 14px; height: 14px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .float-nav-dot { width: 8px; height: 8px; border-radius: 50%; background: #003057; opacity: 0.3; flex-shrink: 0; transition: opacity .2s, transform .2s; box-shadow: 0 1px 4px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; font-size: 8px; color: #fff; line-height: 1; }
+  .float-nav-label { position: absolute; right: calc(100% + 8px); top: 50%; transform: translateY(-50%) translateX(4px); display: flex; align-items: center; gap: 5px; background: #003057; color: #fff; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px; white-space: nowrap; opacity: 0; transition: opacity .2s, transform .2s; pointer-events: none; box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+  .float-nav-item:hover .float-nav-dot { opacity: 1; transform: scale(1.3); }
+  .float-nav-item:hover .float-nav-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+  .float-nav-item.top-btn .float-nav-dot { opacity: 1; background: transparent; box-shadow: none; font-size: 10px; color: #002847; width: auto; height: auto; border-radius: 0; }
+  @media (max-width: 700px) {
+    .float-nav { left: auto; right: 8px; top: auto; bottom: 120px; transform: none; }
+    .float-nav-label { right: calc(100% + 8px); transform: translateY(-50%) translateX(4px); }
+    .float-nav-item:hover .float-nav-label { opacity: 0; }
+    .float-nav-label.show-click { opacity: 1 !important; transform: translateY(-50%) translateX(0) !important; }
+  }
+
+  /* Footer */
+  .footer { margin-top: 30px; padding-top: 12px; border-top: 1px solid #e8e8e8; display: flex; justify-content: space-between; align-items: center; }
+  .footer-left { font-size: 9.5px; color: #bbb; line-height: 1.5; }
+  .footer-right { font-size: 9.5px; color: #ccc; text-align: right; }
+  @media (max-width: 520px) {
+    .footer { flex-direction: row; align-items: center; flex-wrap: nowrap; gap: 0; }
+    .footer-left { font-size: 8.5px; line-height: 1.4; flex: 1; min-width: 0; }
+    .footer-right { font-size: 8.5px; flex-shrink: 0; margin-left: 8px; }
+  }
+  .down { color: #c0392b; font-weight: 500; }
+  .up   { color: #1e7e34; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <svg class="header-deco" width="220" height="220" viewBox="0 0 220 220" fill="none">
+      <circle cx="110" cy="110" r="105" stroke="white" stroke-width="1"/>
+      <circle cx="110" cy="110" r="75" stroke="white" stroke-width="0.5"/>
+      <circle cx="110" cy="110" r="45" stroke="white" stroke-width="0.5"/>
+      <line x1="5" y1="110" x2="215" y2="110" stroke="white" stroke-width="0.5"/>
+      <line x1="110" y1="5" x2="110" y2="215" stroke="white" stroke-width="0.5"/>
+      <circle cx="110" cy="110" r="3" fill="white"/>
+    </svg>
+    <div class="header-inner">
+      <div class="header-brand">Frontier Industry Info Daily Report</div>
+      <div class="header-zh">前沿产业资讯日报</div>
+      <div class="header-bottom">
+        <div class="header-mozz">by mozz.ai</div>
+        <div class="header-date">
+          <div class="d">26/04/15 Wed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 悬浮导航 -->
+  <div class="float-nav">
+    <div class="float-nav-item top-btn" id="float-top-btn" onclick="floatTopClick()">
+      <div class="float-nav-label">回到顶部</div>
+      <div class="float-nav-dot">▲</div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-semi')">
+      <div class="float-nav-label">🛠 半导体硬件</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-ai-hw')">
+      <div class="float-nav-label">💻 AI 硬件</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-ai-app')">
+      <div class="float-nav-label">🤖 AI 应用</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-pharma')">
+      <div class="float-nav-label">💊 创新药</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-device')">
+      <div class="float-nav-label">🔬 医疗器械</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-service')">
+      <div class="float-nav-label">🏨 医疗服务</div>
+      <div class="float-nav-dot"></div>
+    </div>
+    <div class="float-nav-item" onclick="scrollToSection('sec-market')">
+      <div class="float-nav-label">📈 市场情绪</div>
+      <div class="float-nav-dot"></div>
+    </div>
+  </div>
+
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <span style="font-size:10px;color:#555;font-weight:600;white-space:nowrap;align-self:center;">点击直达👉</span>
+    <a href="#sec-semi">🛠 半导体硬件</a>
+    <a href="#sec-ai-hw">💻 AI 硬件</a>
+    <a href="#sec-ai-app">🤖 AI 应用</a>
+    <a href="#sec-pharma">💊 创新药</a>
+    <a href="#sec-device">🔬 医疗器械</a>
+    <a href="#sec-service">🏨 医疗服务</a>
+    <a href="#sec-market">📈 市场情绪</a>
+  </nav>
+
+  <!-- Lead: 今日置顶 2 条 -->
+  <div class="lead">
+    <div class="lead-item">
+      <div class="li-label">⭐ Today's Lead</div>
+      <div class="li-title">台积电Q1营收创历史新高352亿美元，同比+35%，AI芯片需求超预期 · 4月16日财报催化剂</div>
+      <div class="li-sub">英伟达锁定台积电CoWoS先进封装压倒性产能 · Rubin供应链延迟风险浮现</div>
+    </div>
+    <div class="lead-divider"></div>
+    <div class="lead-item">
+      <div class="li-label">⭐ Also Watching</div>
+      <div class="li-title">礼来口服GLP-1 Foundayo（orforglipron）获FDA批准，全球减重药物市场格局重塑</div>
+      <div class="li-sub">首款可随时服用、无饮食限制的口服GLP-1 · 国产手术机器人商业化政策双驱动</div>
+    </div>
+  </div>
+
+  <!-- Section: 半导体硬件 -->
+  <div class="section sec-semi" id="sec-semi">
+    <div class="section-head">
+      <span class="section-icon">🛠</span>
+      <div class="section-title">半导体硬件</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-star">头条·财报</span></div>
+      <div class="item-body">
+        <div class="item-title">台积电Q1营收创历史新高 352亿美元，同比大涨35%，4月16日财报发布</div>
+        <div class="item-kv">
+          <div class="kv"><span>Q1营收</span> 约35.6亿美元/月 × 3月 = 352亿美元（约新台币1.13万亿）</div>
+          <div class="kv"><span>同比</span> +35%，超市场预测</div>
+          <div class="kv"><span>主要驱动</span> Apple + NVIDIA AI芯片持续旺需</div>
+          <div class="kv"><span>下一催化剂</span> 4月16日Q1完整财报 + Q2展望</div>
+        </div>
+        <div class="item-text">台积电Q1营收大超预期，印证AI基础设施投资热潮持续高烧不退。分析师预计Q2指引将再次上调，4月16日财报将是市场近期最重要催化剂。英伟达作为台积电最大客户，两者协同垄断AI算力供应链格局短期不可撼动。</div>
+        <div class="sources">
+          <a class="src" href="https://www.cnbc.com/2026/04/10/tsmc-q1-record-revenue-ai-chip-demand-strong.html" target="_blank">CNBC</a>
+          <a class="src" href="https://www.technobezz.com/news/tsmc-reports-record-first-quarter-revenue-on-strong-ai-chip-demand" target="_blank">Technobezz</a>
+          <a class="src" href="https://invezz.com/news/2026/04/10/tsmc-revenue-jumps-35-as-ai-boom-keeps-chip-demand-resilient/" target="_blank">Invezz</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-amber">产品·延迟</span></div>
+      <div class="item-body">
+        <div class="item-title">TrendForce：NVIDIA Vera Rubin面临供应链延迟风险，Blackwell系列将占高端GPU出货逾70%</div>
+        <div class="item-kv">
+          <div class="kv"><span>Blackwell份额</span> 预测由61%上升至71%（2026全年）</div>
+          <div class="kv"><span>Rubin份额</span> 由29%下调至22%（HBM4验证+CX9互联切换+散热挑战）</div>
+          <div class="kv"><span>整体出货增速</span> 小幅下调至约26%（原预测26.8%）</div>
+          <div class="kv"><span>Hopper份额</span> 地缘政治因素影响下调至7%</div>
+        </div>
+        <div class="item-text">Rubin延迟风险不改英伟达整体强势地位，Blackwell GB300/B300系列订单饱满。英伟达同步切入AI推理（LPU）及中端RTX PRO系列，多点开花策略分散产品周期风险。中低端产品占比有望超32%，ASP结构性变化需持续跟踪。</div>
+        <div class="sources">
+          <a class="src" href="https://www.trendforce.com/presscenter/news/20260408-13003.html" target="_blank">TrendForce</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">产能·供应链</span></div>
+      <div class="item-body">
+        <div class="item-title">英伟达锁定台积电CoWoS先进封装绝大多数产能，AMD等竞对产能受限</div>
+        <div class="item-kv">
+          <div class="kv"><span>预订产品</span> Blackwell Ultra / Vera Rubin NVL72封装</div>
+          <div class="kv"><span>产能预订时间</span> 2026-2027年</div>
+          <div class="kv"><span>行业影响</span> AMD MI350/MI400、谷歌TPU均面临封装产能瓶颈</div>
+        </div>
+        <div class="item-text">先进封装（CoWoS）已成为继芯片制程之后AI算力供应链的下一个关键卡脖点。英伟达早期锁产能策略将其护城河从芯片延伸至整个供应链体系，竞争对手产能受限局面短期难以逆转，料将持续支撑英伟达溢价。</div>
+        <div class="sources">
+          <a class="src" href="https://www.cnbc.com/2026/04/08/tsmc-nvidia-advanced-packaging-intel.html" target="_blank">CNBC</a>
+          <a class="src" href="https://creati.ai/ai-news/2026-04-09/nvidia-secures-majority-tsmc-advanced-ai-chip-packaging-capacity/" target="_blank">Creati AI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-red">地缘·政策</span></div>
+      <div class="item-body">
+        <div class="item-title">全球AI芯片关键耗材：日本信越化学ABF载板薄膜95%以上全球份额，英伟达Rubin量产的隐形卡脖子</div>
+        <div class="item-kv">
+          <div class="kv"><span>关键材料</span> ABF（Ajinomoto Build-up Film）载板绝缘薄膜</div>
+          <div class="kv"><span>供应商</span> 味之素集团（日本，全球市占≥95%）</div>
+          <div class="kv"><span>影响</span> Rubin架构功耗倍增，ABF需求激增，交期拉长</div>
+        </div>
+        <div class="item-text">AI芯片军备竞赛的隐形瓶颈：一家生产味精的日本公司垄断全球ABF薄膜供应，英伟达、AMD、英特尔下一代高端AI芯片均高度依赖这一单一来源。供应链去风险、材料国产化替代将成为半导体投资的新主题。</div>
+        <div class="sources">
+          <a class="src" href="https://aiera.com.cn/2026/04/14/other/aiera-com-cn/89804/" target="_blank">新智元</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: AI硬件 -->
+  <div class="section sec-ai-hw" id="sec-ai-hw">
+    <div class="section-head">
+      <span class="section-icon">💻</span>
+      <div class="section-title">AI 硬件</div>
+      <div class="section-count">3 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-green">战略·扩产</span></div>
+      <div class="item-body">
+        <div class="item-title">Alphabet宣布2026年AI基础设施资本开支1750-1850亿美元，较2025年翻倍</div>
+        <div class="item-kv">
+          <div class="kv"><span>资本开支规模</span> 1750-1850亿美元（2026全年）</div>
+          <div class="kv"><span>2025年对比</span> 约880亿美元，同比近乎翻倍</div>
+          <div class="kv"><span>投向</span> 数据中心、TPU、Gemini基础设施</div>
+          <div class="kv"><span>CEO警示</span> 即使激进投资仍面临供应约束</div>
+        </div>
+        <div class="item-text">Google母公司Alphabet的AI基建豪赌与微软（预计900亿美元）、Meta（650亿美元）形成三雄鼎立，合计超3000亿美元年度AI基础设施投资印证AI基建长期逻辑。相关供应链（电力/冷却/数据中心REITs）持续受益。</div>
+        <div class="sources">
+          <a class="src" href="https://projectchat.ai/2026/04/10/latest-ai-company-news-google-openai-anthropic-deepseek-qwen-zai/" target="_blank">ProjectChat AI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">推理·新赛道</span></div>
+      <div class="item-body">
+        <div class="item-title">NVIDIA GTC发布Vera Rubin平台全面量产，7款芯片覆盖训练到推理全链路，LPU推理芯片2026年出货数十万套</div>
+        <div class="item-kv">
+          <div class="kv"><span>Vera Rubin NVL72</span> 72 GPU · 36 CPU · 260TB/s互联带宽</div>
+          <div class="kv"><span>LPU推理解决方案</span> 2026年出货目标数十万套，2027年翻倍</div>
+          <div class="kv"><span>中端拓展</span> RTX PRO 4500/6000系列覆盖边缘AI</div>
+        </div>
+        <div class="item-text">英伟达从训练垄断向推理市场延伸，LPU与RTX PRO双线开攻中端/边缘AI市场，有效应对AMD/Intel在推理侧的竞争。"AI推理基础设施"成为继训练之后的下一个千亿美元市场，英伟达先发布局优势明显。</div>
+        <div class="sources">
+          <a class="src" href="https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform" target="_blank">NVIDIA官方</a>
+          <a class="src" href="https://tech-insider.org/nvidia-gtc-2026-rubin-gpu-analysis/" target="_blank">Tech Insider</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-purple">光互连·先进封装</span></div>
+      <div class="item-body">
+        <div class="item-title">台积电SiPh光子平台COUPE进入量产，硅光互连技术成AI数据中心下一代互联主流</div>
+        <div class="item-kv">
+          <div class="kv"><span>技术</span> COUPE硅光子集成平台</div>
+          <div class="kv"><span>时间节点</span> 2026年从开发阶段进入量产</div>
+          <div class="kv"><span>应用场景</span> 数据中心AI互联、Scale-up/Scale-out网络</div>
+        </div>
+        <div class="item-text">光互连技术的量产成熟将从根本上改变AI数据中心的能效比和互联带宽上限，是当前铜互连方案的代际颠覆方向。台积电主导SiPh量产有助于固化其在先进封装生态的绝对中心地位，配套设备/材料供应链具备重要投资价值。</div>
+        <div class="sources">
+          <a class="src" href="https://www.digitimes.com/news/a20260407VL201/digitimes-asia-weekly-news-roundup-2026-ai-chip-nvidia-tsmc-arizona.html" target="_blank">Digitimes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: AI应用 -->
+  <div class="section sec-ai-app" id="sec-ai-app">
+    <div class="section-head">
+      <span class="section-icon">🤖</span>
+      <div class="section-title">AI 应用</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-star">头条·模型</span></div>
+      <div class="item-body">
+        <div class="item-title">AI大模型格局：GPT-5.4、Claude Opus 4.6、Gemini 3.1、DeepSeek V4竞争进入深水区，Anthropic收入突破300亿美元年化</div>
+        <div class="item-kv">
+          <div class="kv"><span>OpenAI GPT-5.3-Codex</span> 编程能力较Claude Opus 4.6快25%</div>
+          <div class="kv"><span>Anthropic</span> 年化收入突破300亿美元 · Broadcom 2027年交付3.5GW TPU产能</div>
+          <div class="kv"><span>Google Gemini 3.1 Flash-Lite</span> 响应速度提升2.5倍，$0.25/M tokens</div>
+          <div class="kv"><span>DeepSeek V4</span> 4月传言版本即将发布，本地+国产算力优化</div>
+        </div>
+        <div class="item-text">2026年AI模型竞争从"能力比拼"进入"基础设施×商业化"双轨决战阶段。Anthropic以300亿美元年化收入跻身第一梯队，Google以规模算力押注，OpenAI转向Agent+代码主赛道，Meta发布Muse Spark进入顶级模型竞争。AI Lab的竞争壁垒从模型转向算力、数据、生态三位一体。</div>
+        <div class="sources">
+          <a class="src" href="https://projectchat.ai/2026/04/10/latest-ai-company-news-google-openai-anthropic-deepseek-qwen-zai/" target="_blank">ProjectChat AI</a>
+          <a class="src" href="https://www.humai.blog/ai-news-trends-april-2026-complete-monthly-digest/" target="_blank">HuMAI Blog</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-red">战略·调整</span></div>
+      <div class="item-body">
+        <div class="item-title">OpenAI关停Sora视频生成App（4月26日），释放算力资源All-in Agent与代码工具</div>
+        <div class="item-kv">
+          <div class="kv"><span>关停时间</span> 2026年4月26日</div>
+          <div class="kv"><span>原因</span> 用户数跌破50万 · 日耗算力约100万美元</div>
+          <div class="kv"><span>资源转向</span> Codex Security（安全编码Agent）+ Operator智能Agent</div>
+        </div>
+        <div class="item-text">OpenAI主动割舍视频生成是大模型公司走向"精细化资源分配"的关键信号。AI视频赛道（Sora/Runway/Pika）商业化验证远低于预期，而AI Agent+代码工具开始产生真实LTV。这一战略收缩将倒逼国内AI视频赛道加速寻找自己的商业化路径。</div>
+        <div class="sources">
+          <a class="src" href="https://projectchat.ai/2026/04/10/latest-ai-company-news-google-openai-anthropic-deepseek-qwen-zai/" target="_blank">ProjectChat AI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-amber">安全·监管</span></div>
+      <div class="item-body">
+        <div class="item-title">Anthropic废弃核心安全承诺RSP 2.0，转向更灵活的RSP 3.0框架；Claude Mythos安全事件引发监管关注</div>
+        <div class="item-kv">
+          <div class="kv"><span>RSP 3.0</span> 取消"安全未达标不发布"的强制承诺，改为透明度导向</div>
+          <div class="kv"><span>Mythos事件</span> 被指协助网络攻击，DoD 180天内移除Claude</div>
+          <div class="kv"><span>Glasswing项目</span> 邀请大型科技合作伙伴测试Mythos漏洞</div>
+        </div>
+        <div class="item-text">Anthropic同步推进商业扩张与安全政策松绑，引发AI监管层广泛警觉。此举既反映顶级AI Lab在商业压力下的安全取舍困境，也预示AI安全监管法规将快速跟进，合规成本上升将成为未来AI企业的重要隐性成本。</div>
+        <div class="sources">
+          <a class="src" href="https://projectchat.ai/2026/04/10/latest-ai-company-news-google-openai-anthropic-deepseek-qwen-zai/" target="_blank">ProjectChat AI</a>
+          <a class="src" href="https://www.cnbc.com/2026/04/07/anthropic-claude-mythos-ai-hackers-cyberattacks.html" target="_blank">CNBC</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-green">融资·AI药物</span></div>
+      <div class="item-body">
+        <div class="item-title">Insilico Medicine与礼来签署27.5亿美元AI药物发现合作，AI×制药BD浪潮持续升温</div>
+        <div class="item-kv">
+          <div class="kv"><span>首付款</span> 1.15亿美元</div>
+          <div class="kv"><span>总里程碑</span> 最高27.5亿美元</div>
+          <div class="kv"><span>平台</span> 全栈AI药物发现（靶点到候选分子）</div>
+          <div class="kv"><span>上市地</span> 港交所：3696</div>
+        </div>
+        <div class="item-text">礼来此举标志"AI先发现、大药企再商业化"范式已被跨国巨头全面认可。AI药物发现的BD交易体量持续创历史新高，国内在AI+生物技术领域（阿斯利康中国、百图生科、百济神州等）的相关布局加速进行，港股AI药物赛道持续受到国际资本关注。</div>
+        <div class="sources">
+          <a class="src" href="https://www.fiercebiotech.com/biotech/lilly-signs-275b-partnership-insilicos-ai-engine-pursuit-oral-therapeutics" target="_blank">FierceBiotech</a>
+          <a class="src" href="https://www.cnbc.com/2026/03/29/eli-lilly-reaches-deal-to-bring-ai-developed-drugs-to-global-market.html" target="_blank">CNBC</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 创新药 -->
+  <div class="section sec-pharma" id="sec-pharma">
+    <div class="section-head">
+      <span class="section-icon">💊</span>
+      <div class="section-title">创新药</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-star">FDA批准·头条</span></div>
+      <div class="item-body">
+        <div class="item-title">FDA批准礼来口服GLP-1 Foundayo（orforglipron），全球首款无饮食时间限制口服减重药</div>
+        <div class="item-kv">
+          <div class="kv"><span>批准日期</span> 2026年4月1日</div>
+          <div class="kv"><span>产品</span> orforglipron（Foundayo™）· 每日一次口服</div>
+          <div class="kv"><span>适应症</span> 成人肥胖症及合并至少一项体重相关合并症的超重患者</div>
+          <div class="kv"><span>差异化优势</span> 无需空腹/饮水限制，随时口服，服药依从性大幅提升</div>
+          <div class="kv"><span>市场规模</span> 全球GLP-1市场2026年预计超1000亿美元</div>
+        </div>
+        <div class="item-text">Foundayo的获批将从根本上改变减重药市场格局：相比司美格鲁肽注射剂，口服便捷性大幅降低用药门槛。诺和诺德口服版Rybelsus2型糖尿病适应症已获批，礼来此次扩展至减重是直接竞争挑战。国内多家药企在口服GLP-1赛道的研发布局（华东医药HEC88473、信达生物等）具备重要价值重估机会。</div>
+        <div class="sources">
+          <a class="src" href="https://investor.lilly.com/news-releases/news-release-details/fda-approves-lillys-foundayotm-orforglipron-only-glp-1-pill" target="_blank">礼来官方</a>
+          <a class="src" href="https://www.fda.gov/news-events/press-announcements/fda-approves-first-new-molecular-entity-under-national-priority-voucher-program" target="_blank">FDA官方</a>
+          <a class="src" href="https://www.ajmc.com/view/fda-approves-lilly-s-oral-glp-1-orforglipron-for-obesity" target="_blank">AJMC</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-green">国产出海</span></div>
+      <div class="item-body">
+        <div class="item-title">国家药监局2025年批准创新药76款创历史新高，对外授权超1300亿美元；2026年密集双批持续</div>
+        <div class="item-kv">
+          <div class="kv"><span>2025年获批</span> 76款国产创新药（vs 2024年48款）</div>
+          <div class="kv"><span>2025年对外授权</span> 超1300亿美元</div>
+          <div class="kv"><span>2026年4月最新</span> 福贝医药FB1003单抗（1类新药）获CDE受理</div>
+          <div class="kv"><span>政策</span> 北京市十部门联合发布创新医药高质量发展措施（2026年）</div>
+        </div>
+        <div class="item-text">中国创新药产业正进入量质双升的历史性拐点：2025年批准数量创新高、对外授权突破千亿美元双重印证国产研发实力跃升。2026年政策端持续加码（北京2026版措施），中美双批速度加快，ADC/GLP-1/肿瘤免疫/细胞治疗四大方向将持续贡献头部交易。</div>
+        <div class="sources">
+          <a class="src" href="https://www.nhsa.gov.cn/art/2026/1/18/art_14_19392.html" target="_blank">国家药监局</a>
+          <a class="src" href="https://m.cphi.cn/news/show-366805.html" target="_blank">CPHI制药网</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">Q2 PDUFA·催化剂</span></div>
+      <div class="item-body">
+        <div class="item-title">FDA Q2 2026关键PDUFA日历：baxdrostat（难治性高血压）、多款肿瘤/罕见病药物待批</div>
+        <div class="item-kv">
+          <div class="kv"><span>baxdrostat</span> 难治性高血压 · AstraZeneca/KBP Biosciences</div>
+          <div class="kv"><span>适应症焦点</span> 阿尔茨海默病躁动、局灶节段性肾小球硬化、HIV-1、肥胖</div>
+          <div class="kv"><span>已批（4月初）</span> Lifyorli（卵巢癌）、Icotyde（银屑病）、Awiqli（2型糖尿病周制剂）</div>
+        </div>
+        <div class="item-text">Q2 2026是历史上生物科技催化剂最密集季度之一。baxdrostat是首个醛固酮合酶抑制剂靶向机制，若获批将开辟高血压治疗新路径。投后关注：国内有同靶点布局（信立泰等）的标的在baxdrostat批准后估值溢价逻辑值得评估。</div>
+        <div class="sources">
+          <a class="src" href="https://www.nature.com/articles/d41573-026-00046-0" target="_blank">Nature Reviews</a>
+          <a class="src" href="https://www.biopharmawatch.com/blog/fda-calendar-q2-2026-key-pdufa-dates-upcoming-approvals" target="_blank">BioPharmaWatch</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-amber">融资·生物科技</span></div>
+      <div class="item-body">
+        <div class="item-title">4月首周全球6家创新药公司完成新融资，覆盖小核酸/细胞治疗/免疫疾病/帕金森病</div>
+        <div class="item-kv">
+          <div class="kv"><span>融资方向</span> 小核酸药物（siRNA/ASO）· 细胞治疗 · 神经退行性疾病</div>
+          <div class="kv"><span>2月数据</span> 国内10家创新药企完成新一轮融资</div>
+          <div class="kv"><span>政策配合</span> 国家自然科学基金2026年RNA基础研究重大研究计划启动</div>
+        </div>
+        <div class="item-text">小核酸药物（siRNA/mRNA/反义寡核苷酸）正进入商业化加速期，多家国内企业在该领域建立领先布局（瑞博生物、圣诺医药等）。RNA研究列入国家重大专项标志基础科学到临床转化的政策性推动力度加大，相关CXO/递送平台企业具备配套受益逻辑。</div>
+        <div class="sources">
+          <a class="src" href="https://finance.sina.com.cn/wm/2026-04-07/doc-inhtsrqw0224430.shtml" target="_blank">新浪财经</a>
+          <a class="src" href="https://www.nsfc.gov.cn/p1/3381/2824/100401.html" target="_blank">国家自然科学基金</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 医疗器械 -->
+  <div class="section sec-device" id="sec-device">
+    <div class="section-head">
+      <span class="section-icon">🔬</span>
+      <div class="section-title">医疗器械</div>
+      <div class="section-count">4 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-star">政策·头条</span></div>
+      <div class="item-body">
+        <div class="item-title">国产手术机器人政策+创新双驱动：医保+收费双落地，CMEF 2026国产明星产品密集亮相</div>
+        <div class="item-kv">
+          <div class="kv"><span>政策</span> 北京市十部门发布创新医药高质量发展措施（2026年），手术机器人纳入医保+独立收费</div>
+          <div class="kv"><span>CMEF 2026</span> 微创机器人、佗道医疗等展示旗舰产品，临床数据比肩达芬奇</div>
+          <div class="kv"><span>市场预测</span> 2026年国内手术机器人市场规模突破千亿元</div>
+        </div>
+        <div class="item-text">手术机器人赛道迎来政策与产品双重催化：医保覆盖解决了市场推广最大障碍，CMEF展会国产方案临床数据已可比肩达芬奇。国产企业（微创机器人、精锋医疗）正依托差异化适应症+成本优势快速蚕食原有达芬奇市场，全球市场出海亦在布局。</div>
+        <div class="sources">
+          <a class="src" href="https://epaper.cs.com.cn/zgzqb/html/2026-04/14/nw.D110000zgzqb_20260414_2-A05.htm" target="_blank">中国证券报</a>
+          <a class="src" href="https://news.10jqka.com.cn/20260414/c675957532.shtml" target="_blank">同花顺财经</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-green">融资·AI机器人</span></div>
+      <div class="item-body">
+        <div class="item-title">磅策医疗完成亿元B轮融资，AI植发手术机器人Hairo实现亚洲首款NMPA获批商业化加速</div>
+        <div class="item-kv">
+          <div class="kv"><span>融资金额</span> 亿元级人民币</div>
+          <div class="kv"><span>领投</span> 国际AI科技公司战略投资</div>
+          <div class="kv"><span>核心产品</span> Hairo植发机器人（亚洲首款NMPA获批植发机器人）</div>
+          <div class="kv"><span>商业落地</span> 已进入国内10+连锁植发机构</div>
+        </div>
+        <div class="item-text">AI手术机器人细分赛道继续跑出融资成功案例。磅策医疗以"AI+Robotics+Imaging"三重技术护城河切入消费医疗机器人，植发机器人市场渗透率当前仍处早期，商业化提速空间大。消费医疗（医美/植发/口腔）机器人化是医疗器械行业增长最快的子赛道之一。</div>
+        <div class="sources">
+          <a class="src" href="https://news.qq.com/rain/a/20260409A07LC800" target="_blank">腾讯新闻</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">FDA·510(k)</span></div>
+      <div class="item-body">
+        <div class="item-title">Protaryx Medical获FDA 510(k)批准经房间隔穿刺介入器械，微创左心手术赛道再添新进入者</div>
+        <div class="item-kv">
+          <div class="kv"><span>批准日期</span> 2026年4月13日</div>
+          <div class="kv"><span>产品</span> 经房间隔穿刺器械（Transseptal Puncture Device）</div>
+          <div class="kv"><span>适应症</span> 微创左心手术（结构性心脏病）入路解决方案</div>
+        </div>
+        <div class="item-text">结构性心脏病赛道技术创新持续活跃，经房间隔穿刺是TAVI/二尖瓣夹合/左心耳封堵等手术的关键入路，Protaryx的获批有望推动该技术更广泛普及。国内结构性心脏病赛道（佰仁医疗、归创通桥等）在功能优化迭代上存在类似机会。</div>
+        <div class="sources">
+          <a class="src" href="https://www.protaryx.com/2026/04/protaryx-medical-receives-fda-510k-clearance-for-its-breakthrough-transseptal-puncture-device/" target="_blank">Protaryx官方</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-red">监管·AI器械</span></div>
+      <div class="item-body">
+        <div class="item-title">FDA AI医疗器械监管框架持续演化：过去18个月出台明确设计/文档/更新指南，合规成本上升</div>
+        <div class="item-kv">
+          <div class="kv"><span>政策重点</span> 算法可解释性 · 持续学习器械更新流程 · 上市后监测要求</div>
+          <div class="kv"><span>MDUFA VI</span> FDA与器械行业初步达成2028-2032年审评费用框架，AI辅助审评引入</div>
+        </div>
+        <div class="item-text">FDA AI器械监管框架逐渐清晰，但也意味着更高合规投入。AI辅助审评的引入将加速510(k)标准化流程，有利于技术成熟、有明确临床证据的国产AI器械加快进入美国市场。影像AI（CT/MRI/眼底等）、AI手术规划软件是最受政策关注的应用方向。</div>
+        <div class="sources">
+          <a class="src" href="https://www.mddionline.com/artificial-intelligence/fda-s-ai-device-regulations-key-updates-compliance-strategies-for-medtech-success" target="_blank">MD+DI Online</a>
+          <a class="src" href="https://www.medtechdive.com/topic/medical-devices/" target="_blank">MedTech Dive</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 医疗服务 -->
+  <div class="section sec-service" id="sec-service">
+    <div class="section-head">
+      <span class="section-icon">🏨</span>
+      <div class="section-title">医疗服务</div>
+      <div class="section-count">3 items</div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-green">融资·数字健康</span></div>
+      <div class="item-body">
+        <div class="item-title">CMEF 2026：医疗AI全面登场，"AI Agent医院"概念落地，中国医院AI采购潮加速</div>
+        <div class="item-kv">
+          <div class="kv"><span>CMEF规模</span> 上海，中国最大医疗设备展会</div>
+          <div class="kv"><span>亮点</span> AI影像诊断、AI手术规划、AI病历书写、AI分诊系统密集亮相</div>
+          <div class="kv"><span>泰锐科技</span> 发布"虚拟问诊室"AI Agent医院解决方案（4月10日）</div>
+        </div>
+        <div class="item-text">AI在医疗服务场景的落地加速从B端（医院运营AI）延伸至C端（患者就医AI）。"AI Agent医院"概念从学术验证走向商业产品，标志医疗服务AI化进入实质性渗透阶段。国内以平安健康、微医、丁香园为代表的数字医疗平台正加速整合AI工具，运营效率提升成为核心卖点。</div>
+        <div class="sources">
+          <a class="src" href="https://www.citynewsservice.cn/articles/china-biz-buzz/tech/ai-takes-center-stage-as-cmef-2026-showcases-the-future-of-healthcare-ekdqyp9m" target="_blank">City News Service</a>
+          <a class="src" href="https://www.malaysiasun.com/news/278974864/tairex-launches-virtual-consultation-room-setting-a-new-paradigm-for-ai-medical-services" target="_blank">Malaysia Sun</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-blue">心理健康·数字疗法</span></div>
+      <div class="item-body">
+        <div class="item-title">数字心理健康融资创新高：Talkiatry完成超2亿美元融资，AI精神科服务平台跑入头部</div>
+        <div class="item-kv">
+          <div class="kv"><span>Talkiatry</span> 超2亿美元融资 · 精神科在线诊疗 · 覆盖美国40个州</div>
+          <div class="kv"><span>OpenEvidence</span> AI临床决策支持 · 超2亿美元 · 服务执业医生</div>
+          <div class="kv"><span>Q1数字健康融资</span> 40亿美元 · 心理健康+AI临床工具占最大份额</div>
+        </div>
+        <div class="item-text">数字心理健康已从"新冠催生"进入"AI重构"的第二阶段。AI精神科平台的核心竞争力在于异步诊疗（不限医生排班）+个性化治疗路径+保险覆盖整合。中国心理健康服务市场渗透率显著偏低，AI数字疗法赛道在国内具备高成长空间，相关企业（壹心理、好心情等）值得持续关注。</div>
+        <div class="sources">
+          <a class="src" href="https://rockhealth.com/rock-weekly/q1-digital-health-funding-4b-across-110-deals/" target="_blank">Rock Health</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-tag"><span class="tag tag-purple">AI赋能·运营</span></div>
+      <div class="item-body">
+        <div class="item-title">Mayo Clinic、BCG联合报告：AI正系统性重塑医院运营和患者旅程，2026-2027年医疗IT支出将出现明显跃升</div>
+        <div class="item-kv">
+          <div class="kv"><span>渗透进展</span> AI行政管理自动化（排班/账单/编码）快速落地大型医疗机构</div>
+          <div class="kv"><span>临床延伸</span> AI影像→临床决策→出院预测→用药管理完整链路</div>
+          <div class="kv"><span>BCG预测</span> AI Agent将在2026-2028年从辅助工具转变为临床流程核心组件</div>
+        </div>
+        <div class="item-text">顶级学术医疗机构背书的AI医院运营报告，预示医疗服务IT采购进入新一轮高峰。国内医院信息化升级（HIS/EMR/PACS的AI化改造）是政策和市场双推动的确定性主题，相关IT服务商（卫宁健康、嘉和美康、医渡科技等）具备受益逻辑。</div>
+        <div class="sources">
+          <a class="src" href="https://mayomagazine.mayoclinic.org/2026/04/ai-in-healthcare/" target="_blank">Mayo Clinic</a>
+          <a class="src" href="https://www.bcg.com/publications/2026/how-ai-agents-will-transform-health-care" target="_blank">BCG</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 市场情绪 -->
+  <div class="section sec-market" id="sec-market">
+    <div class="section-head">
+      <span class="section-icon">📈</span>
+      <div class="section-title">市场情绪 &amp; 趋势小结</div>
+    </div>
+    <div class="mkt-list">
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">台积电·半导体</span><span class="mkt-signal up">强势↑</span></div>
+        <div class="mkt-note">Q1营收+35%创历史新高，4月16日财报是近期最大催化剂；英伟达CoWoS锁产能强化双寡头格局，Rubin延迟风险暂不影响整体需求逻辑</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">AI大模型竞争</span><span class="mkt-signal amber">白热化↗</span></div>
+        <div class="mkt-note">六大AI Lab（OpenAI/Anthropic/Google/Meta/阿里/DeepSeek）进入商业化×算力×生态三维决战；OpenAI关停Sora是资源聚焦信号；AI安全监管压力上升</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">GLP-1·减重药</span><span class="mkt-signal up">赛道扩容↑</span></div>
+        <div class="mkt-note">礼来口服GLP-1 Foundayo获批开辟新增量，降低用药门槛将显著扩大市场覆盖人群；国产口服GLP-1布局（华东医药/信达/鸿运华宁）价值重估窗口开启</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">国产手术机器人</span><span class="mkt-signal up">商业化加速↑</span></div>
+        <div class="mkt-note">政策（医保+收费）与产品（CMEF临床数据）双重催化，达芬奇替代进程实质加速；消费医疗机器人（磅策医疗B轮）并行受益</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">数字健康融资</span><span class="mkt-signal up">强劲反弹↑</span></div>
+        <div class="mkt-note">Q1 40亿美元创近年同期新高，AI临床决策+心理健康+智能穿戴三线共振；头部集中度上升，非头部标的融资难度加大</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-left"><span class="mkt-topic">中美科技博弈</span><span class="mkt-signal down">风险持续↓</span></div>
+        <div class="mkt-note">ABF薄膜95%垄断曝光映射供应链去风险化的深层挑战；H200有限重开+中国进口壁垒持续拉锯；关税政策波动是整个科技板块最大外部风险变量</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      来源：CNBC · TechCrunch · TrendForce · FDA官方 · FierceBiotech · Rock Health · 国家药监局 · 中国证券报 · Mayo Clinic · BCG 等 &nbsp;·&nbsp; 由 AI 自动生成，仅供参考，不构成投资建议
+    </div>
+    <div class="footer-right">
+      如需转载请联系 GitHub 作者
+    </div>
+  </div>
+
+</div>
+
+<style>
+  #pw-overlay {
+    position: fixed; inset: 0; background: rgba(0,20,40,0.92);
+    z-index: 9999; display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(6px);
+  }
+  #pw-box {
+    background: #fff; border-radius: 16px; padding: 36px 32px 28px;
+    width: 320px; max-width: 90vw;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center;
+  }
+  #pw-box .pw-logo {
+    font-family: "Playfair Display", "Noto Serif SC", Georgia, serif;
+    font-size: 15px; font-weight: 700; color: #003057; margin-bottom: 6px;
+  }
+  #pw-box .pw-hint { font-size: 12px; color: #aaa; margin-bottom: 20px; line-height: 1.6; }
+  #pw-input {
+    width: 100%; padding: 11px 14px; border: 1.5px solid #ddd; border-radius: 8px;
+    font-size: 14px; font-family: "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 1px; outline: none; transition: border-color .2s;
+    box-sizing: border-box; text-align: center;
+  }
+  #pw-input:focus { border-color: #003057; }
+  #pw-input.error { border-color: #e53935; animation: shake .3s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  #pw-btn {
+    margin-top: 14px; width: 100%; padding: 11px;
+    background: #003057; color: #fff; border: none; border-radius: 8px;
+    font-size: 14px; font-weight: 500; cursor: pointer; transition: background .15s;
+  }
+  #pw-btn:hover { background: #004b8d; }
+  #pw-error { margin-top: 10px; font-size: 12px; color: #e53935; min-height: 16px; }
+</style>
+
+<div id="pw-overlay">
+  <div id="pw-box">
+    <div class="pw-logo">Frontier Industry Info Hub</div>
+    <div class="pw-hint">
+      <b>My Puppy's name + today's date</b><br>
+      示例格式：<b style="color:#555;">xxxx0331</b>，不区分大小写
+    </div>
+    <input id="pw-input" type="text" placeholder="输入密码" autocomplete="off" spellcheck="false" />
+    <button id="pw-btn">进入</button>
+    <div id="pw-error"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var ANSWER = 'mozz0415';
+  var input   = document.getElementById('pw-input');
+  var btn     = document.getElementById('pw-btn');
+  var err     = document.getElementById('pw-error');
+  var overlay = document.getElementById('pw-overlay');
+
+  function lockBody() {
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+  }
+  function unlockBody() {
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+  }
+  function scrollTop() {
+    window.scrollTo(0, 0);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 0);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 50);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 150);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 300);
+  }
+  function check() {
+    if (input.value.trim().toLowerCase() === ANSWER) {
+      overlay.style.display = 'none';
+      unlockBody();
+      scrollTop();
+      sessionStorage.setItem('pw_ok_20260415', '1');
+    } else {
+      err.textContent = '密码错误，请重试';
+      input.classList.add('error');
+      setTimeout(function(){ input.classList.remove('error'); }, 400);
+      input.value = '';
+      input.focus();
+    }
+  }
+  if (sessionStorage.getItem('pw_ok_20260415') === '1') {
+    overlay.style.display = 'none';
+    unlockBody();
+    scrollTop();
+  } else {
+    lockBody();
+    input.focus();
+  }
+  btn.addEventListener('click', check);
+  input.addEventListener('keydown', function(e) { if (e.key === 'Enter') check(); });
+})();
+</script>
+
+<script>
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var banner = document.querySelector('.header');
+  var bannerH = banner ? banner.offsetHeight : 0;
+  var top = el.getBoundingClientRect().top + window.pageYOffset - bannerH - 8;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+}
+</script>
+<script>
+function floatTopClick() {
+  window.scrollTo({top:0, behavior:'smooth'});
+  var label = document.querySelector('#float-top-btn .float-nav-label');
+  if (label) {
+    label.classList.add('show-click');
+    clearTimeout(label._hideTimer);
+    label._hideTimer = setTimeout(function(){ label.classList.remove('show-click'); }, 500);
+  }
+}
+document.querySelectorAll('.float-nav-item:not(.top-btn)').forEach(function(item) {
+  item.addEventListener('click', function() {
+    var label = item.querySelector('.float-nav-label');
+    if (label) {
+      label.classList.add('show-click');
+      clearTimeout(label._hideTimer);
+      label._hideTimer = setTimeout(function(){ label.classList.remove('show-click'); }, 500);
+    }
+  });
+});
+var NAV_MAP = [
+  { id: 'sec-semi',    dot: document.querySelector('.float-nav-item:nth-child(2) .float-nav-dot') },
+  { id: 'sec-ai-hw',  dot: document.querySelector('.float-nav-item:nth-child(3) .float-nav-dot') },
+  { id: 'sec-ai-app', dot: document.querySelector('.float-nav-item:nth-child(4) .float-nav-dot') },
+  { id: 'sec-pharma', dot: document.querySelector('.float-nav-item:nth-child(5) .float-nav-dot') },
+  { id: 'sec-device', dot: document.querySelector('.float-nav-item:nth-child(6) .float-nav-dot') },
+  { id: 'sec-service',dot: document.querySelector('.float-nav-item:nth-child(7) .float-nav-dot') },
+  { id: 'sec-market', dot: document.querySelector('.float-nav-item:nth-child(8) .float-nav-dot') },
+];
+function updateNavHighlight() {
+  var scrollY = window.scrollY || window.pageYOffset;
+  var winH = window.innerHeight;
+  var active = null;
+  for (var i = NAV_MAP.length - 1; i >= 0; i--) {
+    var el = document.getElementById(NAV_MAP[i].id);
+    if (el && el.getBoundingClientRect().top <= winH * 0.4) {
+      active = i;
+      break;
+    }
+  }
+  NAV_MAP.forEach(function(item, idx) {
+    if (!item.dot) return;
+    if (idx === active) {
+      item.dot.style.opacity = '1';
+      item.dot.style.background = '#0c6e87';
+      item.dot.style.transform = 'scale(1.4)';
+    } else {
+      item.dot.style.opacity = '0.3';
+      item.dot.style.background = '#003057';
+      item.dot.style.transform = '';
+    }
+  });
+}
+window.addEventListener('scroll', updateNavHighlight, { passive: true });
+updateNavHighlight();
+</script>
+
+</body>
+</html>
