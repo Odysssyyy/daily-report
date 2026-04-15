@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-04-15",
+    "file": "2026-04-15.html",
+    "icon": "🤖",
+    "keywords": "台积电营收+35% · 礼来口服GLP-1获批 · NVIDIA Rubin延迟 · 国产手术机器人加速 · Anthropic安全政策",
+    "new": true
+  },
+  {
     "date": "2026-04-14",
     "file": "2026-04-14.html",
     "icon": "🤖",
-    "keywords": "TSMC季报+35% · DeepSeek华为昇腾 · OpenAI/Anthropic超千亿融资 · KN026双抗击败SOC · Avanos私有化",
-    "new": true
+    "keywords": "TSMC季报+35% · DeepSeek华为昇腾 · OpenAI/Anthropic超千亿融资 · KN026双抗击败SOC · Avanos私有化"
   },
   {
     "date": "2026-04-13",
