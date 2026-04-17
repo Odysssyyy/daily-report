@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-04-17",
+    "file": "2026-04-17.html",
+    "icon": "🤖",
+    "keywords": "Claude Opus 4.7 · 生物科技并购409亿 · FDA CBER主任离职 · AI Agent治理 · HBV授权",
+    "new": true
+  },
+  {
     "date": "2026-04-16",
     "file": "2026-04-16.html",
     "icon": "🤖",
-    "keywords": "GPT-6发布200万上下文 · Anthropic ARR首超OpenAI300亿 · 半导体全线涨价 · 百济神州TCE双抗NMPA获批 · 人形机器人量产元年",
-    "new": true
+    "keywords": "GPT-6发布200万上下文 · Anthropic ARR首超OpenAI300亿 · 半导体全线涨价 · 百济神州TCE双抗NMPA获批 · 人形机器人量产元年"
   },
   {
     "date": "2026-04-15",
