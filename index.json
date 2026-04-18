@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-04-18",
+    "file": "2026-04-18.html",
+    "icon": "🤖",
+    "keywords": "台积电Q1净利+58% · Anthropic ARR超300亿 · DeepSeek V4换装昇腾 · FDA新药获批10款 · 量子AI伊辛模型",
+    "new": true
+  },
+  {
     "date": "2026-04-17",
     "file": "2026-04-17.html",
     "icon": "🤖",
-    "keywords": "Claude Opus 4.7 · 生物科技并购409亿 · FDA CBER主任离职 · AI Agent治理 · HBV授权",
-    "new": true
+    "keywords": "Claude Opus 4.7 · 生物科技并购409亿 · FDA CBER主任离职 · AI Agent治理 · HBV授权"
   },
   {
     "date": "2026-04-16",
