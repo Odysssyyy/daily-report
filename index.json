@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-04-19",
+    "file": "2026-04-19.html",
+    "icon": "🏭",
+    "keywords": "台积电$560亿Capex · Kailera $6.25亿IPO · GPT-Rosalind · Terafab英特尔×Tesla · UCB收购Neurona",
+    "new": true
+  },
+  {
     "date": "2026-04-18",
     "file": "2026-04-18.html",
     "icon": "🤖",
-    "keywords": "台积电Q1净利+58% · Anthropic ARR超300亿 · DeepSeek V4换装昇腾 · FDA新药获批10款 · 量子AI伊辛模型",
-    "new": true
+    "keywords": "台积电Q1净利+58% · Anthropic ARR超300亿 · DeepSeek V4换装昇腾 · FDA新药获批10款 · 量子AI伊辛模型"
   },
   {
     "date": "2026-04-17",
