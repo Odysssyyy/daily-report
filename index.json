@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-04-21",
+    "file": "2026-04-21.html",
+    "icon": "🚀",
+    "keywords": "TSMC Q1净利+58% · Claude Opus 4.7 · 塔拉妥单抗NMPA获批 · 礼来GLP-1口服上市 · AI芯片挑战者$83亿融资",
+    "new": true
+  },
+  {
     "date": "2026-04-20",
     "file": "2026-04-20.html",
     "icon": "🏭",
-    "keywords": "台积电Q1利润+58% · 口服GLP-1获批 · 华为昇腾950PR · Siemens分拆Healthineers · CMS撤NTAP",
-    "new": true
+    "keywords": "台积电Q1利润+58% · 口服GLP-1获批 · 华为昇腾950PR · Siemens分拆Healthineers · CMS撤NTAP"
   },
   {
     "date": "2026-04-19",
