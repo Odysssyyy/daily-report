@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-04-23",
+    "file": "2026-04-23.html",
+    "icon": "🛠",
+    "keywords": "TSMC Q1净利+58% · Google TPU第八代分训推 · Vast Data $30B · 口服GLP-1获批 · Medtronic收购CathWorks",
+    "new": true
+  },
+  {
     "date": "2026-04-22",
     "file": "2026-04-22.html",
     "icon": "💡",
-    "keywords": "Amazon $250亿押注Anthropic · Apple CEO换届 · Claude Opus 4.7 · AACR双抗ADC · 中国BD破$600亿",
-    "new": true
+    "keywords": "Amazon $250亿押注Anthropic · Apple CEO换届 · Claude Opus 4.7 · AACR双抗ADC · 中国BD破$600亿"
   },
   {
     "date": "2026-04-21",
