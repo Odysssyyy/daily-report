@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-04-24",
+    "file": "2026-04-24.html",
+    "icon": "💻",
+    "keywords": "TSMC A13/N2U制程 · Intel Q1财报 · Lilly $70亿收购Kelonia · Revolution $20亿胰腺癌 · 数字健康Q1$74亿融资",
+    "new": true
+  },
+  {
     "date": "2026-04-23",
     "file": "2026-04-23.html",
     "icon": "🛠",
-    "keywords": "TSMC Q1净利+58% · Google TPU第八代分训推 · Vast Data $30B · 口服GLP-1获批 · Medtronic收购CathWorks",
-    "new": true
+    "keywords": "TSMC Q1净利+58% · Google TPU第八代分训推 · Vast Data $30B · 口服GLP-1获批 · Medtronic收购CathWorks"
   },
   {
     "date": "2026-04-22",
