@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-05-01",
+    "file": "2026-05-01.html",
+    "icon": "🧬",
+    "keywords": "Google $400亿押注Anthropic · YMTC全国产NAND量产 · Regeneron耳聋基因疗法FDA批准 · 中国生物医学条例施行 · 2026 ASCO中国创新药历史新高",
+    "new": true
+  },
+  {
     "date": "2026-04-29",
     "file": "2026-04-29.html",
     "icon": "🔬",
-    "keywords": "CRISPR III期全球首次 · GPT-5.5 vs DeepSeek V4 · 四大科技巨头$6300亿AI Capex · 华虹出口管制 · NVIDIA $5万亿历史新高",
-    "new": true
+    "keywords": "CRISPR III期全球首次 · GPT-5.5 vs DeepSeek V4 · 四大科技巨头$6300亿AI Capex · 华虹出口管制 · NVIDIA $5万亿历史新高"
   },
   {
     "date": "2026-04-28",
