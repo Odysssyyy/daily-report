@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-05-04",
+    "file": "2026-05-04.html",
+    "icon": "🧬",
+    "keywords": "PROTAC首批 · DeepSeek V4 · 台积电万亿 · Aidoc Series E · GLP-1口服",
+    "new": true
+  },
+  {
     "date": "2026-05-03",
     "file": "2026-05-03.html",
     "icon": "🔥",
-    "keywords": "华为夺中国AI芯片王座 · Veppanu首款PROTAC获批 · Microsoft-OpenAI独家协议终止 · Anthropic估值$1万亿 · 口服GLP-1 Foundayo商业化",
-    "new": true
+    "keywords": "华为夺中国AI芯片王座 · Veppanu首款PROTAC获批 · Microsoft-OpenAI独家协议终止 · Anthropic估值$1万亿 · 口服GLP-1 Foundayo商业化"
   },
   {
     "date": "2026-05-01",
