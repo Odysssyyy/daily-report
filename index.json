@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-05-08",
+    "file": "2026-05-08.html",
+    "icon": "🤖",
+    "keywords": "Anthropic $900亿估值 · OpenAI企业AI合资公司 · PROTAC首个FDA批准 · NVIDIA GB300良率激增 · GPT-5.5 Instant",
+    "new": true
+  },
+  {
     "date": "2026-05-07",
     "file": "2026-05-07.html",
     "icon": "📈",
-    "keywords": "三星万亿美元市值 · 谷歌400亿押注Anthropic · GPT-5.5发布 · VEPPANU首个PROTAC获批 · 可孚医疗港股上市",
-    "new": true
+    "keywords": "三星万亿美元市值 · 谷歌400亿押注Anthropic · GPT-5.5发布 · VEPPANU首个PROTAC获批 · 可孚医疗港股上市"
   },
   {
     "date": "2026-05-06",
