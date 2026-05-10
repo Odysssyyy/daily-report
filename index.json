@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-05-10",
+    "file": "2026-05-10.html",
+    "icon": "🛠",
+    "keywords": "NVDA中国份额归零 · 中国5nm芯片5x扩产 · GPT-5.5 SuperApp · Gilead完成Arcellx收购 · BSX 145亿Penumbra",
+    "new": true
+  },
+  {
     "date": "2026-05-09",
     "file": "2026-05-09.html",
     "icon": "🔬",
-    "keywords": "OpenAI MRC超算协议 · 国产AI芯片Q1集体兑现 · PROTAC首个FDA批准 · AlphaEvolve科学突破 · Odyssey 3亿IPO",
-    "new": true
+    "keywords": "OpenAI MRC超算协议 · 国产AI芯片Q1集体兑现 · PROTAC首个FDA批准 · AlphaEvolve科学突破 · Odyssey 3亿IPO"
   },
   {
     "date": "2026-05-08",
@@ -82,24 +88,60 @@
     "date": "2026-04-23",
     "file": "2026-04-23.html",
     "icon": "🛠",
-    "keywords": "TSMC Q1净利+58% · Google TPU第八代分训推 · Vast Data $30B · 口服GLP-1获批 · Medtronic收购CathWorks"
+    "keywords": "台积电N2良率突破 · GPT-5.5 API开放 · Bristol-Myers Squibb收购Agenus · NovaBay IPO · 医疗服务AI整合"
   },
   {
     "date": "2026-04-22",
     "file": "2026-04-22.html",
-    "icon": "💡",
-    "keywords": "Amazon $250亿押注Anthropic · Apple CEO换届 · Claude Opus 4.7 · AACR双抗ADC · 中国BD破$600亿"
+    "icon": "🤖",
+    "keywords": "Google Cloud Next 2026 · Gemini企业代理平台 · OpenAI Workspace Agents · Insilico-礼来$275亿 · 医疗AI新布局"
   },
   {
     "date": "2026-04-21",
     "file": "2026-04-21.html",
-    "icon": "🚀",
-    "keywords": "TSMC Q1净利+58% · Claude Opus 4.7 · 塔拉妥单抗NMPA获批 · 礼来GLP-1口服上市 · AI芯片挑战者$83亿融资"
+    "icon": "🔬",
+    "keywords": "Anthropic Claude Mythos安全事件 · OpenAI-Microsoft独占终止传闻 · Moderna mRNA癌症疫苗III期入组 · Medtronic心律管理战略调整"
   },
   {
     "date": "2026-04-20",
     "file": "2026-04-20.html",
-    "icon": "🏭",
-    "keywords": "台积电Q1利润+58% · 口服GLP-1获批 · 华为昇腾950PR · Siemens分拆Healthineers · CMS撤NTAP"
+    "icon": "💊",
+    "keywords": "Idvyns HIV完整方案获批 · DeepSeek V4预览版发布 · SMIC 5nm稳定量产 · 医院M&A Q1反弹 · AI医疗Q1融资$53亿"
+  },
+  {
+    "date": "2026-04-17",
+    "file": "2026-04-17.html",
+    "icon": "📊",
+    "keywords": "半导体行业预测$9750亿 · 台积电5倍产能计划 · 华为昇腾生态发布 · Merck-Infinimmune $8.38亿 · 医院M&A整合加速"
+  },
+  {
+    "date": "2026-04-16",
+    "file": "2026-04-16.html",
+    "icon": "🚀",
+    "keywords": "TSMC Q1财报超预期 · xAI代理调用降价50% · Novartis稀有病批准 · Boston Scientific Penumbra计划 · 数字健康融资超越峰值"
+  },
+  {
+    "date": "2026-04-15",
+    "file": "2026-04-15.html",
+    "icon": "🛠",
+    "keywords": "中国芯片5倍扩产 · Intel Q1预期 · Danaher-Masimo谈判 · 礼来-Kelonia抗癌 · AI临床决策支持融资热"
+  },
+  {
+    "date": "2026-04-14",
+    "file": "2026-04-14.html",
+    "icon": "🔥",
+    "keywords": "Meta收购Assured Robot Intelligence · 数字健康Q1$74亿融资 · SMIC AI战略 · GE HealthCare Intelerad完成 · 医疗M&A加速"
+  },
+  {
+    "date": "2026-04-13",
+    "file": "2026-04-13.html",
+    "icon": "💊",
+    "keywords": "Lilly减重药口服FDA批准 · Medtronic收购CathWorks · 手术机器人磅策B轮 · 国产创新药双批 · 医疗服务AI渗透"
+  },
+  {
+    "date": "2026-04-10",
+    "file": "2026-04-10.html",
+    "icon": "🛠",
+    "keywords": "DeepSeek V4全面换装华为昇腾 · Meta Muse Spark模型 · Gilead 50亿收购Tubulis · 数字健康Q1$40亿反弹 · 磅策B轮AI植发机器人"
   }
 ]
