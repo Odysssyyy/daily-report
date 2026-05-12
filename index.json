@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-05-12",
+    "file": "2026-05-12.html",
+    "icon": "💾",
+    "keywords": "中芯国际406亿并购 · Micron周涨37% · Anthropic $2000亿Google Cloud · Veppanu PROTAC获批 · Angelini $41亿Catalyst",
+    "new": true
+  },
+  {
     "date": "2026-05-11",
     "file": "2026-05-11.html",
     "icon": "🤖",
-    "keywords": "华为AI芯片$120亿 · OpenAI GPT-5.5-Cyber · PROTAC首批Veppanu · 口服GLP-1 Foundayo · Profluent-Lilly $22.5亿",
-    "new": true
+    "keywords": "华为AI芯片$120亿 · OpenAI GPT-5.5-Cyber · PROTAC首批Veppanu · 口服GLP-1 Foundayo · Profluent-Lilly $22.5亿"
   },
   {
     "date": "2026-05-10",
@@ -136,18 +142,6 @@
     "date": "2026-04-14",
     "file": "2026-04-14.html",
     "icon": "🔥",
-    "keywords": "Meta收购Assured Robot Intelligence · 数字健康Q1$74亿融资 · SMIC AI战略 · GE HealthCare Intelerad完成 · 医疗M&A加速"
-  },
-  {
-    "date": "2026-04-13",
-    "file": "2026-04-13.html",
-    "icon": "💊",
-    "keywords": "Lilly减重药口服FDA批准 · Medtronic收购CathWorks · 手术机器人磅策B轮 · 国产创新药双批 · 医疗服务AI渗透"
-  },
-  {
-    "date": "2026-04-10",
-    "file": "2026-04-10.html",
-    "icon": "🛠",
-    "keywords": "DeepSeek V4全面换装华为昇腾 · Meta Muse Spark模型 · Gilead 50亿收购Tubulis · 数字健康Q1$40亿反弹 · 磅策B轮AI植发机器人"
+    "keywords": "DeepSeek V4预告 · OpenAI o3-mini Agent · Novartis稀有病 · 康方生物 $3亿 · FDA 510(k) AI设备"
   }
 ]
