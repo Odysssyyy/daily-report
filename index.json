@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-05-13",
+    "file": "2026-05-13.html",
+    "icon": "💡",
+    "keywords": "AI芯片世代交替 · Intel+200%/AMD+25%/Micron+37% · Roche $10.5亿PathAI · Angelini $41亿Catalyst · PROTAC商业化",
+    "new": true
+  },
+  {
     "date": "2026-05-12",
     "file": "2026-05-12.html",
     "icon": "💾",
-    "keywords": "中芯国际406亿并购 · Micron周涨37% · Anthropic $2000亿Google Cloud · Veppanu PROTAC获批 · Angelini $41亿Catalyst",
-    "new": true
+    "keywords": "中芯国际406亿并购 · Micron周涨37% · Anthropic $2000亿Google Cloud · Veppanu PROTAC获批 · Angelini $41亿Catalyst"
   },
   {
     "date": "2026-05-11",
@@ -95,53 +101,5 @@
     "file": "2026-04-24.html",
     "icon": "💻",
     "keywords": "TSMC A13/N2U制程 · Intel Q1财报 · Lilly $70亿收购Kelonia · Revolution $20亿胰腺癌 · 数字健康Q1$74亿融资"
-  },
-  {
-    "date": "2026-04-23",
-    "file": "2026-04-23.html",
-    "icon": "🛠",
-    "keywords": "台积电N2良率突破 · GPT-5.5 API开放 · Bristol-Myers Squibb收购Agenus · NovaBay IPO · 医疗服务AI整合"
-  },
-  {
-    "date": "2026-04-22",
-    "file": "2026-04-22.html",
-    "icon": "🤖",
-    "keywords": "Google Cloud Next 2026 · Gemini企业代理平台 · OpenAI Workspace Agents · Insilico-礼来$275亿 · 医疗AI新布局"
-  },
-  {
-    "date": "2026-04-21",
-    "file": "2026-04-21.html",
-    "icon": "🔬",
-    "keywords": "Anthropic Claude Mythos安全事件 · OpenAI-Microsoft独占终止传闻 · Moderna mRNA癌症疫苗III期入组 · Medtronic心律管理战略调整"
-  },
-  {
-    "date": "2026-04-20",
-    "file": "2026-04-20.html",
-    "icon": "💊",
-    "keywords": "Idvyns HIV完整方案获批 · DeepSeek V4预览版发布 · SMIC 5nm稳定量产 · 医院M&A Q1反弹 · AI医疗Q1融资$53亿"
-  },
-  {
-    "date": "2026-04-17",
-    "file": "2026-04-17.html",
-    "icon": "📊",
-    "keywords": "半导体行业预测$9750亿 · 台积电5倍产能计划 · 华为昇腾生态发布 · Merck-Infinimmune $8.38亿 · 医院M&A整合加速"
-  },
-  {
-    "date": "2026-04-16",
-    "file": "2026-04-16.html",
-    "icon": "🚀",
-    "keywords": "TSMC Q1财报超预期 · xAI代理调用降价50% · Novartis稀有病批准 · Boston Scientific Penumbra计划 · 数字健康融资超越峰值"
-  },
-  {
-    "date": "2026-04-15",
-    "file": "2026-04-15.html",
-    "icon": "🛠",
-    "keywords": "中国芯片5倍扩产 · Intel Q1预期 · Danaher-Masimo谈判 · 礼来-Kelonia抗癌 · AI临床决策支持融资热"
-  },
-  {
-    "date": "2026-04-14",
-    "file": "2026-04-14.html",
-    "icon": "🔥",
-    "keywords": "DeepSeek V4预告 · OpenAI o3-mini Agent · Novartis稀有病 · 康方生物 $3亿 · FDA 510(k) AI设备"
   }
 ]
