@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-05-20",
+    "file": "2026-05-20.html",
+    "icon": "🚀",
+    "keywords": "NVIDIA Q1财报夜 · Google×Blackstone $250亿TPU合资 · Karpathy加盟Anthropic · TSMC N2良率破80% · Tecentriq ctDNA-MRD全球首批 · 百济Sonrotoclax FDA获批 · Commure $70亿",
+    "new": true
+  },
+  {
     "date": "2026-05-13",
     "file": "2026-05-13.html",
     "icon": "💡",
-    "keywords": "AI芯片世代交替 · Intel+200%/AMD+25%/Micron+37% · Roche $10.5亿PathAI · Angelini $41亿Catalyst · PROTAC商业化",
-    "new": true
+    "keywords": "AI芯片世代交替 · Intel+200%/AMD+25%/Micron+37% · Roche $10.5亿PathAI · Angelini $41亿Catalyst · PROTAC商业化"
   },
   {
     "date": "2026-05-12",
