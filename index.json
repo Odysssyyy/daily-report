@@ -1,10 +1,64 @@
 [
   {
+    "date": "2026-05-29",
+    "file": "2026-05-29.html",
+    "icon": "⚡",
+    "new": true,
+    "keywords": "ASCO 2026 ADC管线爆发 · GPT-5.5-Turbo降价60% · 英伟达B300微软交付 · 谷歌Blackstone $250亿TPU · 百济BGB-11417"
+  },
+  {
+    "date": "2026-05-28",
+    "file": "2026-05-28.html",
+    "icon": "🚀",
+    "keywords": "xAI Colossus II 10万卡 · 再鼎KRAS获批 · 诺华ziltivekimab · 台积电2nm客户名单 · TikTok AIGC 25%"
+  },
+  {
+    "date": "2026-05-27",
+    "file": "2026-05-27.html",
+    "icon": "🤖",
+    "keywords": "DeepSeek R3 · 英伟达Rubin 3倍算力 · 苹果WWDC 2026 · 吉利德ASCENT-04 · AMD EPYC 35%"
+  },
+  {
+    "date": "2026-05-26",
+    "file": "2026-05-26.html",
+    "icon": "🏆",
+    "keywords": "百济zanubrutinib登顶美国 · 台积电5月营收+42% · 谷歌TPU v7开放 · Waymo 8城 · 韩国半导体$190亿"
+  },
+  {
+    "date": "2026-05-25",
+    "file": "2026-05-25.html",
+    "icon": "💡",
+    "keywords": "Meta资本开支$650亿 · Midjourney V7 · 礼来donanemab扩适应症 · Apple血糖监测 · 液冷PUE 1.05"
+  },
+  {
+    "date": "2026-05-24",
+    "file": "2026-05-24.html",
+    "icon": "📈",
+    "keywords": "英伟达Q1营收$442亿 · GPT-5.5 Pro · 默沙东皮下KEYTRUDA · 微软$1000亿算力 · 罗氏IO失败"
+  },
+  {
+    "date": "2026-05-23",
+    "file": "2026-05-23.html",
+    "icon": "💉",
+    "keywords": "ASCO 2026 免疫肿瘤 · 诺和诺德amycretin · 英伟达GB300发货 · Cursor $1.8亿ARR · ASML High-NA交付"
+  },
+  {
+    "date": "2026-05-22",
+    "file": "2026-05-22.html",
+    "icon": "🌐",
+    "keywords": "谷歌I/O Gemini 3.1 · 台积电2nm量产 · 诺华iptacopan获批 · Scale AI $250亿 · 史赛克$48亿收购"
+  },
+  {
+    "date": "2026-05-21",
+    "file": "2026-05-21.html",
+    "icon": "🔥",
+    "keywords": "英伟达Blackwell量产 · 礼来口服GLP-1 · Anthropic Claude 4 · 中芯国际N+2 · Perplexity $5亿融资"
+  },
+  {
     "date": "2026-05-20",
     "file": "2026-05-20.html",
     "icon": "🚀",
-    "keywords": "NVIDIA Q1财报夜 · Google×Blackstone $250亿TPU合资 · Karpathy加盟Anthropic · TSMC N2良率破80% · Tecentriq ctDNA-MRD全球首批 · 百济Sonrotoclax FDA获批 · Commure $70亿",
-    "new": true
+    "keywords": "NVIDIA Q1财报夜 · Google×Blackstone $250亿TPU合资 · Karpathy加盟Anthropic · TSMC N2良率破80% · Tecentriq ctDNA-MRD全球首批 · 百济Sonrotoclax FDA获批 · Commure $70亿"
   },
   {
     "date": "2026-05-13",
