@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-05-28 前沿产业资讯日报</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#1a1a2e}
+#pw-overlay{position:fixed;inset:0;background:rgba(15,15,35,.97);display:flex;align-items:center;justify-content:center;z-index:9999}
+#pw-box{background:#fff;border-radius:16px;padding:40px 32px;max-width:360px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+#pw-box h2{font-size:1.3rem;margin-bottom:8px;color:#1a1a2e}
+#pw-box p{font-size:.85rem;color:#666;margin-bottom:20px}
+#pw-box input{width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;outline:none;text-align:center;letter-spacing:4px}
+#pw-box input:focus{border-color:#6c63ff}
+#pw-box button{margin-top:14px;width:100%;padding:12px;background:#6c63ff;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600}
+#pw-box button:hover{background:#5a52e0}
+#pw-error{color:#e53935;font-size:.85rem;margin-top:10px;display:none}
+#pw-hint{font-size:.75rem;color:#aaa;margin-top:8px}
+.page{max-width:860px;margin:0 auto;padding:24px 16px}
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);border-radius:16px;padding:32px 36px;margin-bottom:24px;position:relative;overflow:hidden;color:#fff}
+.header-deco{position:absolute;right:-20px;top:-20px;opacity:.08}
+.header-brand{font-size:1.4rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.header-zh{font-size:1rem;opacity:.7;margin-top:4px}
+.header-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px}
+.header-mozz{font-size:.8rem;opacity:.5;letter-spacing:.1em}
+.header-date .d{font-size:1.1rem;font-weight:600;opacity:.85}
+.section{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #f0f0f0}
+.section-title{font-size:1rem;font-weight:700;color:#1a1a2e}
+.news-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.news-item{font-size:.88rem;line-height:1.6;color:#333;padding-left:12px;border-left:3px solid #6c63ff}
+.news-title{color:#1a1a2e}
+.news-link{display:inline-block;margin-left:6px;font-size:.75rem;color:#6c63ff;text-decoration:none;background:#f0eeff;padding:1px 6px;border-radius:4px}
+.sec-market .mkt-list{display:flex;flex-direction:column;gap:8px}
+.mkt-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#f8f8f8;border-radius:8px}
+.mkt-label{font-size:.88rem;font-weight:600;color:#333}
+.mkt-signal{font-size:.85rem;font-weight:700;padding:2px 10px;border-radius:20px}
+.mkt-signal.bull{color:#00875a;background:#e3fcef}
+.mkt-signal.active{color:#0747a6;background:#deebff}
+.mkt-signal.neutral{color:#505f79;background:#f4f5f7}
+.mkt-signal.split{color:#974f0c;background:#fff7e6}
+.mkt-signal.bear{color:#ae1100;background:#ffebe6}
+.mkt-topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.mkt-topic{font-size:.78rem;padding:3px 10px;background:#f0eeff;color:#5048c8;border-radius:20px;font-weight:500}
+.mkt-note{font-size:.83rem;color:#555;line-height:1.7;margin-top:12px;padding:12px;background:#fafafa;border-radius:8px;border-left:3px solid #e0e0e0}
+footer{display:flex;justify-content:space-between;align-items:center;padding:16px 4px;font-size:.75rem;color:#aaa;margin-top:8px}
+@media(max-width:600px){.page{padding:12px 10px}.header{padding:24px 20px}footer{flex-direction:column;gap:4px;text-align:center}}
+</style>
+</head>
+<body>
+<div id="pw-overlay">
+  <div id="pw-box">
+    <h2>🔐 访问验证</h2>
+    <p>请输入今日密码</p>
+    <input type="password" id="pw-input" placeholder="输入密码" onkeydown="if(event.key==='Enter')checkPw()">
+    <button onclick="checkPw()">进入</button>
+    <div id="pw-error">密码错误，请重试</div>
+    <div id="pw-hint">示例格式：xxxx0331，不区分大小写</div>
+  </div>
+</div>
+<script>
+(function(){
+  var key="pw_ok_20260528";
+  if(sessionStorage.getItem(key)==="1")document.getElementById("pw-overlay").style.display="none";
+})();
+function checkPw(){
+  var v=document.getElementById("pw-input").value.toLowerCase().trim();
+  if(v==="mozz0528"){sessionStorage.setItem("pw_ok_20260528","1");document.getElementById("pw-overlay").style.display="none";}
+  else{document.getElementById("pw-error").style.display="block";}
+}
+</script>
+<div class="page">
+  <div class="header">
+    <svg class="header-deco" width="220" height="220" viewBox="0 0 220 220"><circle cx="110" cy="110" r="100" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="110" cy="110" r="70" fill="none" stroke="#fff" stroke-width="1"/><circle cx="110" cy="110" r="40" fill="none" stroke="#fff" stroke-width=".5"/></svg>
+    <div class="header-inner">
+      <div class="header-brand">Frontier Industry Info Daily Report</div>
+      <div class="header-zh">前沿产业资讯日报</div>
+      <div class="header-bottom">
+        <div class="header-mozz">by mozz.ai</div>
+        <div class="header-date"><div class="d">26/05/28 周四</div></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section sec-semi">
+    <div class="section-header"><span class="section-title">半导体硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">台积电确认 2nm 客户名单：苹果 A20、英伟达 Vera Rubin、AMD RDNA 5</span> <a href="#" class="news-link">DigiTimes</a></li>
+<li class="news-item"><span class="news-title">三星存储 Q2 DRAM 价格上涨 8-12%，AI 服务器拉货超预期</span> <a href="#" class="news-link">DRAMeXchange</a></li>
+<li class="news-item"><span class="news-title">中国第三代半导体碳化硅年产能突破 200 万片，三安光电与比亚迪扩产</span> <a href="#" class="news-link">EE Times</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-hw">
+    <div class="section-header"><span class="section-title">AI 硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">xAI Colossus II 数据中心上线，10 万张 GB300 集群成全球最大单体 AI 算力</span> <a href="#" class="news-link">xAI Blog</a></li>
+<li class="news-item"><span class="news-title">博通 XPU 定制 AI 芯片季度出货量突破 100 万颗，谷歌/Meta 为主要客户</span> <a href="#" class="news-link">Bloomberg</a></li>
+<li class="news-item"><span class="news-title">寒武纪 MLU700 推理加速卡进入国家电网 AI 采购框架协议</span> <a href="#" class="news-link">36kr</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-app">
+    <div class="section-header"><span class="section-title">AI 应用</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Anthropic 推出 Claude for Enterprise 行业版，医疗、法律、金融三垂直专版</span> <a href="#" class="news-link">Anthropic Blog</a></li>
+<li class="news-item"><span class="news-title">TikTok AI 视频生成工具日活用户突破 1 亿，短视频 AIGC 化率超过 25%</span> <a href="#" class="news-link">The Verge</a></li>
+<li class="news-item"><span class="news-title">智谱 AI GLM-5.5 在中文医疗问答基准 CMB 超越 GPT-5.5</span> <a href="#" class="news-link">量子位</a></li>
+</ul>
+  </div>
+  <div class="section sec-drug">
+    <div class="section-header"><span class="section-title">创新药</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">FDA 批准 Argenx efgartigimod SC 周注射剂治疗全身型重症肌无力</span> <a href="#" class="news-link">FDA.gov</a></li>
+<li class="news-item"><span class="news-title">诺华 ziltivekimab 心血管残余炎症风险 RESCIND 三期达主要终点，CRP 降幅 65%</span> <a href="#" class="news-link">NEJM</a></li>
+<li class="news-item"><span class="news-title">再鼎医药 adagrasib + cetuximab KRAS G12C 结直肠癌获 FDA 加速批准</span> <a href="#" class="news-link">BioPharma Dive</a></li>
+</ul>
+  </div>
+  <div class="section sec-med">
+    <div class="section-header"><span class="section-title">医疗器械</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Insulet OmniPod 5 闭环胰岛素泵全球用户突破 50 万，T1D 市场占有率 28%</span> <a href="#" class="news-link">Fierce Biotech</a></li>
+<li class="news-item"><span class="news-title">强生 Shockwave 血管内碎石术 IVL 系统进入中国市场，全球版图扩张</span> <a href="#" class="news-link">MedTech Dive</a></li>
+<li class="news-item"><span class="news-title">华大基因 T7 基因测序仪通过 CE 认证，测序成本降至 50 美元/全基因组</span> <a href="#" class="news-link">动脉网</a></li>
+</ul>
+  </div>
+  <div class="section sec-svc">
+    <div class="section-header"><span class="section-title">医疗服务</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">CVS 与 Amazon Pharmacy 合作推出处方药当日达，覆盖全美 15 大城市</span> <a href="#" class="news-link">WSJ</a></li>
+<li class="news-item"><span class="news-title">平安医疗健康管理完成 A 轮 $5 亿融资，专注雇主健康福利 SaaS</span> <a href="#" class="news-link">36kr</a></li>
+<li class="news-item"><span class="news-title">SoftBank 投资数字疗法公司 Limbic $2 亿，押注精神健康 AI</span> <a href="#" class="news-link">Bloomberg</a></li>
+</ul>
+  </div>
+  <div class="section sec-market">
+    <div class="section-header"><span class="section-title">市场情绪</span></div>
+    <div class="mkt-topics"><span class="mkt-topic">xAI Colossus II 10万卡上线</span><span class="mkt-topic">再鼎医药 KRAS G12C 获批</span><span class="mkt-topic">台积电 2nm 客户名单</span><span class="mkt-topic">TikTok AIGC 化率 25%</span></div>
+    <div class="mkt-list"><div class="mkt-row"><span class="mkt-label">半导体</span><span class="mkt-signal bull">▲ 强势</span></div>
+<div class="mkt-row"><span class="mkt-label">AI应用</span><span class="mkt-signal bull">▲ 强势</span></div>
+<div class="mkt-row"><span class="mkt-label">创新药</span><span class="mkt-signal active">◆ 活跃</span></div>
+<div class="mkt-row"><span class="mkt-label">医疗器械</span><span class="mkt-signal neutral">— 稳健</span></div>
+</div>
+    <div class="mkt-note">xAI Colossus II 上线标志超大规模单体算力集群时代开启；再鼎医药 KRAS G12C 获批验证国内 license-out 模式；TikTok AIGC 化率加速产品变革。</div>
+  </div>
+  <footer>
+    <div class="footer-left">来源：公开市场资讯综合整理</div>
+    <div class="footer-right">© mozz.ai · 仅供参考</div>
+  </footer>
+</div>
+</body>
+</html>
