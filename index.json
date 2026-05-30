@@ -1,9 +1,15 @@
 [
   {
+    "date": "2026-05-30",
+    "file": "2026-05-30.html",
+    "icon": "📈",
+    "keywords": "NVIDIA Rubin · TSMC美国晶圆 · FDA加速审批 · AI数据中心",
+    "new": true
+  },
+  {
     "date": "2026-05-29",
     "file": "2026-05-29.html",
     "icon": "⚡",
-    "new": true,
     "keywords": "ASCO 2026 ADC管线爆发 · GPT-5.5-Turbo降价60% · 英伟达B300微软交付 · 谷歌Blackstone $250亿TPU · 百济BGB-11417"
   },
   {
