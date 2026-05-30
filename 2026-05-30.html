@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-05-30 前沿产业资讯日报</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#1a1a2e}
+#pw-overlay{position:fixed;inset:0;background:rgba(15,15,35,.97);display:flex;align-items:center;justify-content:center;z-index:9999}
+#pw-box{background:#fff;border-radius:16px;padding:40px 32px;max-width:360px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+#pw-box h2{font-size:1.3rem;margin-bottom:8px}
+#pw-box p{font-size:.85rem;color:#666;margin-bottom:20px}
+#pw-box input{width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;text-align:center;letter-spacing:4px;outline:none}
+#pw-box input:focus{border-color:#6c63ff}
+#pw-box button{margin-top:14px;width:100%;padding:12px;background:#6c63ff;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600}
+#pw-error{color:#e53935;font-size:.85rem;margin-top:10px;display:none}
+#pw-hint{font-size:.75rem;color:#aaa;margin-top:8px}
+.page{max-width:860px;margin:0 auto;padding:24px 16px}
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);border-radius:16px;padding:32px 36px;margin-bottom:24px;position:relative;overflow:hidden;color:#fff}
+.header-deco{position:absolute;right:-20px;top:-20px;opacity:.08}
+.header-brand{font-size:1.4rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.header-zh{font-size:1rem;opacity:.7;margin-top:4px}
+.header-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px}
+.header-mozz{font-size:.8rem;opacity:.5;letter-spacing:.1em}
+.header-date .d{font-size:1.1rem;font-weight:600;opacity:.85}
+.section{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #f0f0f0}
+.section-title{font-size:1rem;font-weight:700;color:#1a1a2e}
+.news-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.news-item{font-size:.88rem;line-height:1.6;color:#333;padding-left:12px;border-left:3px solid #6c63ff}
+.news-link{display:inline-block;margin-left:6px;font-size:.75rem;color:#6c63ff;text-decoration:none;background:#f0eeff;padding:1px 6px;border-radius:4px}
+.mkt-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#f8f8f8;border-radius:8px;margin-bottom:8px}
+.mkt-label{font-size:.88rem;font-weight:600;color:#333}
+.mkt-signal{font-size:.85rem;font-weight:700;padding:2px 10px;border-radius:20px}
+.mkt-signal.bull{color:#00875a;background:#e3fcef}
+.mkt-signal.active{color:#0747a6;background:#deebff}
+.mkt-signal.neutral{color:#505f79;background:#f4f5f7}
+.mkt-signal.split{color:#974f0c;background:#fff7e6}
+.mkt-signal.bear{color:#ae1100;background:#ffebe6}
+.mkt-topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.mkt-topic{font-size:.78rem;padding:3px 10px;background:#f0eeff;color:#5048c8;border-radius:20px;font-weight:500}
+.mkt-note{font-size:.83rem;color:#555;line-height:1.7;margin-top:12px;padding:12px;background:#fafafa;border-radius:8px;border-left:3px solid #e0e0e0}
+footer{display:flex;justify-content:space-between;align-items:center;padding:16px 4px;font-size:.75rem;color:#aaa;margin-top:8px}
+@media(max-width:600px){.page{padding:12px 10px}.header{padding:24px 20px}footer{flex-direction:column;gap:4px;text-align:center}}
+</style>
+</head>
+<body>
+<div id="pw-overlay">
+  <div id="pw-box">
+    <h2>🔐 访问验证</h2><p>请输入今日密码</p>
+    <input type="password" id="pw-input" placeholder="输入密码" onkeydown="if(event.key==='Enter')checkPw()">
+    <button onclick="checkPw()">进入</button>
+    <div id="pw-error">密码错误，请重试</div>
+    <div id="pw-hint">示例格式：xxxx0331，不区分大小写</div>
+  </div>
+</div>
+<script>
+(function(){var k="pw_ok_20260530";if(sessionStorage.getItem(k)==="1")document.getElementById("pw-overlay").style.display="none";})();
+function checkPw(){var v=document.getElementById("pw-input").value.toLowerCase().trim();if(v==="mozz0530"){sessionStorage.setItem("pw_ok_20260530","1");document.getElementById("pw-overlay").style.display="none";}else{document.getElementById("pw-error").style.display="block";}}
+</script>
+<div class="page">
+  <div class="header">
+    <svg class="header-deco" width="220" height="220" viewBox="0 0 220 220"><circle cx="110" cy="110" r="100" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="110" cy="110" r="70" fill="none" stroke="#fff" stroke-width="1"/><circle cx="110" cy="110" r="40" fill="none" stroke="#fff" stroke-width=".5"/></svg>
+    <div class="header-inner">
+      <div class="header-brand">Frontier Industry Info Daily Report</div>
+      <div class="header-zh">前沿产业资讯日报</div>
+      <div class="header-bottom">
+        <div class="header-mozz">by mozz.ai</div>
+        <div class="header-date"><div class="d">26/05/30 周六</div></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section sec-semi">
+    <div class="section-header"><span class="section-title">半导体硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Jensen Huang Taipei 'Trillion-Dollar Dinner' Maps AI Supply Chain</span> <a href="https://www.digitimes.com/news/a20260529VL219/jensen-huang-taiwan-ceo-taipei-tsmc.html" class="news-link">Digitimes</a></li>
+<li class="news-item"><span class="news-title">TSMC Xintec Ramps Wafer Testing Capacity for 2H26 Growth</span> <a href="https://www.digitimes.com/news/a20260529PD214/testing-packaging-tsmc-csp-capacity.html" class="news-link">Digitimes</a></li>
+<li class="news-item"><span class="news-title">TSMC CEO Promises Bonus Growth Above 30% in 2026 If Performance Holds</span> <a href="https://www.digitimes.com/news/a20260527PD245/tsmc-ceo-2026-growth-performance.html" class="news-link">Digitimes</a></li>
+<li class="news-item"><span class="news-title">MediaTek Weighs Price Hikes, Reaffirms TSMC Partnership</span> <a href="https://www.digitimes.com/news/a20260529PD234/mediatek-tsmc-price-2026-outlook.html" class="news-link">Digitimes</a></li>
+<li class="news-item"><span class="news-title">Nvidia CEO Says Huawei Tau Scaling Law Not a Threat to TSMC</span> <a href="https://www.digitimes.com/news/a20260529PD200/nvidia-ceo-huawei-taiwan-tsmc.html" class="news-link">Digitimes</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-hw">
+    <div class="section-header"><span class="section-title">AI 硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">NVIDIA Kicks Off Next-Gen AI With Rubin: Six New Chips & AI Supercomputer</span> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx" class="news-link">NVIDIA IR</a></li>
+<li class="news-item"><span class="news-title">Nvidia & TSMC Complete First Made-in-USA Blackwell Chip Wafer</span> <a href="https://www.msn.com/en-us/money/companies/nvidia-and-tsmc-complete-first-made-in-the-usa-blackwell-chip-wafer-report/ar-AA1OGGSa" class="news-link">MSN/NVDA</a></li>
+<li class="news-item"><span class="news-title">Dell Jumps 33% on AI Demand as S&P 500, Nasdaq Extend Record Run</span> <a href="https://www.msn.com/en-in/money/economy/us-stock-markets-today-may-30-2026-s-p-500-nasdaq-extend-record-run-as-dell-jumps-33-on-ai-demand/ar-AA24n03y" class="news-link">MSN Markets</a></li>
+<li class="news-item"><span class="news-title">Intel Expands AI Accelerator Portfolio With Crescent Island Data Center GPU</span> <a href="https://newsroom.intel.com/artificial-intelligence/intel-to-expand-ai-accelerator-portfolio-with-new-gpu" class="news-link">Intel Newsroom</a></li>
+<li class="news-item"><span class="news-title">Nvidia to Invest Up to $100B in OpenAI Data Center Buildout</span> <a href="https://www.cnbc.com/2025/09/22/nvidia-openai-data-center.html" class="news-link">CNBC</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-app">
+    <div class="section-header"><span class="section-title">AI 应用</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Bytedance Doubao Integrates Seedance 2.0 Video Generation Model</span> <a href="https://www.doubao.com/" class="news-link">Doubao</a></li>
+<li class="news-item"><span class="news-title">Alibaba Qwen Assistant Adds Multi-Modal Capabilities as AI Competition Heats Up</span> <a href="https://qianwen.aigc.cn/" class="news-link">Qianwen</a></li>
+<li class="news-item"><span class="news-title">Jensen Huang: Taiwan Center of AI Revolution With US$150B Investment Pledge</span> <a href="https://www.digitimes.com/tag/tsmc/001264.html" class="news-link">Digitimes</a></li>
+<li class="news-item"><span class="news-title">Qualcomm AI200 & AI250 Redefine Rack-Scale LLM Inference Performance</span> <a href="https://www.qualcomm.cn/news/releases/2025/10/releases-2025-10-28" class="news-link">Qualcomm</a></li>
+</ul>
+  </div>
+  <div class="section sec-drug">
+    <div class="section-header"><span class="section-title">创新药</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Tempus AI Wins FDA Approval for Tumor-Only XT CDx NGS Companion Diagnostic</span> <a href="https://www.rttnews.com/3656569/tempus-announces-fda-approval-for-tumor-only-xt-cdx.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">J&J: FDA Approves TREMFYA Label Expansion for Psoriatic Arthritis Structural Damage</span> <a href="https://www.rttnews.com/3656371/johnson-johnson-fda-approves-label-expansion-for-tremfya.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">Cogent Biosciences: FDA Accepts Bezuclastinib NDA for GIST With Priority Review</span> <a href="https://www.rttnews.com/3656130/cogent-biosciences-fda-to-review-bezuclastinib-nda-for-patients-with-gist.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">Sanofi Gets FDA Priority Review for Venglustat in Type 3 Gaucher Disease</span> <a href="https://www.rttnews.com/3655875/sanofi-gets-fda-priority-review-for-venglustat-in-type-3-gaucher-disease.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">RenovoRx: FDA Grants Orphan Drug Status for Oxaliplatin in Pancreatic Cancer</span> <a href="https://www.rttnews.com/3656159/renovorx-says-fda-grants-orphan-drug-status-for-oxaliplatin-to-treat-pancreatic-cancer.aspx" class="news-link">RTTNews</a></li>
+</ul>
+  </div>
+  <div class="section sec-med">
+    <div class="section-header"><span class="section-title">医疗器械</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Neurovalens Receives FDA De Novo Approval for Modius Spero PTSD Therapy Device</span> <a href="https://www.massdevice.com/massdevice-article-archive/page/2/" class="news-link">MassDevice</a></li>
+<li class="news-item"><span class="news-title">Gene Solutions Gets FDA Breakthrough Device Designation for SPOT-MAS 10-Cancer Screen</span> <a href="https://medtechspectrum.com/" class="news-link">MedTech Spectrum</a></li>
+<li class="news-item"><span class="news-title">China Medical Exhibition 2026: Device Industry Innovations & Supply Chain Showcase</span> <a href="https://www.manilatimes.net/2026/05/06/tmt-newswire/pr-newswire/china-medical-exhibition-2026-industries-products-and-innovations-to-watch/2336915" class="news-link">Manila Times/PRNewswire</a></li>
+<li class="news-item"><span class="news-title">China Brain-Computer Interface Clinical Trials Advance at Nanchang University Hospital</span> <a href="https://www.bjreview.com/China/202605/t20260506_800436690.html" class="news-link">Beijing Review</a></li>
+</ul>
+  </div>
+  <div class="section sec-svc">
+    <div class="section-header"><span class="section-title">医疗服务</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Modern Healthcare 2026 Survey: Rising Demand for Inpatient Hospitals & Standalone EDs</span> <a href="https://www.modernhealthcare.com/" class="news-link">Modern Healthcare</a></li>
+<li class="news-item"><span class="news-title">2026 Global Healthcare Outlook: System Leaders Cautiously Optimistic on Capacity</span> <a href="https://www.deloitte.com/us/en/insights/industry/health-care/life-sciences-and-health-care-industry-outlooks/2026-global-health-care-outlook.html" class="news-link">Deloitte Insights</a></li>
+<li class="news-item"><span class="news-title">Healthcare Industry 2026 Shift: AI + Aging Population Convergence Reshaping Delivery</span> <a href="https://healthcarereaders.com/insights/healthcare-industry-shift" class="news-link">HealthcareReaders</a></li>
+</ul>
+  </div>
+  <div class="section sec-market">
+    <div class="section-header"><span class="section-title">市场情绪</span></div>
+    <div class="mkt-topics"><span class="mkt-topic">S&P 500 & Nasdaq创历史新高，Dell +33%领涨</span><span class="mkt-topic">AI算力需求驱动科技板块强势</span><span class="mkt-topic">Biotech催化剂密集：FDA审批节奏加快</span><span class="mkt-topic">地缘政治与通胀担忧仍为潜在扰动因素</span></div>
+    <div class="mkt-row"><span class="mkt-label">半导体</span><span class="mkt-signal bull">▲ 强势</span></div>
+<div class="mkt-row"><span class="mkt-label">AI应用</span><span class="mkt-signal active">◆ 活跃</span></div>
+<div class="mkt-row"><span class="mkt-label">创新药</span><span class="mkt-signal split">△ 分化</span></div>
+<div class="mkt-row"><span class="mkt-label">医疗器械</span><span class="mkt-signal neutral">— 稳健</span></div>
+
+    <div class="mkt-note">今日（2026-05-30）美股科技板块延续强势，S&P 500与Nasdaq双双创历史新高，Dell因AI服务器需求超预期单日涨超33%。NVIDIA Rubin架构新品与TSMC美国晶圆制造进展持续催化半导体情绪。Biotech方面FDA审批节奏较快但个股分化明显，整体情绪偏暖但需关注通胀数据与贸易政策风险。</div>
+  </div>
+  <footer>
+    <div class="footer-left">来源：公开市场资讯综合整理</div>
+    <div class="footer-right">© mozz.ai · 仅供参考</div>
+  </footer>
+</div>
+</body>
+</html>
