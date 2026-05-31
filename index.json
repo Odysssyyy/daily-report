@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-05-31",
+    "file": "2026-05-31.html",
+    "icon": "📈",
+    "keywords": "NVIDIA财报 · FDA新药批准 · TSMC-Intel整合 · AI诊断落地",
+    "new": true
+  },
+  {
     "date": "2026-05-30",
     "file": "2026-05-30.html",
     "icon": "📈",
-    "keywords": "NVIDIA Rubin · TSMC美国晶圆 · FDA加速审批 · AI数据中心",
-    "new": true
+    "keywords": "NVIDIA Rubin · TSMC美国晶圆 · FDA加速审批 · AI数据中心"
   },
   {
     "date": "2026-05-29",
