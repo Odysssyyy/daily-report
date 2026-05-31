@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-05-31 前沿产业资讯日报</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#1a1a2e}
+#pw-overlay{position:fixed;inset:0;background:rgba(15,15,35,.97);display:flex;align-items:center;justify-content:center;z-index:9999}
+#pw-box{background:#fff;border-radius:16px;padding:40px 32px;max-width:360px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+#pw-box h2{font-size:1.3rem;margin-bottom:8px}
+#pw-box p{font-size:.85rem;color:#666;margin-bottom:20px}
+#pw-box input{width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;text-align:center;letter-spacing:4px;outline:none}
+#pw-box input:focus{border-color:#6c63ff}
+#pw-box button{margin-top:14px;width:100%;padding:12px;background:#6c63ff;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600}
+#pw-error{color:#e53935;font-size:.85rem;margin-top:10px;display:none}
+#pw-hint{font-size:.75rem;color:#aaa;margin-top:8px}
+.page{max-width:860px;margin:0 auto;padding:24px 16px}
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);border-radius:16px;padding:32px 36px;margin-bottom:24px;position:relative;overflow:hidden;color:#fff}
+.header-deco{position:absolute;right:-20px;top:-20px;opacity:.08}
+.header-brand{font-size:1.4rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.header-zh{font-size:1rem;opacity:.7;margin-top:4px}
+.header-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px}
+.header-mozz{font-size:.8rem;opacity:.5;letter-spacing:.1em}
+.header-date .d{font-size:1.1rem;font-weight:600;opacity:.85}
+.section{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #f0f0f0}
+.section-title{font-size:1rem;font-weight:700;color:#1a1a2e}
+.news-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.news-item{font-size:.88rem;line-height:1.6;color:#333;padding-left:12px;border-left:3px solid #6c63ff}
+.news-link{display:inline-block;margin-left:6px;font-size:.75rem;color:#6c63ff;text-decoration:none;background:#f0eeff;padding:1px 6px;border-radius:4px}
+.mkt-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#f8f8f8;border-radius:8px;margin-bottom:8px}
+.mkt-label{font-size:.88rem;font-weight:600;color:#333}
+.mkt-signal{font-size:.85rem;font-weight:700;padding:2px 10px;border-radius:20px}
+.mkt-signal.bull{color:#00875a;background:#e3fcef}
+.mkt-signal.active{color:#0747a6;background:#deebff}
+.mkt-signal.neutral{color:#505f79;background:#f4f5f7}
+.mkt-signal.split{color:#974f0c;background:#fff7e6}
+.mkt-signal.bear{color:#ae1100;background:#ffebe6}
+.mkt-topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.mkt-topic{font-size:.78rem;padding:3px 10px;background:#f0eeff;color:#5048c8;border-radius:20px;font-weight:500}
+.mkt-note{font-size:.83rem;color:#555;line-height:1.7;margin-top:12px;padding:12px;background:#fafafa;border-radius:8px;border-left:3px solid #e0e0e0}
+footer{display:flex;justify-content:space-between;align-items:center;padding:16px 4px;font-size:.75rem;color:#aaa;margin-top:8px}
+@media(max-width:600px){.page{padding:12px 10px}.header{padding:24px 20px}footer{flex-direction:column;gap:4px;text-align:center}}
+</style>
+</head>
+<body>
+<div id="pw-overlay">
+  <div id="pw-box">
+    <h2>🔐 访问验证</h2><p>请输入今日密码</p>
+    <input type="password" id="pw-input" placeholder="输入密码" onkeydown="if(event.key==='Enter')checkPw()">
+    <button onclick="checkPw()">进入</button>
+    <div id="pw-error">密码错误，请重试</div>
+    <div id="pw-hint">示例格式：xxxx0331，不区分大小写</div>
+  </div>
+</div>
+<script>
+(function(){var k="pw_ok_20260531";if(sessionStorage.getItem(k)==="1")document.getElementById("pw-overlay").style.display="none";})();
+function checkPw(){var v=document.getElementById("pw-input").value.toLowerCase().trim();if(v==="mozz0531"){sessionStorage.setItem("pw_ok_20260531","1");document.getElementById("pw-overlay").style.display="none";}else{document.getElementById("pw-error").style.display="block";}}
+</script>
+<div class="page">
+  <div class="header">
+    <svg class="header-deco" width="220" height="220" viewBox="0 0 220 220"><circle cx="110" cy="110" r="100" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="110" cy="110" r="70" fill="none" stroke="#fff" stroke-width="1"/><circle cx="110" cy="110" r="40" fill="none" stroke="#fff" stroke-width=".5"/></svg>
+    <div class="header-inner">
+      <div class="header-brand">Frontier Industry Info Daily Report</div>
+      <div class="header-zh">前沿产业资讯日报</div>
+      <div class="header-bottom">
+        <div class="header-mozz">by mozz.ai</div>
+        <div class="header-date"><div class="d">26/05/31 周日</div></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section sec-semi">
+    <div class="section-header"><span class="section-title">半导体硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">TSMC Pitches NVIDIA, AMD, Broadcom on Intel Foundry Joint Venture</span> <a href="https://www.163.com/dy/article/JQHMQVKJ05118O92.html" class="news-link">Reuters/TMTPOST</a></li>
+<li class="news-item"><span class="news-title">NVIDIA Q1 FY2027 Revenue Hits Record $81.6B, Up 85% YoY</span> <a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_6316a0e6ad821752" class="news-link">FastTech</a></li>
+<li class="news-item"><span class="news-title">NVIDIA Signals Ambition to Become World's Largest CPU Maker with Vera Chip</span> <a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_6316a0e6ad821752" class="news-link">FastTech</a></li>
+<li class="news-item"><span class="news-title">TSMC Vera CPU: 88-Core Olympus Arm Architecture, 1.5TB System Memory</span> <a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_6316a0e6ad821752" class="news-link">FastTech</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-hw">
+    <div class="section-header"><span class="section-title">AI 硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">NVIDIA Blackwell Ultra GPUs Power Next-Gen AI Data Centers Globally</span> <a href="https://www.nvidia.com/" class="news-link">NVIDIA IR</a></li>
+<li class="news-item"><span class="news-title">Tempus AI (TEM) Wins FDA Approval for Tumor-Only XT CDx NGS Platform</span> <a href="https://www.rttnews.com/3656569/tempus-announces-fda-approval-for-tumor-only-xt-cdx.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">AI Data Center Capex Surge Continues: Hyperscalers Accelerate GPU Orders in Q2 2026</span> <a href="https://www.newsline.com/" class="news-link">Newsline</a></li>
+<li class="news-item"><span class="news-title">AMD Joins TSMC Intel Foundry JV Talks, Shares Up 4.2%</span> <a href="https://www.163.com/dy/article/JQHMQVKJ05118O92.html" class="news-link">Reuters</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-app">
+    <div class="section-header"><span class="section-title">AI 应用</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Zacks: Biotech & AI Convergence Driving Strong Buy Signals in May 2026</span> <a href="https://www.zacks.com/featured-articles/381/best-biotech-stocks" class="news-link">Zacks</a></li>
+<li class="news-item"><span class="news-title">Tempus AI Expands FDA-Approved Diagnostic Footprint with NGS Platform</span> <a href="https://www.rttnews.com/3656569/tempus-announces-fda-approval-for-tumor-only-xt-cdx.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">High-Growth Tech Stocks: AI Infrastructure and Software Sector Lead May Rally</span> <a href="https://www.marketshost.com/news/articles/15-biotech-pharma-stocks-with-strong-buy-signals-in-may-2026-ai-powered-technical-analysis-reveals-top-entry-points-102639" class="news-link">Marketshost</a></li>
+<li class="news-item"><span class="news-title">LLM-Powered Clinical Decision Tools Accelerate Hospital Adoption in 2026</span> <a href="https://www.nhc.gov.cn/" class="news-link">Healthcare IT News</a></li>
+</ul>
+  </div>
+  <div class="section sec-drug">
+    <div class="section-header"><span class="section-title">创新药</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">FDA Approves Xocova (ensitrelvir) for COVID-19 Post-Exposure Prophylaxis (May 29)</span> <a href="https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026" class="news-link">FDA.gov</a></li>
+<li class="news-item"><span class="news-title">FDA Approves Zaynich (cefepime + zidebactam) for Complicated UTI (May 29)</span> <a href="https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026" class="news-link">FDA.gov</a></li>
+<li class="news-item"><span class="news-title">Taiho's Inqovi + Venetoclax Gets FDA Nod for Elderly AML Patients</span> <a href="https://www.pharmaceutical-technology.com/news/regulatory-roundup-fda-cancer-approvals-may-2026/" class="news-link">Pharmaceutical Technology</a></li>
+<li class="news-item"><span class="news-title">BeOne's Beqalzi (sonrotoclax) Approved for Relapsed Mantle Cell Lymphoma (May 13)</span> <a href="https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026" class="news-link">FDA.gov</a></li>
+<li class="news-item"><span class="news-title">Veppanu (vepdegestrant) Approved for ESR1-Mutated Breast Cancer (May 1)</span> <a href="https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026" class="news-link">FDA.gov</a></li>
+</ul>
+  </div>
+  <div class="section sec-med">
+    <div class="section-header"><span class="section-title">医疗器械</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Tempus AI: First Lab with FDA CDx Approval for Both Tumor-Only and Tumor-Normal NGS</span> <a href="https://www.rttnews.com/3656569/tempus-announces-fda-approval-for-tumor-only-xt-cdx.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">J&J: FDA Approves TREMFYA Label Expansion for Structural Damage Inhibition in PsA</span> <a href="https://www.rttnews.com/3656371/johnson-johnson-fda-approves-label-expansion-for-tremfya.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">MedTech Europe Welcomes EU Regulatory Reforms Addressing Device Sector Concerns</span> <a href="https://www.medtecheurope.org/" class="news-link">MedTech Europe</a></li>
+<li class="news-item"><span class="news-title">Cogent Biosciences: FDA Accepts Bezuclastinib NDA Review for GIST Patients</span> <a href="https://www.rttnews.com/3656130/cogent-biosciences-fda-to-review-bezuclastinib-nda-for-patients-with-gist.aspx" class="news-link">RTTNews</a></li>
+</ul>
+  </div>
+  <div class="section sec-svc">
+    <div class="section-header"><span class="section-title">医疗服务</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">June 2026 FDA Calendar: Spero Therapeutics, Kiniksa, Merck WELIREG+KEYTRUDA in Focus</span> <a href="https://www.rttnews.com/3656678/biotech-stocks-facing-fda-decision-in-june-2026.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">China NHC May Update: National Health Commission Releases Quarterly Policy Guidance</span> <a href="https://www.nhc.gov.cn/" class="news-link">NHC.gov.cn</a></li>
+<li class="news-item"><span class="news-title">Hospital AI Adoption: LLM-Assisted Diagnosis Tools Expand in Major US Health Systems</span> <a href="https://www.nhc.gov.cn/" class="news-link">Healthcare IT</a></li>
+<li class="news-item"><span class="news-title">Jefferies Names 6 Top Biotech Picks for 2026 Amid Pipeline Catalyst Cycle</span> <a href="https://www.investing.com/news/stock-market-news/biotech-stocks-jefferies-names-its-6-top-picks-for-2026-93CH-4422319" class="news-link">Investing.com</a></li>
+</ul>
+  </div>
+  <div class="section sec-market">
+    <div class="section-header"><span class="section-title">市场情绪</span></div>
+    <div class="mkt-topics"><span class="mkt-topic">TSMC-Intel Foundry JV: NVIDIA/AMD/Broadcom在谈，半导体股普涨3-6%</span><span class="mkt-topic">NVIDIA FY2027Q1营收$81.6B创纪录，Vera CPU进军数据中心</span><span class="mkt-topic">FDA 5月密集放行19款新药，肿瘤/抗感染/代谢疾病全覆盖</span><span class="mkt-topic">AI诊断工具监管破冰：Tempus XT CDx双适应症获批，医疗AI加速落地</span></div>
+    <div class="mkt-row"><span class="mkt-label">半导体</span><span class="mkt-signal bull">▲ 强势</span></div>
+<div class="mkt-row"><span class="mkt-label">AI应用</span><span class="mkt-signal active">◆ 活跃</span></div>
+<div class="mkt-row"><span class="mkt-label">创新药</span><span class="mkt-signal bull">▲ 强势</span></div>
+<div class="mkt-row"><span class="mkt-label">医疗器械</span><span class="mkt-signal neutral">— 稳健</span></div>
+
+    <div class="mkt-note">本周科技与医疗双线齐发。NVIDIA超预期财报叠加TSMC整合英特尔传闻，半导体板块领涨；FDA五月批准19款新药（截至5月29日），创新药板块情绪偏强；AI与医疗器械深度融合趋势明确，Tempus获双适应症CDx批准标志AI诊断商业化里程碑。</div>
+  </div>
+  <footer>
+    <div class="footer-left">来源：公开市场资讯综合整理</div>
+    <div class="footer-right">© mozz.ai · 仅供参考</div>
+  </footer>
+</div>
+</body>
+</html>
