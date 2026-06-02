@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-02",
+    "file": "2026-06-02.html",
+    "icon": "📈",
+    "keywords": "NVIDIA×TSMC · Gemini 3.5 Flash · ZAYNICH FDA · 国产大模型出海",
+    "new": true
+  },
+  {
     "date": "2026-06-01",
     "file": "2026-06-01.html",
     "icon": "📈",
-    "keywords": "TSMC美国产能 · AI算力成本 · FDA催化剂 · 医疗供应链",
-    "new": true
+    "keywords": "TSMC美国产能 · AI算力成本 · FDA催化剂 · 医疗供应链"
   },
   {
     "date": "2026-05-31",
