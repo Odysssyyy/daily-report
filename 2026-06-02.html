@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-06-02 前沿产业资讯日报</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#1a1a2e}
+#pw-overlay{position:fixed;inset:0;background:rgba(15,15,35,.97);display:flex;align-items:center;justify-content:center;z-index:9999}
+#pw-box{background:#fff;border-radius:16px;padding:40px 32px;max-width:360px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+#pw-box h2{font-size:1.3rem;margin-bottom:8px}
+#pw-box p{font-size:.85rem;color:#666;margin-bottom:20px}
+#pw-box input{width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;text-align:center;letter-spacing:4px;outline:none}
+#pw-box input:focus{border-color:#6c63ff}
+#pw-box button{margin-top:14px;width:100%;padding:12px;background:#6c63ff;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600}
+#pw-error{color:#e53935;font-size:.85rem;margin-top:10px;display:none}
+#pw-hint{font-size:.75rem;color:#aaa;margin-top:8px}
+.page{max-width:860px;margin:0 auto;padding:24px 16px}
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);border-radius:16px;padding:32px 36px;margin-bottom:24px;position:relative;overflow:hidden;color:#fff}
+.header-deco{position:absolute;right:-20px;top:-20px;opacity:.08}
+.header-brand{font-size:1.4rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.header-zh{font-size:1rem;opacity:.7;margin-top:4px}
+.header-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px}
+.header-mozz{font-size:.8rem;opacity:.5;letter-spacing:.1em}
+.header-date .d{font-size:1.1rem;font-weight:600;opacity:.85}
+.section{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #f0f0f0}
+.section-title{font-size:1rem;font-weight:700;color:#1a1a2e}
+.news-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.news-item{font-size:.88rem;line-height:1.6;color:#333;padding-left:12px;border-left:3px solid #6c63ff}
+.news-link{display:inline-block;margin-left:6px;font-size:.75rem;color:#6c63ff;text-decoration:none;background:#f0eeff;padding:1px 6px;border-radius:4px}
+.mkt-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#f8f8f8;border-radius:8px;margin-bottom:8px}
+.mkt-label{font-size:.88rem;font-weight:600;color:#333}
+.mkt-signal{font-size:.85rem;font-weight:700;padding:2px 10px;border-radius:20px}
+.mkt-signal.bull{color:#00875a;background:#e3fcef}
+.mkt-signal.active{color:#0747a6;background:#deebff}
+.mkt-signal.neutral{color:#505f79;background:#f4f5f7}
+.mkt-signal.split{color:#974f0c;background:#fff7e6}
+.mkt-signal.bear{color:#ae1100;background:#ffebe6}
+.mkt-topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.mkt-topic{font-size:.78rem;padding:3px 10px;background:#f0eeff;color:#5048c8;border-radius:20px;font-weight:500}
+.mkt-note{font-size:.83rem;color:#555;line-height:1.7;margin-top:12px;padding:12px;background:#fafafa;border-radius:8px;border-left:3px solid #e0e0e0}
+footer{display:flex;justify-content:space-between;align-items:center;padding:16px 4px;font-size:.75rem;color:#aaa;margin-top:8px}
+@media(max-width:600px){.page{padding:12px 10px}.header{padding:24px 20px}footer{flex-direction:column;gap:4px;text-align:center}}
+</style>
+</head>
+<body>
+<div id="pw-overlay">
+  <div id="pw-box">
+    <h2>🔐 访问验证</h2><p>请输入今日密码</p>
+    <input type="password" id="pw-input" placeholder="输入密码" onkeydown="if(event.key==='Enter')checkPw()">
+    <button onclick="checkPw()">进入</button>
+    <div id="pw-error">密码错误，请重试</div>
+    <div id="pw-hint">示例格式：xxxx0331，不区分大小写</div>
+  </div>
+</div>
+<script>
+(function(){var k="pw_ok_20260602";if(sessionStorage.getItem(k)==="1")document.getElementById("pw-overlay").style.display="none";})();
+function checkPw(){var v=document.getElementById("pw-input").value.toLowerCase().trim();if(v==="mozz0602"){sessionStorage.setItem("pw_ok_20260602","1");document.getElementById("pw-overlay").style.display="none";}else{document.getElementById("pw-error").style.display="block";}}
+</script>
+<div class="page">
+  <div class="header">
+    <svg class="header-deco" width="220" height="220" viewBox="0 0 220 220"><circle cx="110" cy="110" r="100" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="110" cy="110" r="70" fill="none" stroke="#fff" stroke-width="1"/><circle cx="110" cy="110" r="40" fill="none" stroke="#fff" stroke-width=".5"/></svg>
+    <div class="header-inner">
+      <div class="header-brand">Frontier Industry Info Daily Report</div>
+      <div class="header-zh">前沿产业资讯日报</div>
+      <div class="header-bottom">
+        <div class="header-mozz">by mozz.ai</div>
+        <div class="header-date"><div class="d">26/06/02 周二</div></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section sec-semi">
+    <div class="section-header"><span class="section-title">半导体硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">NVIDIA & TSMC Bring AI Into Fabs to Advance Chip Manufacturing</span> <a href="https://nvidianews.nvidia.com/news/nvidia-and-tsmc-bring-ai-into-fabs-to-advance-semiconductor-design-and-manufacturing" class="news-link">NVIDIA News</a></li>
+<li class="news-item"><span class="news-title">TSMC Deploys NVIDIA Accelerated Computing Across Design & Fab Lines</span> <a href="https://www.techpowerup.com/349566/nvidia-and-tsmc-bring-ai-into-fabs-to-advance-semiconductor-design-and-manufacturing" class="news-link">TechPowerUp</a></li>
+<li class="news-item"><span class="news-title">AI Boosts Chip Turnaround Time, Energy Efficiency & Yield at TSMC</span> <a href="https://manufacturingdigital.com/news/nvidia-ai-is-accelerating-tsmcs-semiconductor-manufacturing" class="news-link">Manufacturing Digital</a></li>
+<li class="news-item"><span class="news-title">NVIDIA Rubin Next-Gen AI Supercomputer Platform Unveiled at CES 2026</span> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx" class="news-link">NVIDIA Investor</a></li>
+<li class="news-item"><span class="news-title">Intel Expands AI Accelerator Portfolio with Crescent Island Data Center GPU</span> <a href="https://newsroom.intel.com/artificial-intelligence/intel-to-expand-ai-accelerator-portfolio-with-new-gpu" class="news-link">Intel Newsroom</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-hw">
+    <div class="section-header"><span class="section-title">AI 硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">NVIDIA Invests Up to $100B in OpenAI Data Center Buildout</span> <a href="https://www.cnbc.com/2025/09/22/nvidia-openai-data-center.html" class="news-link">CNBC</a></li>
+<li class="news-item"><span class="news-title">NVIDIA & Intel Collaborate on Multi-Gen AI Infrastructure Products</span> <a href="https://nvidianews.nvidia.com/news/nvidia-and-intel-to-develop-ai-infrastructure-and-personal-computing-products" class="news-link">NVIDIA News</a></li>
+<li class="news-item"><span class="news-title">Intel Crescent Island GPU: New Data Center AI Accelerator Launched at OCP Summit</span> <a href="https://newsroom.intel.com/artificial-intelligence/intel-to-expand-ai-accelerator-portfolio-with-new-gpu" class="news-link">Intel</a></li>
+<li class="news-item"><span class="news-title">AI Data Center Demand Surges: Rising Inpatient Build-Out Signals Infrastructure Shift</span> <a href="https://www.datacenterknowledge.com/next-gen-data-centers/ai-data-centers" class="news-link">Data Center Knowledge</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-app">
+    <div class="section-header"><span class="section-title">AI 应用</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Gemini 3.5 Flash Now Default Google AI Model; Outperforms Gemini 3.1 Pro on Coding</span> <a href="https://aiflashreport.com/topics/new-ai-model-releases.html" class="news-link">AI Flash Report</a></li>
+<li class="news-item"><span class="news-title">Alibaba Qwen 3.7 Max: 1M-Token Context, ~92.4 GPQA Diamond, New Agent Frontier</span> <a href="https://aiflashreport.com/topics/new-ai-model-releases.html" class="news-link">AI Flash Report</a></li>
+<li class="news-item"><span class="news-title">Cohere Releases Command A+ (218B MoE) Open-Weight Enterprise LLM Under Apache 2.0</span> <a href="https://aiflashreport.com/topics/new-ai-model-releases.html" class="news-link">AI Flash Report</a></li>
+<li class="news-item"><span class="news-title">SubQ 12M-Token Context LLM Breaks Record for Longest Production Context Window</span> <a href="https://llm-stats.com/llm-updates" class="news-link">LLM Stats</a></li>
+<li class="news-item"><span class="news-title">China Open-Source LLM Wave: Qwen3.6 / GLM-5.1 / Kimi K2.6 / DeepSeek V4 Surge</span> <a href="https://ofox.ai/zh/blog/open-source-llm-china-roundup-2026/" class="news-link">ofox.ai</a></li>
+</ul>
+  </div>
+  <div class="section sec-drug">
+    <div class="section-header"><span class="section-title">创新药</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">FDA Approves ZAYNICH™ (Cefepime + Zidebactam) Novel IV Antibiotic for UTI/Pyelonephritis</span> <a href="https://www.prnewswire.com/news-releases/wockhardt-receives-us-fda-approval-for-zaynich-cefepime-and-zidebactam-a-novel-intravenous-antibiotic-for-the-treatment-of-adult-patients-with-complicated-urinary-tract-infection-including-pyelonephritis-302786691.html" class="news-link">PR Newswire / Wockhardt</a></li>
+<li class="news-item"><span class="news-title">China's Cipepofol (CYPSEDO) Anesthetic by Haisco Pharma Wins US FDA Approval</span> <a href="https://www.prnewswire.com/news-releases/chinas-original-innovative-drug-cipepofol-approved-for-marketing-by-the-us-fda-302786857.html" class="news-link">PR Newswire</a></li>
+<li class="news-item"><span class="news-title">Lupin Gets FDA Nod for Sodium Sulfate / Magnesium Sulfate / KCl Tablets</span> <a href="https://www.prnewswire.com/news-releases/lupin-receives-approval-from-us-fda-for-sodium-sulfate-magnesium-sulfate-and-potassium-chloride-tablets-302785918.html" class="news-link">PR Newswire</a></li>
+<li class="news-item"><span class="news-title">J&J TREMFYA® Label Expanded: Only IL-23 Inhibitor Proven to Halt Joint Damage</span> <a href="https://www.prnewswire.com/news-releases/fda-approves-label-expansion-cementing-tremfya-as-the-only-il23-inhibitor-proven-to-help-stop-further-joint-damage-302784000.html" class="news-link">PR Newswire / J&J</a></li>
+</ul>
+  </div>
+  <div class="section sec-med">
+    <div class="section-header"><span class="section-title">医疗器械</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">SKIA HEAD AR Surgical Guidance Gets FDA 510(k) Clearance; Eyes US Expansion</span> <a href="https://www.prnewswire.com/news-releases/skia-head-ar-surgical-guidance-receives-fda-510k-clearance-eyes-us-expansion-with-structure-partnership-302785511.html" class="news-link">PR Newswire</a></li>
+<li class="news-item"><span class="news-title">FDA CDRH FY2026 Guidance Agenda Released: AI-Enabled Devices, Digital Health Priorities</span> <a href="https://www.fda.gov/medical-devices/guidance-documents-medical-devices-and-radiation-emitting-products/cdrh-proposed-guidances-fiscal-year-2026-fy2026" class="news-link">FDA</a></li>
+<li class="news-item"><span class="news-title">Medical Device Industry 2026: EU MDR/IVDR Milestones & Regulatory Round-Up</span> <a href="https://meddeviceguide.com/blog/medical-device-industry-news-regulatory-updates-2026" class="news-link">MedDeviceGuide</a></li>
+<li class="news-item"><span class="news-title">SWS Medical Unveils Next-Gen Renal Innovation at ERA Congress 2026 (Glasgow)</span> <a href="https://www.crweworld.com/article/news-provided-by-pr-newswire/3849564/sws-medical-unveils-next-generation-renal-innovation-at-era-2026" class="news-link">CRWEWorld / PRN</a></li>
+</ul>
+  </div>
+  <div class="section sec-svc">
+    <div class="section-header"><span class="section-title">医疗服务</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Modern Healthcare 2026 Survey: Rising Demand for Inpatient Hospitals & Stand-Alone ERs</span> <a href="https://www.modernhealthcare.com/" class="news-link">Modern Healthcare</a></li>
+<li class="news-item"><span class="news-title">ERA Congress 2026 (Glasgow, June 3–6): Global Nephrology Leaders Convene</span> <a href="https://www.crweworld.com/article/news-provided-by-pr-newswire/3849564/sws-medical-unveils-next-generation-renal-innovation-at-era-2026" class="news-link">CRWEWorld</a></li>
+<li class="news-item"><span class="news-title">Healthcare Challenges 2026: Rising Costs, Staff Shortages & Cybersecurity Risks</span> <a href="https://healthcarereaders.com/insights/top-healthcare-challenges-and-solutions" class="news-link">Healthcare Readers</a></li>
+<li class="news-item"><span class="news-title">WHO Newsroom: Global Health Updates — Ongoing Disease Surveillance & Policy Reviews</span> <a href="https://www.who.int/news-room" class="news-link">WHO</a></li>
+</ul>
+  </div>
+  <div class="section sec-market">
+    <div class="section-header"><span class="section-title">市场情绪</span></div>
+    <div class="mkt-topics"><span class="mkt-topic">NVIDIA×TSMC AI-in-Fab 合作</span><span class="mkt-topic">Gemini 3.5 Flash 成为谷歌默认模型</span><span class="mkt-topic">FDA双药同日获批（创新药+仿制药）</span><span class="mkt-topic">国产大模型 Qwen3.7/DeepSeek V4 竞争加剧</span></div>
+    <div class="mkt-row"><span class="mkt-label">半导体</span><span class="mkt-signal bull">▲ 强势</span></div>
+<div class="mkt-row"><span class="mkt-label">AI应用</span><span class="mkt-signal active">◆ 活跃</span></div>
+<div class="mkt-row"><span class="mkt-label">创新药</span><span class="mkt-signal neutral">— 稳健</span></div>
+<div class="mkt-row"><span class="mkt-label">医疗器械</span><span class="mkt-signal neutral">— 稳健</span></div>
+
+    <div class="mkt-note">科技情绪偏多，AI基础设施叙事持续强化；半导体板块受 NVIDIA×TSMC 联合公告提振；创新药板块 FDA 批准节奏正常，中国创新药出海（Cipepofol）值得关注；医疗器械监管动态中性。</div>
+  </div>
+  <footer>
+    <div class="footer-left">来源：公开市场资讯综合整理</div>
+    <div class="footer-right">© mozz.ai · 仅供参考</div>
+  </footer>
+</div>
+</body>
+</html>
