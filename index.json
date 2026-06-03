@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-03",
+    "file": "2026-06-03.html",
+    "icon": "📈",
+    "keywords": "NVIDIA×TSMC · Intel Computex · Claude Opus 4.8 · J&J Ottava",
+    "new": true
+  },
+  {
     "date": "2026-06-02",
     "file": "2026-06-02.html",
     "icon": "📈",
-    "keywords": "NVIDIA×TSMC · Gemini 3.5 Flash · ZAYNICH FDA · 国产大模型出海",
-    "new": true
+    "keywords": "NVIDIA×TSMC · Gemini 3.5 Flash · ZAYNICH FDA · 国产大模型出海"
   },
   {
     "date": "2026-06-01",
