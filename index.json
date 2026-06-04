@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-04",
+    "file": "2026-06-04.html",
+    "icon": "📈",
+    "keywords": "TSMC · Computex2026 · DeepSeek1M · FDA催化剂",
+    "new": true
+  },
+  {
     "date": "2026-06-03",
     "file": "2026-06-03.html",
     "icon": "📈",
-    "keywords": "NVIDIA×TSMC · Intel Computex · Claude Opus 4.8 · J&J Ottava",
-    "new": true
+    "keywords": "NVIDIA×TSMC · Intel Computex · Claude Opus 4.8 · J&J Ottava"
   },
   {
     "date": "2026-06-02",
