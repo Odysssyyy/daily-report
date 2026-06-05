@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-06-05 前沿产业资讯日报</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#1a1a2e}
+#pw-overlay{position:fixed;inset:0;background:rgba(15,15,35,.97);display:flex;align-items:center;justify-content:center;z-index:9999}
+#pw-box{background:#fff;border-radius:16px;padding:40px 32px;max-width:360px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+#pw-box h2{font-size:1.3rem;margin-bottom:8px}
+#pw-box p{font-size:.85rem;color:#666;margin-bottom:20px}
+#pw-box input{width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;text-align:center;letter-spacing:4px;outline:none}
+#pw-box input:focus{border-color:#6c63ff}
+#pw-box button{margin-top:14px;width:100%;padding:12px;background:#6c63ff;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600}
+#pw-error{color:#e53935;font-size:.85rem;margin-top:10px;display:none}
+#pw-hint{font-size:.75rem;color:#aaa;margin-top:8px}
+.page{max-width:860px;margin:0 auto;padding:24px 16px}
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);border-radius:16px;padding:32px 36px;margin-bottom:24px;position:relative;overflow:hidden;color:#fff}
+.header-deco{position:absolute;right:-20px;top:-20px;opacity:.08}
+.header-brand{font-size:1.4rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.header-zh{font-size:1rem;opacity:.7;margin-top:4px}
+.header-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px}
+.header-mozz{font-size:.8rem;opacity:.5;letter-spacing:.1em}
+.header-date .d{font-size:1.1rem;font-weight:600;opacity:.85}
+.section{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #f0f0f0}
+.section-title{font-size:1rem;font-weight:700;color:#1a1a2e}
+.news-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.news-item{font-size:.88rem;line-height:1.6;color:#333;padding-left:12px;border-left:3px solid #6c63ff}
+.news-link{display:inline-block;margin-left:6px;font-size:.75rem;color:#6c63ff;text-decoration:none;background:#f0eeff;padding:1px 6px;border-radius:4px}
+.mkt-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#f8f8f8;border-radius:8px;margin-bottom:8px}
+.mkt-label{font-size:.88rem;font-weight:600;color:#333}
+.mkt-signal{font-size:.85rem;font-weight:700;padding:2px 10px;border-radius:20px}
+.mkt-signal.bull{color:#00875a;background:#e3fcef}
+.mkt-signal.active{color:#0747a6;background:#deebff}
+.mkt-signal.neutral{color:#505f79;background:#f4f5f7}
+.mkt-signal.split{color:#974f0c;background:#fff7e6}
+.mkt-signal.bear{color:#ae1100;background:#ffebe6}
+.mkt-topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.mkt-topic{font-size:.78rem;padding:3px 10px;background:#f0eeff;color:#5048c8;border-radius:20px;font-weight:500}
+.mkt-note{font-size:.83rem;color:#555;line-height:1.7;margin-top:12px;padding:12px;background:#fafafa;border-radius:8px;border-left:3px solid #e0e0e0}
+footer{display:flex;justify-content:space-between;align-items:center;padding:16px 4px;font-size:.75rem;color:#aaa;margin-top:8px}
+@media(max-width:600px){.page{padding:12px 10px}.header{padding:24px 20px}footer{flex-direction:column;gap:4px;text-align:center}}
+</style>
+</head>
+<body>
+<div id="pw-overlay">
+  <div id="pw-box">
+    <h2>🔐 访问验证</h2><p>请输入今日密码</p>
+    <input type="password" id="pw-input" placeholder="输入密码" onkeydown="if(event.key==='Enter')checkPw()">
+    <button onclick="checkPw()">进入</button>
+    <div id="pw-error">密码错误，请重试</div>
+    <div id="pw-hint">示例格式：xxxx0331，不区分大小写</div>
+  </div>
+</div>
+<script>
+(function(){var k="pw_ok_20260605";if(sessionStorage.getItem(k)==="1")document.getElementById("pw-overlay").style.display="none";})();
+function checkPw(){var v=document.getElementById("pw-input").value.toLowerCase().trim();if(v==="mozz0605"){sessionStorage.setItem("pw_ok_20260605","1");document.getElementById("pw-overlay").style.display="none";}else{document.getElementById("pw-error").style.display="block";}}
+</script>
+<div class="page">
+  <div class="header">
+    <svg class="header-deco" width="220" height="220" viewBox="0 0 220 220"><circle cx="110" cy="110" r="100" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="110" cy="110" r="70" fill="none" stroke="#fff" stroke-width="1"/><circle cx="110" cy="110" r="40" fill="none" stroke="#fff" stroke-width=".5"/></svg>
+    <div class="header-inner">
+      <div class="header-brand">Frontier Industry Info Daily Report</div>
+      <div class="header-zh">前沿产业资讯日报</div>
+      <div class="header-bottom">
+        <div class="header-mozz">by mozz.ai</div>
+        <div class="header-date"><div class="d">26/06/05 周五</div></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section sec-semi">
+    <div class="section-header"><span class="section-title">半导体硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">NVIDIA & TSMC Deploy AI Across Semiconductor Fabs to Boost Yield & Efficiency</span> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-TSMC-Bring-AI-Into-Fabs-to-Advance-Semiconductor-Design-and-Manufacturing/default.aspx" class="news-link">NVIDIA Investor Relations</a></li>
+<li class="news-item"><span class="news-title">2026全球AI算力报告：芯片从GPU向TPU/NPU多元演进，绿色超大算力集群成主流</span> <a href="https://www.winzheng.com/article/2026-global-ai-computing-report-trends" class="news-link">winzheng.com</a></li>
+<li class="news-item"><span class="news-title">2026年中国国产AI芯片深度研判：资本突围、生态重塑与自主化加速</span> <a href="https://openaxo.com/innovation/china-domestic-ai-chip-2026" class="news-link">openaxo.com</a></li>
+<li class="news-item"><span class="news-title">NVIDIA Blackwell首批美国本土晶圆于TSMC Phoenix工厂完成生产</span> <a href="https://www.engadget.com/big-tech/nvidia-shows-off-its-first-blackwell-wafer-manufactured-in-the-us-192836249.html" class="news-link">Engadget</a></li>
+<li class="news-item"><span class="news-title">TechInsights 2026 AI展望：半导体与数据中心技术路线图更新</span> <a href="https://www.techinsights.com/outlook-reports-2026/ai-outlook-report" class="news-link">TechInsights</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-hw">
+    <div class="section-header"><span class="section-title">AI 硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">NVIDIA GTC Taipei：Vera Rubin下一代芯片架构亮相，引领Agentic AI新纪元</span> <a href="https://xueqiu.com/1397442327/379742896" class="news-link">雪球/Xueqiu</a></li>
+<li class="news-item"><span class="news-title">2026全球AI算力报告：算力中心迈入超大规模绿色集群阶段，Token经济驱动升级</span> <a href="https://www.winzheng.com/article/2026-global-ai-computing-report-trends" class="news-link">winzheng.com</a></li>
+<li class="news-item"><span class="news-title">NVIDIA联合Foxconn与台湾医疗中心推进Agentic AI及物理AI部署</span> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Foxconn-and-Taiwan-Medical-Centers-Bring-Agentic-and-Physical-AI-to-Healthy-Taiwan/default.aspx" class="news-link">NVIDIA Investor Relations</a></li>
+<li class="news-item"><span class="news-title">AI芯片全景分析：NVIDIA、AMD、Google TPU、华为昇腾等15+厂商技术栈深度对比</span> <a href="https://www.ai-insight.org/reports/chip-landscape-2026" class="news-link">ai-insight.org</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-app">
+    <div class="section-header"><span class="section-title">AI 应用</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">GitHub Copilot计量计费正式上线，企业AI编程工具迎来新商业模式</span> <a href="https://www.buildfastwithai.com/blogs/ai-news-today-june-1-2026" class="news-link">buildfastwithai.com</a></li>
+<li class="news-item"><span class="news-title">LLM模型实时追踪（June 2026）：GPT、Claude、Gemini、DeepSeek等350+模型版本更新</span> <a href="https://lmmarketcap.com/zh/llm-updates" class="news-link">lmmarketcap.com</a></li>
+<li class="news-item"><span class="news-title">LLM研究周报（2026年6月第一周）：前沿论文速览与模型能力评估</span> <a href="https://www.linkedin.com/pulse/llm-research-weekly-papers-1st-week-june-2026-hyun-ho-park-h3uic" class="news-link">LinkedIn/Hyun Ho Park</a></li>
+<li class="news-item"><span class="news-title">中国AI模型5月进展：DeepSeek高性价比策略持续领跑，中美AI竞争格局深化</span> <a href="http://www.tynews.com.cn/system/2026/06/02/031027908.shtml" class="news-link">天津新闻网</a></li>
+<li class="news-item"><span class="news-title">AI Release Tracker June 2026：前沿实验室最新模型发布时间线</span> <a href="https://aireleasetracker.com/latest" class="news-link">aireleasetracker.com</a></li>
+</ul>
+  </div>
+  <div class="section sec-drug">
+    <div class="section-header"><span class="section-title">创新药</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">2026年FDA审批全景：56个新分子实体与创新生物制品，肿瘤/代谢/神经领域集中决策</span> <a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_111697c1c6f20952" class="news-link">腾讯新闻/QQ</a></li>
+<li class="news-item"><span class="news-title">Biotech Stocks Facing FDA Decision in June 2026：Spero Therapeutics等关键决策节点</span> <a href="https://www.rttnews.com/3656678/biotech-stocks-facing-fda-decision-in-june-2026.aspx" class="news-link">RTTNews</a></li>
+<li class="news-item"><span class="news-title">FDA Novel Drug Approvals 2026 官方更新（截至5月）</span> <a href="https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026" class="news-link">FDA.gov</a></li>
+<li class="news-item"><span class="news-title">Q2 2026 Biotech Catalysts完整FDA日历：PDUFA决策、AdCom会议与三期读数</span> <a href="https://dansfera.com/biotech-catalysts-q2-2026" class="news-link">dansfera.com</a></li>
+<li class="news-item"><span class="news-title">创新药市场：后增长阶段46%后期开发瓶颈，仿制药竞争加剧</span> <a href="https://www.thepharmaletter.com/us-fda" class="news-link">The Pharmaletter</a></li>
+</ul>
+  </div>
+  <div class="section sec-med">
+    <div class="section-header"><span class="section-title">医疗器械</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">EOFlow清除法律障碍，贴片胰岛素泵获准进军美国市场，Insulet 5900万美元裁决被推翻</span> <a href="http://thesilversheet.com/" class="news-link">Medtech Insight/Silver Sheet</a></li>
+<li class="news-item"><span class="news-title">FDA更新药械付款方通讯指南草案，明确未批准用途安全港规定</span> <a href="http://thesilversheet.com/" class="news-link">Medtech Insight/Silver Sheet</a></li>
+<li class="news-item"><span class="news-title">NVIDIA、Foxconn携手台湾医疗中心：AI驱动医疗器械智能化与Agentic AI落地</span> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Foxconn-and-Taiwan-Medical-Centers-Bring-Agentic-and-Physical-AI-to-Healthy-Taiwan/default.aspx" class="news-link">NVIDIA Investor Relations</a></li>
+<li class="news-item"><span class="news-title">2026 Medtec China展：国产高精度导丝磨床技术突破，推动介入器械制造升级</span> <a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_09069d64b1551452" class="news-link">腾讯新闻/QQ</a></li>
+</ul>
+  </div>
+  <div class="section sec-svc">
+    <div class="section-header"><span class="section-title">医疗服务</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">2026年AI赋能医疗报告：从患者参与到临床流程，AI采用趋势与AI幻觉风险分析</span> <a href="https://www.wolterskluwer.com/en/expert-insights/2026-future-ready-healthcare" class="news-link">Wolters Kluwer</a></li>
+<li class="news-item"><span class="news-title">SHSMD Futurescan 2026：医院与医疗系统领导者战略规划报告发布</span> <a href="https://www.shsmd.org/futurescan-2026" class="news-link">SHSMD</a></li>
+<li class="news-item"><span class="news-title">Modern Healthcare 2026年6月最新：医疗人员配置、数字健康与保险动态</span> <a href="https://www.modernhealthcare.com/latest-news/" class="news-link">Modern Healthcare</a></li>
+<li class="news-item"><span class="news-title">Chief Healthcare Executive 2026预测：医疗系统重设计，改善医护人员与患者双重体验</span> <a href="https://www.chiefhealthcareexecutive.com/view/hospitals-in-2026-predictions-for-patient-care-technology-and-more" class="news-link">chiefhealthcareexecutive.com</a></li>
+</ul>
+  </div>
+  <div class="section sec-market">
+    <div class="section-header"><span class="section-title">市场情绪</span></div>
+    <div class="mkt-topics"><span class="mkt-topic">NVIDIA-TSMC AI制造合作深化</span><span class="mkt-topic">LLM竞争格局中美博弈</span><span class="mkt-topic">FDA Q2创新药决策密集期</span><span class="mkt-topic">医疗AI商业化加速落地</span></div>
+    <div class="mkt-row"><span class="mkt-label">半导体</span><span class="mkt-signal bull">▲ 强势</span></div>
+<div class="mkt-row"><span class="mkt-label">AI应用</span><span class="mkt-signal active">◆ 活跃</span></div>
+<div class="mkt-row"><span class="mkt-label">创新药</span><span class="mkt-signal split">△ 分化</span></div>
+<div class="mkt-row"><span class="mkt-label">医疗器械</span><span class="mkt-signal neutral">— 稳健</span></div>
+
+    <div class="mkt-note">科技板块延续强势，NVIDIA GTC Taipei带动AI硬件情绪上行；AI应用端GitHub Copilot商业化与中美LLM竞争持续活跃；创新药FDA决策进入密集窗口期，个股分化明显；医疗器械受益AI渗透，整体稳健。</div>
+  </div>
+  <footer>
+    <div class="footer-left">来源：公开市场资讯综合整理</div>
+    <div class="footer-right">© mozz.ai · 仅供参考</div>
+  </footer>
+</div>
+</body>
+</html>
