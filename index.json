@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-05",
+    "file": "2026-06-05.html",
+    "icon": "📈",
+    "keywords": "NVIDIA·TSMC合作 · LLM新模型 · FDA创新药 · AI医疗落地",
+    "new": true
+  },
+  {
     "date": "2026-06-04",
     "file": "2026-06-04.html",
     "icon": "📈",
-    "keywords": "NVIDIA · TSMC本土制造 · FDA新药 · AI大模型竞争",
-    "new": true
+    "keywords": "NVIDIA · TSMC本土制造 · FDA新药 · AI大模型竞争"
   },
   {
     "date": "2026-06-03",
