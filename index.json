@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-06",
+    "file": "2026-06-06.html",
+    "icon": "📈",
+    "keywords": "NVIDIA×TSMC美产芯片 · GPT-6发布 · FDA 6月审批窗口 · 医院AI平台落地",
+    "new": true
+  },
+  {
     "date": "2026-06-05",
     "file": "2026-06-05.html",
     "icon": "📈",
-    "keywords": "NVIDIA·TSMC合作 · LLM新模型 · FDA创新药 · AI医疗落地",
-    "new": true
+    "keywords": "NVIDIA·TSMC合作 · LLM新模型 · FDA创新药 · AI医疗落地"
   },
   {
     "date": "2026-06-04",
