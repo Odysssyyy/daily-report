@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-06-07 前沿产业资讯日报</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#1a1a2e}
+#pw-overlay{position:fixed;inset:0;background:rgba(15,15,35,.97);display:flex;align-items:center;justify-content:center;z-index:9999}
+#pw-box{background:#fff;border-radius:16px;padding:40px 32px;max-width:360px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+#pw-box h2{font-size:1.3rem;margin-bottom:8px}
+#pw-box p{font-size:.85rem;color:#666;margin-bottom:20px}
+#pw-box input{width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;text-align:center;letter-spacing:4px;outline:none}
+#pw-box input:focus{border-color:#6c63ff}
+#pw-box button{margin-top:14px;width:100%;padding:12px;background:#6c63ff;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600}
+#pw-error{color:#e53935;font-size:.85rem;margin-top:10px;display:none}
+#pw-hint{font-size:.75rem;color:#aaa;margin-top:8px}
+.page{max-width:860px;margin:0 auto;padding:24px 16px}
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);border-radius:16px;padding:32px 36px;margin-bottom:24px;position:relative;overflow:hidden;color:#fff}
+.header-deco{position:absolute;right:-20px;top:-20px;opacity:.08}
+.header-brand{font-size:1.4rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.header-zh{font-size:1rem;opacity:.7;margin-top:4px}
+.header-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px}
+.header-mozz{font-size:.8rem;opacity:.5;letter-spacing:.1em}
+.header-date .d{font-size:1.1rem;font-weight:600;opacity:.85}
+.section{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #f0f0f0}
+.section-title{font-size:1rem;font-weight:700;color:#1a1a2e}
+.news-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.news-item{font-size:.88rem;line-height:1.6;color:#333;padding-left:12px;border-left:3px solid #6c63ff}
+.news-link{display:inline-block;margin-left:6px;font-size:.75rem;color:#6c63ff;text-decoration:none;background:#f0eeff;padding:1px 6px;border-radius:4px}
+.mkt-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#f8f8f8;border-radius:8px;margin-bottom:8px}
+.mkt-label{font-size:.88rem;font-weight:600;color:#333}
+.mkt-signal{font-size:.85rem;font-weight:700;padding:2px 10px;border-radius:20px}
+.mkt-signal.bull{color:#00875a;background:#e3fcef}
+.mkt-signal.active{color:#0747a6;background:#deebff}
+.mkt-signal.neutral{color:#505f79;background:#f4f5f7}
+.mkt-signal.split{color:#974f0c;background:#fff7e6}
+.mkt-signal.bear{color:#ae1100;background:#ffebe6}
+.mkt-topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.mkt-topic{font-size:.78rem;padding:3px 10px;background:#f0eeff;color:#5048c8;border-radius:20px;font-weight:500}
+.mkt-note{font-size:.83rem;color:#555;line-height:1.7;margin-top:12px;padding:12px;background:#fafafa;border-radius:8px;border-left:3px solid #e0e0e0}
+footer{display:flex;justify-content:space-between;align-items:center;padding:16px 4px;font-size:.75rem;color:#aaa;margin-top:8px}
+@media(max-width:600px){.page{padding:12px 10px}.header{padding:24px 20px}footer{flex-direction:column;gap:4px;text-align:center}}
+</style>
+</head>
+<body>
+<div id="pw-overlay">
+  <div id="pw-box">
+    <h2>🔐 访问验证</h2><p>请输入今日密码</p>
+    <input type="password" id="pw-input" placeholder="输入密码" onkeydown="if(event.key==='Enter')checkPw()">
+    <button onclick="checkPw()">进入</button>
+    <div id="pw-error">密码错误，请重试</div>
+    <div id="pw-hint">示例格式：xxxx0331，不区分大小写</div>
+  </div>
+</div>
+<script>
+(function(){var k="pw_ok_20260607";if(sessionStorage.getItem(k)==="1")document.getElementById("pw-overlay").style.display="none";})();
+function checkPw(){var v=document.getElementById("pw-input").value.toLowerCase().trim();if(v==="mozz0607"){sessionStorage.setItem("pw_ok_20260607","1");document.getElementById("pw-overlay").style.display="none";}else{document.getElementById("pw-error").style.display="block";}}
+</script>
+<div class="page">
+  <div class="header">
+    <svg class="header-deco" width="220" height="220" viewBox="0 0 220 220"><circle cx="110" cy="110" r="100" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="110" cy="110" r="70" fill="none" stroke="#fff" stroke-width="1"/><circle cx="110" cy="110" r="40" fill="none" stroke="#fff" stroke-width=".5"/></svg>
+    <div class="header-inner">
+      <div class="header-brand">Frontier Industry Info Daily Report</div>
+      <div class="header-zh">前沿产业资讯日报</div>
+      <div class="header-bottom">
+        <div class="header-mozz">by mozz.ai</div>
+        <div class="header-date"><div class="d">26/06/07 周日</div></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section sec-semi">
+    <div class="section-header"><span class="section-title">半导体硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">NVIDIA and TSMC Bring AI Into Fabs to Advance Semiconductor Design</span> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-TSMC-Bring-AI-Into-Fabs-to-Advance-Semiconductor-Design-and-Manufacturing/default.aspx" class="news-link">NVIDIA Investor Relations</a></li>
+<li class="news-item"><span class="news-title">Nvidia's New PC Chips: CEO's Bid to 'Own' Every Part of AI Stack</span> <a href="https://www.cnbc.com/2026/06/02/nvidias-new-pc-chips-are-ceos-bid-to-own-every-part-of-ai-stack.html" class="news-link">CNBC</a></li>
+<li class="news-item"><span class="news-title">Intel Announces New AI Innovations at Computex 2026</span> <a href="https://newsroom.intel.com/artificial-intelligence/intel-announces-new-ai-innovations-at-computex" class="news-link">Intel Newsroom</a></li>
+<li class="news-item"><span class="news-title">Computex 2026 Live: AI PC, GPU and Chip Launches from Taipei</span> <a href="https://www.pcquest.com/news/computex-2026-live-ai-pc-gpu-and-chip-launches-11898905" class="news-link">PCQuest</a></li>
+<li class="news-item"><span class="news-title">Strong Jobs Data and Semiconductor Volatility Shape Markets</span> <a href="https://stockmarketwatch.com/live/stock-market-today" class="news-link">StockMarketWatch</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-hw">
+    <div class="section-header"><span class="section-title">AI 硬件</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">NVIDIA Launches AI PC Chip for Windows Laptops, Targeting On-Device AI</span> <a href="https://thesiliconreview.com/2026/06/nvidia-ai-pc-chip-windows-laptop-launch" class="news-link">The Silicon Review</a></li>
+<li class="news-item"><span class="news-title">Nokia Launches AI Networking Innovation Lab to Advance Data Center Infrastructure</span> <a href="https://iwiki.woa.com/p/4020828229" class="news-link">Nokia / iWiki</a></li>
+<li class="news-item"><span class="news-title">Memory Now Nearly Two-Thirds of AI Chip Component Costs</span> <a href="https://epoch.ai/data-insights/ai-chip-component-cost-shares" class="news-link">Epoch AI</a></li>
+<li class="news-item"><span class="news-title">Intel Unveils Chip-to-Systems AI Solutions at Computex 2026</span> <a href="https://newsroom.intel.com/artificial-intelligence/intel-announces-new-ai-innovations-at-computex" class="news-link">Intel Newsroom</a></li>
+<li class="news-item"><span class="news-title">AMD, Qualcomm Drop as Nvidia Enters PC Chip Market</span> <a href="https://www.cnbc.com/2026/06/02/nvidias-new-pc-chips-are-ceos-bid-to-own-every-part-of-ai-stack.html" class="news-link">CNBC</a></li>
+</ul>
+  </div>
+  <div class="section sec-ai-app">
+    <div class="section-header"><span class="section-title">AI 应用</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Microsoft Launches 7 MAI Models; Trump Signs AI Executive Order</span> <a href="https://www.devflokers.com/blog/ai-news-june-2026-models-research-developments" class="news-link">DevFlokers</a></li>
+<li class="news-item"><span class="news-title">LLM Updates June 2026: Claude, GPT, Gemini Track Latest Releases</span> <a href="https://lmmarketcap.com/llm-updates" class="news-link">LM MarketCap</a></li>
+<li class="news-item"><span class="news-title">2026 AI Model Progress: Claude Opus 4.8, GPT-5.6 Among Latest</span> <a href="https://iaipie.com/ai-large-model-latest-progress-2026-may/" class="news-link">AI Pie</a></li>
+<li class="news-item"><span class="news-title">AI Release Tracker: June 2026 Model Launches & API Changes</span> <a href="https://aireleasetracker.com/latest" class="news-link">AI Release Tracker</a></li>
+<li class="news-item"><span class="news-title">AI Updates Today: Latest Model Releases and API Benchmarks</span> <a href="https://llm-stats.com/llm-updates" class="news-link">LLM Stats</a></li>
+</ul>
+  </div>
+  <div class="section sec-drug">
+    <div class="section-header"><span class="section-title">创新药</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">FDA Approves Zaynich (cefepime/zidebactam) IV Antibiotic for Complicated UTI</span> <a href="https://www.webmd.com/drugs/updates/default.htm" class="news-link">WebMD</a></li>
+<li class="news-item"><span class="news-title">Q2 2026 Biotech Catalysts: Complete FDA Calendar for June</span> <a href="https://dansfera.com/biotech-catalysts-q2-2026" class="news-link">Dansfera</a></li>
+<li class="news-item"><span class="news-title">FDA Drug Approval Decisions Expected in June 2026: PDUFA Calendar</span> <a href="https://www.empr.com/news/fda-drug-approval-decisions-expected-in-june-2026/" class="news-link">MPR / EMPR</a></li>
+<li class="news-item"><span class="news-title">FDA Novel Drug Approvals 2026 Q1: Oncology and Rare Disease Trends</span> <a href="https://biopatrika.com/industry/regulatory/fda-novel-drug-approvals-2026-q1/" class="news-link">BioPatrika</a></li>
+<li class="news-item"><span class="news-title">FDA Press Announcements: Latest Drug and Biologic Decisions</span> <a href="https://www.fda.gov/news-events/fda-newsroom/press-announcements" class="news-link">FDA.gov</a></li>
+</ul>
+  </div>
+  <div class="section sec-med">
+    <div class="section-header"><span class="section-title">医疗器械</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">FDA 510(k) Clearances 2026: 1,065 Devices Cleared YTD, Orthopedic Leads</span> <a href="https://www.510kdatabase.net/clearances-2026/" class="news-link">510k Database</a></li>
+<li class="news-item"><span class="news-title">FDA Medical Device Regulatory Updates 2026: Daily Tracking</span> <a href="https://www.pureglobal.ai/regulation-news/usa-fda" class="news-link">PureGlobal AI</a></li>
+<li class="news-item"><span class="news-title">DeviceClearance: Search 175K+ FDA 510(k) Medical Device Clearances</span> <a href="https://deviceclearance.com/" class="news-link">DeviceClearance</a></li>
+<li class="news-item"><span class="news-title">FDA Approval News and Press Releases: Latest Medical Device Filings</span> <a href="https://www.prnewswire.com/news-releases/health-latest-news/fda-approval-list/" class="news-link">PR Newswire</a></li>
+<li class="news-item"><span class="news-title">Anumana Receives FDA Clearance for ECG-AI Cardiac Amyloidosis Algorithm</span> <a href="https://iwiki.woa.com/p/4019661044" class="news-link">iWiki / Anumana</a></li>
+</ul>
+  </div>
+  <div class="section sec-svc">
+    <div class="section-header"><span class="section-title">医疗服务</span></div>
+    <ul class="news-list"><li class="news-item"><span class="news-title">Futurescan 2026: Strategic Planning Report for Hospital & Health Systems</span> <a href="https://www.shsmd.org/futurescan-2026" class="news-link">SHSMD</a></li>
+<li class="news-item"><span class="news-title">China 'Shiwuwu' Healthcare Policy Q1 Summary: AI, Smart Hospital Key Focus</span> <a href="https://www.sohu.com/a/1006374191_100147901" class="news-link">Sohu / Roland Berger</a></li>
+<li class="news-item"><span class="news-title">共赴新质增长：2026中国医疗健康行业双重叙事</span> <a href="https://www.huxiu.com/article/4837435.html" class="news-link">虎嗅 / Roland Berger</a></li>
+<li class="news-item"><span class="news-title">2026年医疗新政落地：分娩政策扩围，智慧医院提速</span> <a href="https://www.xinhuanet.com/politics/20260107/0d1d084d2ee54e56a1ceb9d2d67680dd/c.html" class="news-link">新华网</a></li>
+<li class="news-item"><span class="news-title">Modern Healthcare: Latest News on Staffing, Digital Health and Insurance</span> <a href="https://www.modernhealthcare.com/latest-news/" class="news-link">Modern Healthcare</a></li>
+</ul>
+  </div>
+  <div class="section sec-market">
+    <div class="section-header"><span class="section-title">市场情绪</span></div>
+    <div class="mkt-topics"><span class="mkt-topic">Computex 2026 NVIDIA PC芯片布局引发板块分化</span><span class="mkt-topic">AI模型密集发布微软MAI系列登场</span><span class="mkt-topic">FDA抗菌药物及创新疗法审批节奏稳定</span><span class="mkt-topic">半导体供应链美国本土化提速</span></div>
+    <div class="mkt-row"><span class="mkt-label">半导体</span><span class="mkt-signal active">◆ 活跃</span></div>
+<div class="mkt-row"><span class="mkt-label">AI应用</span><span class="mkt-signal bull">▲ 强势</span></div>
+<div class="mkt-row"><span class="mkt-label">创新药</span><span class="mkt-signal neutral">— 稳健</span></div>
+<div class="mkt-row"><span class="mkt-label">医疗器械</span><span class="mkt-signal neutral">— 稳健</span></div>
+
+    <div class="mkt-note">本周科技板块受Computex 2026驱动整体活跃，NVIDIA进军PC芯片市场引发AMD/Intel/Qualcomm承压；AI应用端微软MAI系列及多家大模型密集发布，情绪强势；创新药受Q2 FDA日历支撑节奏稳健；周五美股因就业数据强劲叠加半导体波动，市场整体震荡中偏谨慎。</div>
+  </div>
+  <footer>
+    <div class="footer-left">来源：公开市场资讯综合整理</div>
+    <div class="footer-right">© mozz.ai · 仅供参考</div>
+  </footer>
+</div>
+</body>
+</html>
