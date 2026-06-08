@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-08",
+    "file": "2026-06-08.html",
+    "icon": "📈",
+    "keywords": "NVIDIA×TSMC · Computex 2026 · GitHub Copilot · FDA创新药",
+    "new": true
+  },
+  {
     "date": "2026-06-07",
     "file": "2026-06-07.html",
     "icon": "📈",
-    "keywords": "Computex 2026 · NVIDIA PC芯片 · 微软MAI模型 · FDA创新药审批",
-    "new": true
+    "keywords": "Computex 2026 · NVIDIA PC芯片 · 微软MAI模型 · FDA创新药审批"
   },
   {
     "date": "2026-06-06",
