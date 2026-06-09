@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-09",
+    "file": "2026-06-09.html",
+    "icon": "⚡",
+    "keywords": "半导体短缺 · AI推理基础设施 · 血友病FDA批准 · NVIDIA×TSMC · Computex 2026",
+    "new": true
+  },
+  {
     "date": "2026-06-08",
     "file": "2026-06-08.html",
     "icon": "🖥️",
-    "keywords": "NVIDIA Computex · TSMC AI晶圆厂 · Xocova FDA批准 · ASCO胰腺癌 · AI Agent评测",
-    "new": true
+    "keywords": "NVIDIA Computex · TSMC AI晶圆厂 · Xocova FDA批准 · ASCO胰腺癌 · AI Agent评测"
   },
   {
     "date": "2026-06-07",
