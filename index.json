@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-12",
+    "file": "2026-06-12.html",
+    "icon": "🤖",
+    "keywords": "NVIDIA Vera Rubin · TSMC AI制造 · Pfizer FDA批准 · AI Agent垂直化 · Computex 2026",
+    "new": true
+  },
+  {
     "date": "2026-06-11",
     "file": "2026-06-11.html",
     "icon": "🔬",
-    "keywords": "NVIDIA × TSMC · RTX Spark AI PC · AI 大模型发布潮 · FDA PDUFA · 医疗 AI 落地",
-    "new": true
+    "keywords": "NVIDIA × TSMC · RTX Spark AI PC · AI 大模型发布潮 · FDA PDUFA · 医疗 AI 落地"
   },
   {
     "date": "2026-06-10",
