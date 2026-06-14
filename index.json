@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-14",
+    "file": "2026-06-14.html",
+    "icon": "🤖",
+    "keywords": "NVIDIA×TSMC · AI工厂 · LLM发布潮 · 口服GLP-1 · CGM器械",
+    "new": true
+  },
+  {
     "date": "2026-06-13",
     "file": "2026-06-13.html",
     "icon": "🚀",
-    "keywords": "NVIDIA Rubin · Claude Mythos 5 · TAVR首批AR · AI进晶圆厂 · LLM大爆发",
-    "new": true
+    "keywords": "NVIDIA Rubin · Claude Mythos 5 · TAVR首批AR · AI进晶圆厂 · LLM大爆发"
   },
   {
     "date": "2026-06-12",
