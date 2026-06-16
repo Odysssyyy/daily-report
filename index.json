@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-16",
+    "file": "2026-06-16.html",
+    "icon": "🤖",
+    "keywords": "NVIDIA×TSMC · AI制造 · HDV首药 · 开源模型爆发 · TAVR新适应症",
+    "new": true
+  },
+  {
     "date": "2026-06-15",
     "file": "2026-06-15.html",
     "icon": "🤖",
-    "keywords": "NVIDIA RTX Spark · Vera Rubin量产 · ADA CGM · Roche CDx · AI工厂",
-    "new": true
+    "keywords": "NVIDIA RTX Spark · Vera Rubin量产 · ADA CGM · Roche CDx · AI工厂"
   },
   {
     "date": "2026-06-14",
