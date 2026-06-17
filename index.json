@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-17",
+    "file": "2026-06-17.html",
+    "icon": "🤖",
+    "keywords": "AI制药 · LLM大爆发 · TSMC+NVIDIA · 开权重模型 · TAVR里程碑",
+    "new": true
+  },
+  {
     "date": "2026-06-16",
     "file": "2026-06-16.html",
     "icon": "🤖",
-    "keywords": "NVIDIA×TSMC · AI制造 · HDV首药 · 开源模型爆发 · TAVR新适应症",
-    "new": true
+    "keywords": "NVIDIA×TSMC · AI制造 · HDV首药 · 开源模型爆发 · TAVR新适应症"
   },
   {
     "date": "2026-06-15",
