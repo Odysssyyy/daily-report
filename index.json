@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-20",
+    "file": "2026-06-20.html",
+    "icon": "🤖",
+    "keywords": "NVIDIA×TSMC · Vera Rubin · Tzield儿科获批 · LLM榜单 · AI医疗",
+    "new": true
+  },
+  {
     "date": "2026-06-17",
     "file": "2026-06-17.html",
     "icon": "🤖",
-    "keywords": "AI制药 · LLM大爆发 · TSMC+NVIDIA · 开权重模型 · TAVR里程碑",
-    "new": true
+    "keywords": "AI制药 · LLM大爆发 · TSMC+NVIDIA · 开权重模型 · TAVR里程碑"
   },
   {
     "date": "2026-06-16",
