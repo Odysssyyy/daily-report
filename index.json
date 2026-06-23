@@ -1,10 +1,16 @@
 [
   {
+    "date": "2026-06-23",
+    "file": "2026-06-23.html",
+    "icon": "🤖",
+    "keywords": "NVIDIA×TSMC · Micron财报 · 大模型密集更新 · FDA批准加速 · AI医疗落地",
+    "new": true
+  },
+  {
     "date": "2026-06-22",
     "file": "2026-06-22.html",
     "icon": "🔬",
-    "keywords": "NVIDIA Rubin · TSMC AI制造 · Tzield儿科FDA · JenaValve TAVR · AI Agent身份管理",
-    "new": true
+    "keywords": "NVIDIA Rubin · TSMC AI制造 · Tzield儿科FDA · JenaValve TAVR · AI Agent身份管理"
   },
   {
     "date": "2026-06-21",
